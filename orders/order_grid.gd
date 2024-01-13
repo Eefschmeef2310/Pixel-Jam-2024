@@ -1,4 +1,4 @@
-extends GridContainer
+extends HBoxContainer
 
 const ORDER_DISPLAY = preload("res://orders/order_display.tscn")
 

@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Fruit" load_steps=3 format=3 uid="uid://c6gaol6u5iue0"]
-
-[ext_resource type="Script" path="res://fruits/fruit_resource.gd" id="1_nuday"]
-[ext_resource type="Texture2D" uid="uid://nmgcibyavk0s" path="res://fruits/sprites/fruit_squid.png" id="2_cqnow"]
-
-[resource]
-script = ExtResource("1_nuday")
-name = "Squid"
-texture = ExtResource("2_cqnow")

@@ -1,13 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5iqtehf83fxv"]
+[gd_scene load_steps=6 format=3 uid="uid://b5iqtehf83fxv"]
 
+[ext_resource type="Texture2D" uid="uid://d1heh2edqed3d" path="res://Levels/sprites/box_mask.png" id="1_5ltcf"]
 [ext_resource type="PackedScene" uid="uid://bx0tw6jqlatg" path="res://grid/fruit_grid.tscn" id="1_7hqhj"]
 [ext_resource type="Script" path="res://orders/order_generator.gd" id="1_aby30"]
 [ext_resource type="Script" path="res://orders/order_grid.gd" id="2_ym37m"]
+[ext_resource type="Texture2D" uid="uid://4tjfdj887jxg" path="res://Levels/sprites/fruitbox.png" id="3_7cdbh"]
 
 [node name="Level" type="Node2D"]
 
+[node name="BoxBG" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_5ltcf")
+centered = false
+
 [node name="FruitGrid" parent="." instance=ExtResource("1_7hqhj")]
-position = Vector2(485, 77)
+position = Vector2(320, 40)
+
+[node name="LevelBG" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("3_7cdbh")
+centered = false
 
 [node name="OrderGenerator" type="Node" parent="."]
 script = ExtResource("1_aby30")
@@ -21,27 +33,27 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 960.0
-offset_bottom = 540.0
+offset_right = 640.0
+offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="OrderHUD"]
+[node name="VBoxContainer" type="HBoxContainer" parent="OrderHUD"]
+custom_minimum_size = Vector2(236, 0)
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 40.0
-offset_top = -300.0
-offset_right = 423.0
+offset_left = 48.0
+offset_top = -181.0
+offset_right = 284.0
+offset_bottom = -103.0
 grow_vertical = 0
-
-[node name="GridContainer" type="GridContainer" parent="OrderHUD/VBoxContainer"]
-layout_mode = 2
-columns = 3
+theme_override_constants/separation = 10
+alignment = 2
 script = ExtResource("2_ym37m")
 
 [connection signal="timeout" from="OrderGenerator/StartupTimer" to="OrderGenerator" method="_on_startup_timer_timeout"]

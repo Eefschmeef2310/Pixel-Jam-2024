@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nmgcibyavk0s"
-path="res://.godot/imported/fruit_squid.png-f97017c97484d57e0337592b257195a0.ctex"
+uid="uid://4tjfdj887jxg"
+path="res://.godot/imported/fruitbox.png-1fe7e88036ef8df0713b3f845e3d1d72.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fruits/sprites/fruit_squid.png"
-dest_files=["res://.godot/imported/fruit_squid.png-f97017c97484d57e0337592b257195a0.ctex"]
+source_file="res://Levels/sprites/fruitbox.png"
+dest_files=["res://.godot/imported/fruitbox.png-1fe7e88036ef8df0713b3f845e3d1d72.ctex"]
 
 [params]
 

@@ -5,14 +5,14 @@ var fruit_handle_scene = preload("res://fruits/fruit_handle.tscn")
 var grid: = []
 var width: int = 7
 var height: int = 7
-var cell_size: float = 65
+var cell_size: float = 40
 var fruit_counts: Dictionary
 
 signal grid_changed()
 
 func _ready():
-	#position.x = cell_size/2
-	#position.y = cell_size/2
+	position.x += cell_size/2
+	position.y += cell_size/2
 	OrderManager.grid_node = self
 	
 	grid_changed.connect(check_all_orders)
@@ -44,6 +44,7 @@ func fill_grid():
 	
 	# count fruits
 	count_fruits()
+	#OrderManager.validate_current_orders()
 	
 	grid_changed.emit()
 

@@ -1,21 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbkmruh1dmodj"]
+[gd_scene load_steps=6 format=3 uid="uid://dbkmruh1dmodj"]
 
-[ext_resource type="Texture2D" uid="uid://clrxcqw1xfeqk" path="res://fruits/sprites/fruit_apple.png" id="1_qvbhj"]
+[ext_resource type="Texture2D" uid="uid://ulutonwbt40m" path="res://fruits/sprites/fruit_apple.png" id="1_qvbhj"]
 [ext_resource type="Script" path="res://orders/order_display.gd" id="1_ycrbv"]
+[ext_resource type="Texture2D" uid="uid://dbfp4akcjj205" path="res://orders/sprites/ticket_base.png" id="2_ypesb"]
+[ext_resource type="Texture2D" uid="uid://b6b62qmajbcy8" path="res://orders/sprites/ticket_pegs.png" id="3_85abq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3i5cl"]
 
 [node name="OrderDisplay" type="PanelContainer"]
-custom_minimum_size = Vector2(125, 125)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -835.0
-offset_bottom = -415.0
+offset_left = -133.5
+offset_top = -90.0
+offset_right = -701.5
+offset_bottom = -372.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3i5cl")
 script = ExtResource("1_ycrbv")
 
+[node name="BaseTexture" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_ypesb")
+
+[node name="PegsTexture" type="TextureRect" parent="."]
+modulate = Color(0.917647, 0.278431, 1, 1)
+layout_mode = 2
+texture = ExtResource("3_85abq")
+
 [node name="H" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(0, 125)
+custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
 size_flags_vertical = 8
 alignment = 1
@@ -29,22 +44,58 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/h_separation = 8
-theme_override_constants/v_separation = 8
-columns = 2
+columns = 3
 
-[node name="Fruit" type="TextureRect" parent="H/V/GridContainer"]
+[node name="TextureRect" type="TextureRect" parent="H/V/GridContainer"]
+custom_minimum_size = Vector2(15, 15)
 layout_mode = 2
 texture = ExtResource("1_qvbhj")
+expand_mode = 1
 
-[node name="Fruit2" type="TextureRect" parent="H/V/GridContainer"]
+[node name="TextureRect2" type="TextureRect" parent="H/V/GridContainer"]
+custom_minimum_size = Vector2(15, 15)
 layout_mode = 2
 texture = ExtResource("1_qvbhj")
+expand_mode = 1
 
-[node name="Fruit3" type="TextureRect" parent="H/V/GridContainer"]
+[node name="TextureRect3" type="TextureRect" parent="H/V/GridContainer"]
+custom_minimum_size = Vector2(15, 15)
 layout_mode = 2
 texture = ExtResource("1_qvbhj")
+expand_mode = 1
 
-[node name="Fruit4" type="TextureRect" parent="H/V/GridContainer"]
+[node name="TextureRect4" type="TextureRect" parent="H/V/GridContainer"]
+custom_minimum_size = Vector2(15, 15)
 layout_mode = 2
 texture = ExtResource("1_qvbhj")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="H/V/GridContainer"]
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+texture = ExtResource("1_qvbhj")
+expand_mode = 1
+
+[node name="TextureRect6" type="TextureRect" parent="H/V/GridContainer"]
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+texture = ExtResource("1_qvbhj")
+expand_mode = 1
+
+[node name="TextureRect7" type="TextureRect" parent="H/V/GridContainer"]
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+texture = ExtResource("1_qvbhj")
+expand_mode = 1
+
+[node name="TextureRect8" type="TextureRect" parent="H/V/GridContainer"]
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+texture = ExtResource("1_qvbhj")
+expand_mode = 1
+
+[node name="TextureRect9" type="TextureRect" parent="H/V/GridContainer"]
+custom_minimum_size = Vector2(15, 15)
+layout_mode = 2
+texture = ExtResource("1_qvbhj")
+expand_mode = 1
