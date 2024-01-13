@@ -1,0 +1,98 @@
+[gd_scene load_steps=8 format=3 uid="uid://dpk7dwwpywpl7"]
+
+[ext_resource type="Texture2D" uid="uid://cl25qlc8an1o5" path="res://SteamTingrayGradient.png" id="1_6i2go"]
+[ext_resource type="Texture2D" uid="uid://csc6iinwpt64s" path="res://Placeholder Sprites/chalk-rubbed-out-on-blackboard-600nw-226458436.png" id="1_87ax7"]
+[ext_resource type="Script" path="res://Levels/MainMenu.gd" id="1_powae"]
+[ext_resource type="Shader" path="res://Levels/Chalk.gdshader" id="2_mxbxc"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_72w01"]
+frequency = 0.276
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_15jrh"]
+noise = SubResource("FastNoiseLite_72w01")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f4jqr"]
+shader = ExtResource("2_mxbxc")
+shader_parameter/width = 0.01
+shader_parameter/noise = SubResource("NoiseTexture2D_15jrh")
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_powae")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_87ax7")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -519.0
+offset_right = 519.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="Title" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 120
+text = "Blender
+Vendor"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
+material = SubResource("ShaderMaterial_f4jqr")
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_6i2go")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 40
+
+[node name="Button" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+text = "START"
+
+[node name="Button2" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+text = "LEADERBOARD"
+
+[node name="Button4" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+text = "CREDITS"
+
+[node name="Button3" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+text = "QUIT"
+
+[connection signal="button_down" from="HBoxContainer/MarginContainer/VBoxContainer2/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="HBoxContainer/MarginContainer/VBoxContainer2/Button4" to="." method="_on_button_2_button_down"]
+[connection signal="button_down" from="HBoxContainer/MarginContainer/VBoxContainer2/Button3" to="." method="_on_button_3_button_down"]

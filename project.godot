@@ -17,10 +17,19 @@ config/icon="res://icon.svg"
 [file_customization]
 
 folder_colors={
+"res://Fonts/": "orange",
 "res://Ingredients/": "yellow",
 "res://Levels/": "blue",
-"res://Sprites/": "purple"
+"res://Placeholder Sprites/": "red",
+"res://Shaders/": "green",
+"res://Sprites/": "purple",
+"res://UI Themes/": "gray"
 }
+
+[gui]
+
+theme/custom="res://UI Themes/ui_theme_default.tres"
+theme/custom_font="res://Fonts/KGBrokenVesselsSketch.ttf"
 
 [input]
 
