@@ -1,10 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dd6djmkjdustg"]
+[gd_scene load_steps=2 format=3 uid="uid://dd6djmkjdustg"]
 
 [ext_resource type="Script" path="res://Ingredients/Ingredient.gd" id="1_lsank"]
-[ext_resource type="Texture2D" uid="uid://b8n0uodixnwee" path="res://icon.svg" id="2_m4pda"]
-[ext_resource type="Texture2D" uid="uid://cky4ug3r631o" path="res://istockphoto-1354656066-612x612.jpg" id="2_xd5hj"]
 
-[node name="Ingredient" type="TextureButton"]
-texture_normal = ExtResource("2_m4pda")
-texture_focused = ExtResource("2_xd5hj")
+[node name="Ingredient" type="Node2D"]
 script = ExtResource("1_lsank")
