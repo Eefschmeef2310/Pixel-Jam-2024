@@ -16,8 +16,12 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-InputManager="*res://input_manager.gd"
 AirtableManager="*res://AirtableManager.gd"
+
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=540
 
 [file_customization]
 

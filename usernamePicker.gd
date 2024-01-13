@@ -43,6 +43,6 @@ func OnNewUserResponse(newID : String):
 		AirtableManager.SetSaveData(newID, usernameTemp)
 		error_text.text = "User created, ID: " + newID
 		error_text.label_settings.font_color = Color.MEDIUM_TURQUOISE
-		#TODO sent player to main menu
+		get_tree().change_scene_to_file("res://Levels/MainMenu.tscn")
 	else:
 		print("issue wth new user response, recevied id: " + newID)
