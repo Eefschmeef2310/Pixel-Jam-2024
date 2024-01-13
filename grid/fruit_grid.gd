@@ -6,12 +6,14 @@ var grid: = []
 var width: int = 7
 var height: int = 7
 var cell_size: float = 65
+var fruit_counts: Dictionary
 
 signal grid_changed()
 
 func _ready():
 	#position.x = cell_size/2
 	#position.y = cell_size/2
+	OrderManager.grid_node = self
 	
 	grid_changed.connect(check_all_orders)
 	
@@ -29,19 +31,31 @@ func _ready():
 func fill_grid():
 	# Move all fruits down to fill empty space
 	
-	#Generate new fruits
+	# Generate new fruits
 	for w in width:
 		for h in height:
 			if !grid[w][h] or is_instance_valid(!grid[w][h]):
 				var fruit = fruit_handle_scene.instantiate()
 				add_child(fruit)
 				fruit.set_fruit(OrderManager.fruit_resources.pick_random())
-				fruit.force_move()
+				fruit.position = Vector2(0, 215)
 				grid[w][h] = fruit
 				#print(fruit.fruit.name)
 	
-	grid_changed.emit()
+	# count fruits
+	count_fruits()
 	
+	grid_changed.emit()
+
+func count_fruits():
+	var dict: Dictionary = {}
+	for fruit in OrderManager.fruit_resources:
+		dict[fruit] = 0
+	for w in width:
+		for h in height:
+			dict[grid[w][h].fruit] += 1
+	fruit_counts = dict
+
 func get_fruit_coords(fruit) -> Vector2i:
 	for w in width:
 		for h in height:
@@ -132,7 +146,6 @@ func check_order(order: Order):
 			if check_order_at_cell(order, w, h):
 				print("holy shit")
 				remove_order_at_cell(order, w, h)
-				fill_grid()
 				OrderManager.complete_order(order)
 				OrderManager.generate_2x2()
 				return
@@ -151,3 +164,4 @@ func remove_order_at_cell(order: Order, w: int, h: int):
 		for y in order.height:
 			grid[w+x][h+y].queue_free()
 			grid[w+x][h+y] = null
+	fill_grid()
