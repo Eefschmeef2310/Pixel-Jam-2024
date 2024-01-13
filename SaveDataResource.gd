@@ -1,8 +1,8 @@
 extends Resource
-class_name  SaveData
+class_name  SaveDataRes
 
-var userID : String
-var username : String
-var highscore : int
-var gamesPlayed : int
-var playtime : float
+@export var userID : String
+@export var username : String
+@export var highscore : int
+@export var gamesPlayed : int
+@export var playtime : float
