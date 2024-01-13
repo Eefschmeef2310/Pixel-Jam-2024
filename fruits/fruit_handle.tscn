@@ -1,12 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://cel0qlwc4gkgf"]
+[gd_scene load_steps=5 format=3 uid="uid://cel0qlwc4gkgf"]
 
 [ext_resource type="Script" path="res://fruits/fruit_handle.gd" id="1_bykfw"]
 [ext_resource type="Texture2D" uid="uid://bpac7fch8tyha" path="res://fruits/sprites/fruit_orange.png" id="2_fjnnp"]
 [ext_resource type="Resource" uid="uid://cevvho3wiksrh" path="res://fruits/resources/orange.tres" id="2_ymxna"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ou0ej"]
+size = Vector2(40, 40)
 
 [node name="FruitHandle" type="Node2D"]
 script = ExtResource("1_bykfw")
 fruit = ExtResource("2_ymxna")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
 texture = ExtResource("2_fjnnp")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_ou0ej")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
