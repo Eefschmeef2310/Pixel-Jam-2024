@@ -54,9 +54,9 @@ size_flags_vertical = 4
 
 [node name="Title" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 120
-text = "Blender
-Vendor"
+theme_override_font_sizes/font_size = 90
+text = "Smoothie
+Maker Pro"
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
