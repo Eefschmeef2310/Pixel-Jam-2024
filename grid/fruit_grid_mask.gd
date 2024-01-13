@@ -1,4 +1,4 @@
-extends TextureRect
+extends Control
 
 func _ready():
 	size.x = $FruitGrid.width * $FruitGrid.cell_size

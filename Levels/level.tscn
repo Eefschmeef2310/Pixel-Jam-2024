@@ -1,19 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5iqtehf83fxv"]
+[gd_scene load_steps=2 format=3 uid="uid://b5iqtehf83fxv"]
 
 [ext_resource type="PackedScene" uid="uid://bx0tw6jqlatg" path="res://grid/fruit_grid.tscn" id="1_7hqhj"]
-[ext_resource type="Script" path="res://grid/fruit_grid_mask.gd" id="1_rsplf"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_y3k27"]
 
 [node name="Level" type="Node2D"]
 
-[node name="FruitGridMask" type="TextureRect" parent="."]
-clip_children = 1
-offset_left = 500.0
-offset_top = 100.0
-offset_right = 700.0
-offset_bottom = 300.0
-texture = SubResource("PlaceholderTexture2D_y3k27")
-script = ExtResource("1_rsplf")
-
-[node name="FruitGrid" parent="FruitGridMask" instance=ExtResource("1_7hqhj")]
+[node name="FruitGrid" parent="." instance=ExtResource("1_7hqhj")]
+position = Vector2(517, 109)

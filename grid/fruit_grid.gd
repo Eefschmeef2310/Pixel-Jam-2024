@@ -19,8 +19,8 @@ var cell_size: float = 50
 signal grid_changed()
 
 func _ready():
-	position.x = cell_size/2
-	position.y = cell_size/2
+	#position.x = cell_size/2
+	#position.y = cell_size/2
 	
 	for w in width:
 		grid.append([])
