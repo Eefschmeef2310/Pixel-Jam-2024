@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 AirtableManager="*res://AirtableManager.gd"
+ScoreManager="*res://score_manager.gd"
 
 [display]
 

@@ -78,7 +78,7 @@ func GameComplete(score : int, playtime : float):
 	saveRes.gamesPlayed += 1
 	saveRes.playtime += playtime
 	if (score > saveRes.highscore):
-		saveRes.highscore == score
+		saveRes.highscore = score
 	Save()
 	UploadData(saveRes.userID, saveRes.username, saveRes.highscore, saveRes.gamesPlayed, saveRes.playtime)
 

@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://c4cysewhbija"]
+[gd_scene load_steps=2 format=3 uid="uid://c4cysewhbija"]
+
+[ext_resource type="Script" path="res://Levels/game_over_test.gd" id="1_4dhqo"]
 
 [node name="Main Game" type="Node2D"]
+script = ExtResource("1_4dhqo")
