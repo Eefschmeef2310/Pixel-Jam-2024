@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bx0tw6jqlatg" path="res://grid/fruit_grid.tscn" id="1_7hqhj"]
 [ext_resource type="Script" path="res://orders/order_generator.gd" id="1_aby30"]
-[ext_resource type="PackedScene" uid="uid://dbkmruh1dmodj" path="res://orders/order_display.tscn" id="2_qseeh"]
+[ext_resource type="Script" path="res://orders/order_grid.gd" id="2_ym37m"]
 
 [node name="Level" type="Node2D"]
 
@@ -35,15 +35,7 @@ grow_vertical = 0
 [node name="GridContainer" type="GridContainer" parent="OrderHUD/VBoxContainer"]
 layout_mode = 2
 columns = 3
-
-[node name="OrderDisplay" parent="OrderHUD/VBoxContainer/GridContainer" instance=ExtResource("2_qseeh")]
-layout_mode = 2
-
-[node name="OrderDisplay2" parent="OrderHUD/VBoxContainer/GridContainer" instance=ExtResource("2_qseeh")]
-layout_mode = 2
-
-[node name="OrderDisplay3" parent="OrderHUD/VBoxContainer/GridContainer" instance=ExtResource("2_qseeh")]
-layout_mode = 2
+script = ExtResource("2_ym37m")
 
 [node name="FruitGrid" parent="." instance=ExtResource("1_7hqhj")]
 position = Vector2(502, 76)

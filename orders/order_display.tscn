@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbkmruh1dmodj"]
+[gd_scene load_steps=3 format=3 uid="uid://dbkmruh1dmodj"]
 
 [ext_resource type="Texture2D" uid="uid://clrxcqw1xfeqk" path="res://fruits/sprites/fruit_apple.png" id="1_qvbhj"]
+[ext_resource type="Script" path="res://orders/order_display.gd" id="1_ycrbv"]
 
 [node name="OrderDisplay" type="PanelContainer"]
 custom_minimum_size = Vector2(125, 125)
@@ -11,6 +12,7 @@ offset_right = -835.0
 offset_bottom = -415.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ycrbv")
 
 [node name="H" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(0, 125)
@@ -27,6 +29,8 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
 columns = 2
 
 [node name="Fruit" type="TextureRect" parent="H/V/GridContainer"]

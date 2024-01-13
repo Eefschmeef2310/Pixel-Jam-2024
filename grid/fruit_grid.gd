@@ -13,6 +13,8 @@ func _ready():
 	#position.x = cell_size/2
 	#position.y = cell_size/2
 	
+	grid_changed.connect(check_all_orders)
+	
 	for w in width:
 		grid.append([])
 		for h in height:
@@ -33,10 +35,10 @@ func fill_grid():
 			if !grid[w][h] or is_instance_valid(!grid[w][h]):
 				var fruit = fruit_handle_scene.instantiate()
 				add_child(fruit)
-				grid[w][h] = fruit
 				fruit.set_fruit(OrderManager.fruit_resources.pick_random())
 				fruit.force_move()
-				print(fruit.fruit.name)
+				grid[w][h] = fruit
+				#print(fruit.fruit.name)
 	
 	grid_changed.emit()
 	
@@ -119,6 +121,33 @@ func move_fruit_y(fruit, amount):
 	
 	grid_changed.emit()
 
-func check_orders():
+func check_all_orders():
 	for order in OrderManager.orders:
-		pass
+		check_order(order)
+
+func check_order(order: Order):
+	for w in width - order.width + 1:
+		for h in height - order.height + 1:
+			#print(str(w) + ", " + str(h))
+			if check_order_at_cell(order, w, h):
+				print("holy shit")
+				remove_order_at_cell(order, w, h)
+				fill_grid()
+				OrderManager.complete_order(order)
+				OrderManager.generate_2x2()
+				return
+			#else:
+				#print("damn")
+
+func check_order_at_cell(order: Order, w: int, h: int):
+	for x in order.width:
+		for y in order.height:
+			if grid[w+x][h+y].fruit != order.grid[x][y]:
+				return false
+	return true
+
+func remove_order_at_cell(order: Order, w: int, h: int):
+	for x in order.width:
+		for y in order.height:
+			grid[w+x][h+y].queue_free()
+			grid[w+x][h+y] = null

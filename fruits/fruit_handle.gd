@@ -122,12 +122,12 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 		queue_free()
 
 func _on_click_pressed():
-	print("sheesh!")
+	#print("sheesh!")
 	is_clicked = true
 	starting_mouse_coords = get_viewport().get_mouse_position()
 
 func _on_click_released():
-	print("awwww...")
+	#print("awwww...")
 	var parent = get_parent()
 	var amount = 0
 	if movement_direction.x == 1:
