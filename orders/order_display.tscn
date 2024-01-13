@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbkmruh1dmodj"]
+
+[ext_resource type="Texture2D" uid="uid://clrxcqw1xfeqk" path="res://fruits/sprites/fruit_apple.png" id="1_qvbhj"]
+
+[node name="OrderDisplay" type="PanelContainer"]
+custom_minimum_size = Vector2(125, 125)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -835.0
+offset_bottom = -415.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="H" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 125)
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="V" type="VBoxContainer" parent="H"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="H/V"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 2
+
+[node name="Fruit" type="TextureRect" parent="H/V/GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_qvbhj")
+
+[node name="Fruit2" type="TextureRect" parent="H/V/GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_qvbhj")
+
+[node name="Fruit3" type="TextureRect" parent="H/V/GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_qvbhj")
+
+[node name="Fruit4" type="TextureRect" parent="H/V/GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_qvbhj")

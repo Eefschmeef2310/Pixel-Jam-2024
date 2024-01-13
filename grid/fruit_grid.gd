@@ -1,20 +1,11 @@
 extends Node2D
 
 var fruit_handle_scene = preload("res://fruits/fruit_handle.tscn")
-var fruit_resources: Array[Fruit] = [
-	preload("res://fruits/resources/apple.tres"),
-	preload("res://fruits/resources/banana.tres"),
-	preload("res://fruits/resources/grape.tres"),
-	preload("res://fruits/resources/melon.tres"),
-	preload("res://fruits/resources/orange.tres"),
-	preload("res://fruits/resources/squid.tres"),
-	preload("res://fruits/resources/straw.tres")
-]
 
 var grid: = []
 var width: int = 7
 var height: int = 7
-var cell_size: float = 50
+var cell_size: float = 65
 
 signal grid_changed()
 
@@ -29,9 +20,9 @@ func _ready():
 	
 	fill_grid()
 
-func _process(_delta):
-	if Input.is_action_just_pressed("space"):
-		fill_grid()
+#func _process(_delta):
+	#if Input.is_action_just_pressed("space"):
+		#fill_grid()
 
 func fill_grid():
 	# Move all fruits down to fill empty space
@@ -43,7 +34,7 @@ func fill_grid():
 				var fruit = fruit_handle_scene.instantiate()
 				add_child(fruit)
 				grid[w][h] = fruit
-				fruit.set_fruit(fruit_resources.pick_random())
+				fruit.set_fruit(OrderManager.fruit_resources.pick_random())
 				fruit.force_move()
 				print(fruit.fruit.name)
 	
@@ -127,3 +118,7 @@ func move_fruit_y(fruit, amount):
 	grid[fc.x][fc.y + n] = fruit
 	
 	grid_changed.emit()
+
+func check_orders():
+	for order in OrderManager.orders:
+		pass
