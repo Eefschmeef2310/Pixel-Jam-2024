@@ -1,5 +1,7 @@
 extends Control
 
+@export var color : Gradient
+
 @onready var order: Order
 @onready var grid = $OrderDisplay/H/V/GridContainer
 @onready var timer_visual = $TextureProgressBar
@@ -22,10 +24,12 @@ func _ready():
 func _process(_delta):
 	timer_visual.value = $TextureProgressBar/Timer.time_left
 	
-	if timer_visual.value / timer_visual.max_value < 0.25:
-		timer_visual.modulate = Color.from_hsv(0, 0.8, 1)
-	elif timer_visual.value / timer_visual.max_value < 0.5:
-		timer_visual.modulate = Color.from_hsv(0.1, 0.8, 1)
+	timer_visual.modulate = color.sample(1.0 - timer_visual.value / timer_visual.max_value)
+	
+	#if timer_visual.value / timer_visual.max_value < 0.25:
+		#timer_visual.modulate = Color.from_hsv(0, 0.8, 1)
+	#elif timer_visual.value / timer_visual.max_value < 0.5:
+		#timer_visual.modulate = Color.from_hsv(0.1, 0.8, 1)
 
 func set_order(o: Order):
 	for child in grid.get_children():

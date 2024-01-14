@@ -1,5 +1,8 @@
 extends Node
 
+var order_complete : AudioStream = preload("res://Audio/Good.mp3")
+var player : AudioStreamPlayer = AudioStreamPlayer.new()
+
 var fruit_resources: Array[Fruit] = [
 	preload("res://fruits/resources/apple.tres"),
 	preload("res://fruits/resources/banana.tres"),
@@ -17,6 +20,11 @@ var max_orders = 3
 var grid_node
 
 signal orders_updated()
+
+func _ready():
+	#Initialise player
+	player.stream = order_complete
+	add_child(player)
 
 func _process(_delta):
 	if Input.is_action_just_pressed("space"):
@@ -68,6 +76,9 @@ func complete_order(order: Order):
 			# complete order
 			#TODO - Variable score amounts - E
 			ScoreManager.score = ScoreManager.score+1
+		
+			player.play()
+			
 			orders.erase(order)
 			orders_updated.emit()
 			return

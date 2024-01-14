@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbkmruh1dmodj"]
+[gd_scene load_steps=10 format=3 uid="uid://dbkmruh1dmodj"]
 
 [ext_resource type="Texture2D" uid="uid://ulutonwbt40m" path="res://fruits/sprites/fruit_apple.png" id="1_qvbhj"]
 [ext_resource type="Script" path="res://orders/order_display.gd" id="1_ycrbv"]
@@ -6,6 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://b6b62qmajbcy8" path="res://orders/sprites/ticket_pegs.png" id="3_85abq"]
 [ext_resource type="Texture2D" uid="uid://lqglgjr7dnhb" path="res://orders/sprites/circle_20_black.png" id="5_1x0gc"]
 [ext_resource type="Texture2D" uid="uid://bxc7y1qvy667p" path="res://orders/sprites/circle_20.png" id="5_a72wb"]
+[ext_resource type="AudioStream" uid="uid://cw50lkgo850bp" path="res://Audio/OrderStart.mp3" id="7_7bg80"]
+
+[sub_resource type="Gradient" id="Gradient_dnjfn"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.5, 0.75)
+colors = PackedColorArray(0, 1, 0.132701, 1, 0.83616, 1, 0, 1, 1, 0.0787408, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3i5cl"]
 
@@ -13,6 +19,7 @@
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_ycrbv")
+color = SubResource("Gradient_dnjfn")
 
 [node name="OrderDisplay" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -100,17 +107,7 @@ layout_mode = 2
 texture = ExtResource("1_qvbhj")
 expand_mode = 1
 
-[node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0.784314)
-layout_mode = 0
-offset_left = 59.0
-offset_top = 65.0
-offset_right = 79.0
-offset_bottom = 85.0
-texture = ExtResource("5_1x0gc")
-
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-modulate = Color(0, 0.729412, 0, 1)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -123,8 +120,13 @@ grow_horizontal = 2
 step = 0.01
 value = 100.0
 fill_mode = 5
+texture_under = ExtResource("5_1x0gc")
 texture_progress = ExtResource("5_a72wb")
 
 [node name="Timer" type="Timer" parent="TextureProgressBar"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_7bg80")
+autoplay = true
 
 [connection signal="timeout" from="TextureProgressBar/Timer" to="." method="_on_timer_timeout"]
