@@ -2,7 +2,6 @@ extends PanelContainer
 
 var order: Order
 @onready var grid = $H/V/GridContainer
-@onready var timer_visual = $"../TimerVisual"
 
 func _ready():
 	$PegsTexture.modulate = Color.from_hsv(randf_range(0, 1), 0.8, 1, 1)
@@ -19,6 +18,3 @@ func set_order(o: Order):
 			rect.custom_minimum_size = Vector2(20, 20)
 			rect.texture = order.grid[x][y].texture
 			grid.add_child(rect)
-		
-func _process(_delta):
-	timer_visual.fill

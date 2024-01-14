@@ -1,7 +1,7 @@
 extends Control
 
 func _on_button_button_down():
-	get_tree().change_scene_to_file("res://Levels/main_game.tscn")
+	get_tree().change_scene_to_file("res://Levels/level.tscn")
 
 func _on_button_3_button_down():
 	get_tree().quit()
