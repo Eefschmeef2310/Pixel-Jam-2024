@@ -1,5 +1,8 @@
 extends Control
 
+func _ready():
+	$HBoxContainer/MarginContainer/VBoxContainer2/Button3.visible = OS.get_name() != "Web"
+
 func _on_button_button_down():
 	ScoreManager.playtime = 0
 	ScoreManager.score = 0
