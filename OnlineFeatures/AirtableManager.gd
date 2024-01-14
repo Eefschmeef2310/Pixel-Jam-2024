@@ -9,7 +9,7 @@ extends HTTPRequest
 
 var headers = ["Content-Type: application/json", "Authorization: Bearer patmff0RoQNsaXAu4.c266daf41f901816c2993c075c457a3fee210eeb7d4cf0b2593c575261633776"]
 var usernamePickerScene = "res://Levels/usernamePicker.tscn"
-var menuScene = "res://Levels/main_game.tscn"
+var menuScene = "res://Levels/MainMenu.tscn"
 
 var saveRes : SaveDataRes
 var savePath : String = "user://savegame.tres"
@@ -123,9 +123,10 @@ func _on_request_completed(_result, _response_code, _headers, body):
 		else:
 			print("username is NEW")
 			CheckUsernameResponse.emit(true)
-		waitState = ""
+		
 	if(waitState == "NewUser"):
 		print(json.records[0].id)
 		NewUserResponse.emit(json.records[0].id)
-		pass
+		
+	waitState = ""
 	#print(json.records[0].id) works with getting the id of things already in the base

@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn8inqvlch863"]
+
+[ext_resource type="Script" path="res://OnlineFeatures/leaderboard_entry.gd" id="1_7mpdf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_al43w"]
+bg_color = Color(0, 0, 0, 0.427451)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_52wf5"]
+
+[node name="Leaderboard Entry" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 28)
+theme_override_styles/panel = SubResource("StyleBoxFlat_al43w")
+script = ExtResource("1_7mpdf")
+
+[node name="Columns" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Position" type="Label" parent="Columns"]
+custom_minimum_size = Vector2(25.93, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "1"
+label_settings = SubResource("LabelSettings_52wf5")
+horizontal_alignment = 1
+
+[node name="Username" type="Label" parent="Columns"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Player 1"
+label_settings = SubResource("LabelSettings_52wf5")
+
+[node name="Score" type="Label" parent="Columns"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "120"
+label_settings = SubResource("LabelSettings_52wf5")
+horizontal_alignment = 2

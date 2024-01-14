@@ -1,6 +1,6 @@
 extends Control
 
-func _on_button_button_down():
+func _on_button_button_down(): #TODO any reason why these are onDown instead of onPressed?
 	get_tree().change_scene_to_file("res://Levels/level.tscn")
 
 func _on_button_3_button_down():
@@ -8,3 +8,7 @@ func _on_button_3_button_down():
 
 func _on_button_2_button_down():
 	get_tree().change_scene_to_file("res://Levels/Credits.tscn")
+
+
+func _on_leaderboard_button_pressed():
+	get_tree().change_scene_to_file("res://Levels/Leaderboard.tscn")

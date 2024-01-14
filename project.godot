@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 OrderManager="*res://orders/order_manager.gd"
-AirtableManager="*res://AirtableManager.gd"
+AirtableManager="*res://OnlineFeatures/AirtableManager.gd"
 ScoreManager="*res://score_manager.gd"
 GameOverManager="*res://game_over_manager.gd"
 
