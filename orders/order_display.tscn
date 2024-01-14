@@ -21,112 +21,115 @@ anchors_preset = 0
 script = ExtResource("1_ycrbv")
 color = SubResource("Gradient_dnjfn")
 
-[node name="OrderDisplay" type="PanelContainer" parent="."]
-layout_mode = 1
-offset_right = 72.0
-offset_bottom = 78.0
-theme_override_styles/panel = SubResource("StyleBoxEmpty_3i5cl")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_7bg80")
+autoplay = true
 
-[node name="BaseTexture" type="TextureRect" parent="OrderDisplay"]
-layout_mode = 2
-texture = ExtResource("2_ypesb")
-
-[node name="PegsTexture" type="TextureRect" parent="OrderDisplay"]
-modulate = Color(0.917647, 0.278431, 1, 1)
-layout_mode = 2
-texture = ExtResource("3_85abq")
-
-[node name="H" type="HBoxContainer" parent="OrderDisplay"]
-custom_minimum_size = Vector2(0, 72)
-layout_mode = 2
-size_flags_vertical = 8
-alignment = 1
-
-[node name="V" type="VBoxContainer" parent="OrderDisplay/H"]
-layout_mode = 2
-size_flags_horizontal = 3
-alignment = 1
-
-[node name="GridContainer" type="GridContainer" parent="OrderDisplay/H/V"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-columns = 3
-
-[node name="TextureRect" type="TextureRect" parent="OrderDisplay/H/V/GridContainer"]
-custom_minimum_size = Vector2(15, 15)
-layout_mode = 2
-texture = ExtResource("1_qvbhj")
-expand_mode = 1
-
-[node name="TextureRect2" type="TextureRect" parent="OrderDisplay/H/V/GridContainer"]
-custom_minimum_size = Vector2(15, 15)
-layout_mode = 2
-texture = ExtResource("1_qvbhj")
-expand_mode = 1
-
-[node name="TextureRect3" type="TextureRect" parent="OrderDisplay/H/V/GridContainer"]
-custom_minimum_size = Vector2(15, 15)
-layout_mode = 2
-texture = ExtResource("1_qvbhj")
-expand_mode = 1
-
-[node name="TextureRect4" type="TextureRect" parent="OrderDisplay/H/V/GridContainer"]
-custom_minimum_size = Vector2(15, 15)
-layout_mode = 2
-texture = ExtResource("1_qvbhj")
-expand_mode = 1
-
-[node name="TextureRect5" type="TextureRect" parent="OrderDisplay/H/V/GridContainer"]
-custom_minimum_size = Vector2(15, 15)
-layout_mode = 2
-texture = ExtResource("1_qvbhj")
-expand_mode = 1
-
-[node name="TextureRect6" type="TextureRect" parent="OrderDisplay/H/V/GridContainer"]
-custom_minimum_size = Vector2(15, 15)
-layout_mode = 2
-texture = ExtResource("1_qvbhj")
-expand_mode = 1
-
-[node name="TextureRect7" type="TextureRect" parent="OrderDisplay/H/V/GridContainer"]
-custom_minimum_size = Vector2(15, 15)
-layout_mode = 2
-texture = ExtResource("1_qvbhj")
-expand_mode = 1
-
-[node name="TextureRect8" type="TextureRect" parent="OrderDisplay/H/V/GridContainer"]
-custom_minimum_size = Vector2(15, 15)
-layout_mode = 2
-texture = ExtResource("1_qvbhj")
-expand_mode = 1
-
-[node name="TextureRect9" type="TextureRect" parent="OrderDisplay/H/V/GridContainer"]
-custom_minimum_size = Vector2(15, 15)
-layout_mode = 2
-texture = ExtResource("1_qvbhj")
-expand_mode = 1
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 59.0
-offset_top = 65.0
-offset_right = 79.0
-offset_bottom = 85.0
+offset_left = -60.0
+offset_right = 60.0
+offset_bottom = 66.0
 grow_horizontal = 2
+mouse_filter = 2
+alignment = 1
+
+[node name="Panel" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_3i5cl")
+
+[node name="BaseTexture" type="NinePatchRect" parent="HBoxContainer/Panel"]
+layout_mode = 2
+texture = ExtResource("2_ypesb")
+patch_margin_left = 6
+patch_margin_top = 12
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="PegsTexture" type="NinePatchRect" parent="HBoxContainer/Panel"]
+modulate = Color(0.917647, 0.278431, 1, 1)
+layout_mode = 2
+texture = ExtResource("3_85abq")
+patch_margin_left = 17
+patch_margin_top = 11
+patch_margin_right = 16
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="GridContainer" type="GridContainer" parent="HBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 4
+columns = 4
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Panel/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("1_qvbhj")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/Panel/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("1_qvbhj")
+expand_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer/Panel/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("1_qvbhj")
+expand_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer/Panel/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("1_qvbhj")
+expand_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="HBoxContainer/Panel/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("1_qvbhj")
+expand_mode = 1
+
+[node name="TextureRect6" type="TextureRect" parent="HBoxContainer/Panel/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("1_qvbhj")
+expand_mode = 1
+
+[node name="ProgressBar" type="Control" parent="HBoxContainer/Panel"]
+layout_mode = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HBoxContainer/Panel/ProgressBar"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -13.0
+offset_top = -13.0
+offset_right = 7.0
+offset_bottom = 7.0
+grow_horizontal = 0
+grow_vertical = 0
 step = 0.01
 value = 100.0
 fill_mode = 5
 texture_under = ExtResource("5_1x0gc")
 texture_progress = ExtResource("5_a72wb")
 
-[node name="Timer" type="Timer" parent="TextureProgressBar"]
+[node name="Timer" type="Timer" parent="HBoxContainer/Panel/ProgressBar/TextureProgressBar"]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_7bg80")
-autoplay = true
-
-[connection signal="timeout" from="TextureProgressBar/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="HBoxContainer/Panel/ProgressBar/TextureProgressBar/Timer" to="." method="_on_timer_timeout"]

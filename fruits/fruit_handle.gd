@@ -1,10 +1,9 @@
 extends Node2D
 
-var sound : AudioStream = preload("res://Audio/fruit-impact-2-105282.mp3")
-var player : AudioStreamPlayer = AudioStreamPlayer.new()
-
 @onready var sprite_2d = $Sprite2D
 @export var fruit: Fruit
+
+@onready var cell_change_stream_player = $CellChangeStreamPlayer
 
 var is_clicked = false
 var starting_mouse_coords: Vector2
@@ -16,9 +15,10 @@ var cell_offset: Vector2
 var controlling_handles: Array = []
 var temp_handles: Array = []
 
+var last_amount: int
+
 func _ready():
-	player.stream = sound
-	add_child(player)
+	pass
 
 func _process(delta):
 	if is_clicked:
@@ -81,15 +81,29 @@ func _process(delta):
 
 		if Input.is_action_just_released("click"):
 			_on_click_released()
-
+			
 
 	if movement_direction != Vector2(0, 0):
 		var parent = get_parent()
 		var pos = get_viewport().get_mouse_position() + (cell_offset * parent.cell_size)
 		if movement_direction.x == 0:
 			pos.x = starting_pos.x
+			if is_clicked:
+				var difference = position.y - (starting_pos.y - parent.position.y)
+				difference += parent.cell_size/2
+				var amount = floor(difference/parent.cell_size)
+				if amount != last_amount:
+					cell_change_stream_player.play()
+					last_amount = amount
 		if movement_direction.y == 0:
 			pos.y = starting_pos.y
+			if is_clicked:
+				var difference = position.x - (starting_pos.x - parent.position.x)
+				difference += parent.cell_size/2
+				var amount = floor(difference/parent.cell_size)
+				if amount != last_amount:
+					cell_change_stream_player.play()
+					last_amount = amount
 		global_position = pos
 		global_position.x = clamp(global_position.x, \
 			starting_pos.x - (parent.width * parent.cell_size), \
@@ -133,6 +147,7 @@ func _on_click_pressed():
 	$ClickPlayer.pitch_scale = 1.0
 	$ClickPlayer.play()
 	is_clicked = true
+	last_amount = 0
 	starting_mouse_coords = get_viewport().get_mouse_position()
 
 func _on_click_released():
