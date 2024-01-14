@@ -143,9 +143,9 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 			_on_click_pressed()
 		else:
 			_on_click_released()
-	elif event is InputEventMouseButton \
-	and event.button_index == MOUSE_BUTTON_RIGHT:
-		queue_free()
+	#elif event is InputEventMouseButton \
+	#and event.button_index == MOUSE_BUTTON_RIGHT:
+		#queue_free()
 
 func _on_click_pressed():
 	#print("sheesh!")
