@@ -1,19 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpk7dwwpywpl7"]
+[gd_scene load_steps=10 format=3 uid="uid://dpk7dwwpywpl7"]
 
 [ext_resource type="Texture2D" uid="uid://cl25qlc8an1o5" path="res://SteamTingrayGradient.png" id="1_6i2go"]
 [ext_resource type="Texture2D" uid="uid://csc6iinwpt64s" path="res://Placeholder Sprites/chalk-rubbed-out-on-blackboard-600nw-226458436.png" id="1_87ax7"]
 [ext_resource type="Script" path="res://Levels/MainMenu.gd" id="1_powae"]
-[ext_resource type="Shader" path="res://Shaders/Chalk.gdshader" id="2_mxbxc"]
+[ext_resource type="Shader" path="res://Shaders/Logo.gdshader" id="3_dan43"]
+[ext_resource type="Texture2D" uid="uid://4kum5w36iqb4" path="res://Sprites/paste.png" id="3_yrjn6"]
+[ext_resource type="AudioStream" uid="uid://cv1gxmj7tmcp6" path="res://Audio/City Park Ambience.mp3" id="5_q5a0m"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_72w01"]
-frequency = 0.276
+noise_type = 5
+frequency = 0.0094
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_15jrh"]
 noise = SubResource("FastNoiseLite_72w01")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f4jqr"]
-shader = ExtResource("2_mxbxc")
-shader_parameter/width = 0.01
+shader = ExtResource("3_dan43")
 shader_parameter/noise = SubResource("NoiseTexture2D_15jrh")
 
 [node name="MainMenu" type="Control"]
@@ -57,10 +59,21 @@ text = "Smoothie
 Maker Pro"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0.592157)
+custom_minimum_size = Vector2(0, 195.89)
+layout_mode = 2
+texture = ExtResource("3_yrjn6")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/TextureRect2"]
+self_modulate = Color(1, 1, 1, 0.65098)
 material = SubResource("ShaderMaterial_f4jqr")
 custom_minimum_size = Vector2(0, 170)
 layout_mode = 2
+offset_top = 20.0
+offset_right = 318.0
+offset_bottom = 190.0
 size_flags_vertical = 3
 texture = ExtResource("1_6i2go")
 expand_mode = 1
@@ -90,6 +103,10 @@ text = "CREDITS"
 [node name="Button3" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer2"]
 layout_mode = 2
 text = "QUIT"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_q5a0m")
+autoplay = true
 
 [connection signal="button_down" from="HBoxContainer/MarginContainer/VBoxContainer2/Button" to="." method="_on_button_button_down"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer2/LeaderboardButton" to="." method="_on_leaderboard_button_pressed"]
