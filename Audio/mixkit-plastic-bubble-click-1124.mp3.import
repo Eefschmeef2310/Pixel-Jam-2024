@@ -2,7 +2,7 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://bwbon6qnxwpgd"
+uid="uid://ctgvfko6t6p7c"
 path="res://.godot/imported/mixkit-plastic-bubble-click-1124.mp3-98b08189a390f073d003d439c1ddadbc.mp3str"
 
 [deps]
@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/mixkit-plastic-bubble-click-1124.mp3-98b08189
 [params]
 
 loop=false
-loop_offset=0.0
-bpm=0.0
+loop_offset=0
+bpm=0
 beat_count=0
 bar_beats=4

@@ -23,6 +23,8 @@ var timer_updating: bool = true
 
 var grid_node
 
+var last_completed_order_score = 0
+
 signal orders_updated()
 
 func _ready():
@@ -61,6 +63,7 @@ func generate_2x2():
 		
 		order.type = "generate_2x2"
 		order.countdown = 40 * order_countdown_curve.sample(get_difficulty_curve_x())
+		order.score = 4
 		orders.append(order)
 		orders_updated.emit()
 
@@ -77,7 +80,8 @@ func generate_2x4():
 					order.grid[x][y] = fruit_resources.pick_random()
 		
 		order.type = "generate_2x4"
-		order.countdown = 55 * order_countdown_curve.sample(get_difficulty_curve_x())
+		order.countdown = 75 * order_countdown_curve.sample(get_difficulty_curve_x())
+		order.score = 8
 		orders.append(order)
 		orders_updated.emit()
 
@@ -94,7 +98,8 @@ func generate_4x2():
 					order.grid[x][y] = fruit_resources.pick_random()
 		
 		order.type = "generate_4x2"
-		order.countdown = 55 * order_countdown_curve.sample(get_difficulty_curve_x())
+		order.countdown = 75 * order_countdown_curve.sample(get_difficulty_curve_x())
+		order.score = 9
 		orders.append(order)
 		orders_updated.emit()
 
@@ -111,7 +116,8 @@ func generate_3x3():
 					order.grid[x][y] = fruit_resources.pick_random()
 		
 		order.type = "generate_3x3"
-		order.countdown = 55 * order_countdown_curve.sample(get_difficulty_curve_x())
+		order.countdown = 75 * order_countdown_curve.sample(get_difficulty_curve_x())
+		order.score = 9
 		orders.append(order)
 		orders_updated.emit()
 
@@ -141,7 +147,8 @@ func complete_order(order: Order):
 		if o == order:
 			# complete order
 			#TODO - Variable score amounts - E
-			ScoreManager.score = ScoreManager.score+1
+			ScoreManager.score = ScoreManager.score + order.score
+			last_completed_order_score = order.score
 		
 			player.play()
 			

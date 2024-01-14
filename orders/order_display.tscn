@@ -10,8 +10,8 @@
 
 [sub_resource type="Gradient" id="Gradient_dnjfn"]
 interpolation_mode = 1
-offsets = PackedFloat32Array(0, 0.5, 0.75)
-colors = PackedColorArray(0, 1, 0.132701, 1, 0.83616, 1, 0, 1, 1, 0.0787408, 0, 1)
+offsets = PackedFloat32Array(0, 0.5, 0.748322)
+colors = PackedColorArray(0.568627, 0.858824, 0.411765, 1, 0.901961, 0.564706, 0.305882, 1, 0.909804, 0.231373, 0.231373, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3i5cl"]
 
@@ -50,7 +50,6 @@ patch_margin_right = 6
 patch_margin_bottom = 6
 
 [node name="PegsTexture" type="NinePatchRect" parent="HBoxContainer/Panel"]
-modulate = Color(0.917647, 0.278431, 1, 1)
 layout_mode = 2
 texture = ExtResource("3_85abq")
 patch_margin_left = 17

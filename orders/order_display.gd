@@ -5,14 +5,14 @@ extends Control
 @onready var order: Order
 @onready var grid = $HBoxContainer/Panel/MarginContainer/GridContainer
 @onready var timer_visual = $HBoxContainer/Panel/ProgressBar/TextureProgressBar
-@onready var timer = $HBoxContainer/Panel/ProgressBar/TextureProgressBar/Timer
+@onready var timer: Timer = $HBoxContainer/Panel/ProgressBar/TextureProgressBar/Timer
 
 var target_position: Vector2
 
 var tween: Tween
 
 func _ready():
-	$HBoxContainer/Panel/PegsTexture.modulate = Color.from_hsv(randf_range(0, 1), 0.8, 1, 1)
+	#$HBoxContainer/Panel/PegsTexture.modulate = Color.from_hsv(randf_range(0, 1), 0.8, 1, 1)
 	position.y = 40
 	modulate.a = 0
 	if tween:
@@ -45,7 +45,8 @@ func set_order(o: Order):
 			var rect = TextureRect.new()
 			rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 			rect.custom_minimum_size = Vector2(16, 16)
-			rect.texture = order.grid[x][y].texture_small
+			if order.grid[x][y] != null:
+				rect.texture = order.grid[x][y].texture
 			grid.add_child(rect)
 	
 	#Set max timer
@@ -67,6 +68,13 @@ func complete_ticket():
 	tween.tween_property(self, "position:y", 40, 0.5)
 	tween.parallel().tween_property(self, "modulate:a", 0, 0.5)
 	tween.tween_callback(queue_free)
+	
+
+func add_time(time: float):
+	var time_left = timer.time_left
+	timer.stop()
+	timer.wait_time = time_left + time
+	timer.start()
 	
 
 func _on_timer_timeout():

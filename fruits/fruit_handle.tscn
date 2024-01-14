@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://fruits/fruit_handle.gd" id="1_bykfw"]
 [ext_resource type="Resource" uid="uid://cevvho3wiksrh" path="res://fruits/resources/orange.tres" id="2_ymxna"]
 [ext_resource type="Texture2D" uid="uid://ulutonwbt40m" path="res://fruits/sprites/fruit_apple.png" id="3_y62ad"]
-[ext_resource type="AudioStream" uid="uid://bwbon6qnxwpgd" path="res://Audio/mixkit-plastic-bubble-click-1124.mp3" id="5_3tj7j"]
-[ext_resource type="AudioStream" uid="uid://bahhj7buo5kgl" path="res://Audio/mixkit-gate-latch-click-1924.mp3" id="5_ws8my"]
+[ext_resource type="AudioStream" uid="uid://ctgvfko6t6p7c" path="res://Audio/mixkit-plastic-bubble-click-1124.mp3" id="5_3tj7j"]
+[ext_resource type="AudioStream" uid="uid://sffkbuxrovjr" path="res://Audio/mixkit-gate-latch-click-1924.mp3" id="5_ws8my"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ou0ej"]
 size = Vector2(40, 40)
