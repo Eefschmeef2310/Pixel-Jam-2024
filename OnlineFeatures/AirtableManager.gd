@@ -32,6 +32,7 @@ func _ready():
 	else:
 		#create a new save file
 		saveRes = SaveDataRes.new()
+		saveRes.version = GAME_VERSION
 		noUserSet.emit()
 		get_tree().change_scene_to_file(usernamePickerScene)
 	#load save data - if no save data then make user pick name
@@ -41,6 +42,7 @@ func _ready():
 func SetSaveData(userID : String, username : String): #connect with signal(?) for when username has been set or changed
 	saveRes.userID = userID
 	saveRes.username = username
+	saveRes.version = GAME_VERSION
 	Save()
 
 func CheckUsername(username): #returns true if it is a new username
@@ -64,7 +66,8 @@ func NewUser(username):
 		"Username" : String(username),
 		"Highscore": 0, 
 		"Games Played": 0,
-		"Total seconds played": 0.0
+		"Total seconds played": 0.0,
+		"Game Version" : GAME_VERSION
 	  }
 	}]}
 	var error = request(url, headers, HTTPClient.METHOD_POST, JSON.stringify(data))
