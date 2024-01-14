@@ -18,7 +18,7 @@ func _on_orders_updated():
 	for n in ticket_slots.size():
 		if ticket_slots[n] != null and !ticket_slots[n].order in OrderManager.orders:
 			# solve ticket
-			ticket_slots[n].queue_free()
+			ticket_slots[n].complete_ticket()
 			ticket_slots[n] = null
 
 	for order in OrderManager.orders:

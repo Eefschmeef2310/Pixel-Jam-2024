@@ -34,7 +34,7 @@ func _process(_delta):
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 func generate_2x2():
-	if grid_node:
+	if grid_node and orders.size() < max_orders:
 		var order
 		while !order or !count_order_against_grid(order):
 			order = Order.new()
@@ -49,6 +49,8 @@ func generate_2x2():
 		order.type = "generate_2x2"
 		orders.append(order)
 		orders_updated.emit()
+	else:
+		print("Too many orders!")
 
 func validate_current_orders():
 	for order in orders:
@@ -69,6 +71,7 @@ func count_order_against_grid(order: Order):
 		if dict[key] > grid_node.fruit_counts[key]:
 			return false
 	return true
+		
 
 func complete_order(order: Order):
 	for o in orders:
