@@ -25,7 +25,6 @@ signal NewUserResponse(newID : String)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	
 	request_completed.connect(_on_request_completed)
 	if (FileAccess.file_exists(savePath)||debugNewSave):
 		Load()
@@ -86,17 +85,16 @@ func GameComplete(score : int, playtime : float):
 
 func UploadData(userID : String, username : String, highscore : int, gamesPlayed : int, playtime : float):
 	print("updating a record")
-	var url = "https://api.airtable.com/v0/appFZUpd22afr8fEJ/Highscores/" + userID
-	var data = {"records": [
-	{
+	var url = "https://api.airtable.com/v0/appFZUpd22afr8fEJ/Highscores/" + str(userID)
+	var data = {
 	  "fields": {
 		"Username" : String(username),
 		"Highscore": int(highscore), 
 		"Games Played": int(gamesPlayed),
 		"Total seconds played": float(playtime)
 	  }
-	}]}
-	var error = request(url, headers, HTTPClient.METHOD_POST, JSON.stringify(data))
+	}
+	var error = request(url, headers, HTTPClient.METHOD_PATCH, JSON.stringify(data))
 	if error != OK:
 		push_error("An error occurred in the HTTP request.")
 		print("HTTP Error D=")
