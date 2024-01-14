@@ -1,33 +1,41 @@
-[gd_scene load_steps=6 format=3 uid="uid://booyiulogg1t1"]
+[gd_scene load_steps=5 format=3 uid="uid://booyiulogg1t1"]
 
-[ext_resource type="Texture2D" uid="uid://c37kxon4wesju" path="res://grid/white_rounded_30.png" id="1_mr8tr"]
 [ext_resource type="Script" path="res://Levels/PauseButton.gd" id="2_7hqm3"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ql4di"]
-texture = ExtResource("1_mr8tr")
-modulate_color = Color(0.156863, 0.156863, 0.156863, 0.647059)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8y2cc"]
+bg_color = Color(0.215686, 0.305882, 0.290196, 0.588235)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ntx3m"]
-texture = ExtResource("1_mr8tr")
-modulate_color = Color(0.156863, 0.156863, 0.156863, 0.784314)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3vyg"]
+bg_color = Color(0.215686, 0.305882, 0.290196, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nlj3p"]
-texture = ExtResource("1_mr8tr")
-modulate_color = Color(0.156863, 0.156863, 0.156863, 0.901961)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ojnvo"]
+bg_color = Color(0.14902, 0.211765, 0.2, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="MarginContainer" type="MarginContainer"]
-offset_right = 48.0
-offset_bottom = 48.0
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
+offset_right = 60.0
+offset_bottom = 60.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxTexture_ql4di")
-theme_override_styles/hover = SubResource("StyleBoxTexture_ntx3m")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_nlj3p")
+theme_override_styles/normal = SubResource("StyleBoxFlat_8y2cc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w3vyg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ojnvo")
 text = "||"
 script = ExtResource("2_7hqm3")
 

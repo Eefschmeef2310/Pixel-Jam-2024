@@ -178,7 +178,7 @@ func remove_order_at_cell(order: Order, w: int, h: int):
 	for x in order.width:
 		for y in order.height:
 			if grid[w+x][h+y] != null:
-				var particles: GPUParticles2D = matched_particles.instantiate()
+				var particles = matched_particles.instantiate()
 				get_parent().add_child(particles)
 				particles.global_position = grid[w+x][h+y].global_position
 				particles.emitting = true

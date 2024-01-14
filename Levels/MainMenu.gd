@@ -4,9 +4,16 @@ var options : PackedScene = preload("res://Levels/Options.tscn")
 var leaderboard : PackedScene = preload("res://Levels/Leaderboard.tscn")
 var credits : PackedScene = preload("res://Levels/Credits.tscn")
 
+var particles = preload("res://grid/matched_particles.tscn")
+
 func _ready():
 	$VBoxContainer2/QuitButton.visible = OS.get_name() != "Web"
 	OrderManager.timer_updating = false
+	
+	var p = particles.instantiate()
+	p.position.x = -1000
+	add_child(p)
+	p.emitting = true
 
 func _on_start_button_button_down():
 	ScoreManager.playtime = 0

@@ -1,13 +1,13 @@
 extends Node2D
 
-@onready var hair_back = $HairBack
-@onready var hair_back_color = $HairBackColor
-@onready var base = $Base
-@onready var base_clothes = $BaseClothes
-@onready var base_skin = $BaseSkin
-@onready var face = $Face
-@onready var hair_front = $HairFront
-@onready var hair_front_color = $HairFrontColor
+@onready var hair_back = $Parts/HairBack
+@onready var hair_back_color = $Parts/HairBackColor
+@onready var base = $Parts/Base
+@onready var base_clothes = $Parts/BaseClothes
+@onready var base_skin = $Parts/BaseSkin
+@onready var face = $Parts/Face
+@onready var hair_front = $Parts/HairFront
+@onready var hair_front_color = $Parts/HairFrontColor
 
 var tween: Tween
 
@@ -59,10 +59,13 @@ func exit():
 	tween.tween_callback(queue_free)
 
 func make_normal():
+	$AnimationPlayer.stop()
 	face.texture = PersonManager.face_normal
 
 func make_happy():
+	$AnimationPlayer.stop()
 	face.texture = PersonManager.face_happy
 	
 func make_annoyed():
+	$AnimationPlayer.play("bounce")
 	face.texture = PersonManager.face_annoyed

@@ -60,6 +60,9 @@ func _process(delta):
 		if !$Ticker.playing and timer_visual.value < 0.25 * timer_visual.max_value:
 			$Ticker.play()
 			$HBoxContainer/Panel/ProgressBar/TextureProgressBar/AnimationPlayer.play("TimerBounce")
+		elif $Ticker.playing and timer_visual.value >= 0.25 * timer_visual.max_value:
+			$Ticker.stop()
+			$HBoxContainer/Panel/ProgressBar/TextureProgressBar/AnimationPlayer.stop()
 
 func set_order(o: Order):
 	for child in grid.get_children():
