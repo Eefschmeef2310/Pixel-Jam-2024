@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bk0pln3ar4g4j"]
+
+[ext_resource type="Script" path="res://people/person_manager.gd" id="1_oftbt"]
+
+[node name="PersonManager" type="Node" node_paths=PackedStringArray("base_textures")]
+script = ExtResource("1_oftbt")
+base_textures = [null]
