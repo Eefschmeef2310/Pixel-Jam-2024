@@ -24,8 +24,10 @@ shape = SubResource("RectangleShape2D_ou0ej")
 
 [node name="ClickPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_3tj7j")
+bus = &"sfx"
 
 [node name="CellChangeStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_ws8my")
+bus = &"sfx"
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
