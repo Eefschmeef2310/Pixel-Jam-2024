@@ -11,11 +11,15 @@ var fruit_resources: Array[Fruit] = [
 	preload("res://fruits/resources/orange.tres"),
 	preload("res://fruits/resources/straw.tres")
 ]
-var generation_types: Array[String] = [
-	"generate_2x2"
-]
 var orders: Array = []
 var max_orders = 3
+
+@export var order_countdown_curve: Curve
+@export var order_arrival_curve: Curve
+
+var difficulty_timer: float = 0
+var max_difficulty_time: float = 300
+var timer_updating: bool = true
 
 var grid_node
 
@@ -29,7 +33,10 @@ func _ready():
 	
 	reset()
 
-func _process(_delta):
+func _process(delta):
+	if timer_updating:
+		difficulty_timer += delta
+	
 	if Input.is_action_just_pressed("space"):
 		if DisplayServer.window_get_mode(0) == DisplayServer.WINDOW_MODE_WINDOWED:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
@@ -38,6 +45,7 @@ func _process(_delta):
 
 func reset():
 	orders.clear()
+	difficulty_timer = 0.0
 
 func generate_2x2():
 	if grid_node and orders.size() < max_orders:
@@ -52,6 +60,7 @@ func generate_2x2():
 					order.grid[x][y] = fruit_resources.pick_random()
 		
 		order.type = "generate_2x2"
+		order.countdown = 40 * order_countdown_curve.sample(get_difficulty_curve_x())
 		orders.append(order)
 		orders_updated.emit()
 
@@ -67,7 +76,8 @@ func generate_2x4():
 				for y in order.height:
 					order.grid[x][y] = fruit_resources.pick_random()
 		
-		order.type = "generate_2x2"
+		order.type = "generate_2x4"
+		order.countdown = 55 * order_countdown_curve.sample(get_difficulty_curve_x())
 		orders.append(order)
 		orders_updated.emit()
 
@@ -83,7 +93,8 @@ func generate_4x2():
 				for y in order.height:
 					order.grid[x][y] = fruit_resources.pick_random()
 		
-		order.type = "generate_2x2"
+		order.type = "generate_4x2"
+		order.countdown = 55 * order_countdown_curve.sample(get_difficulty_curve_x())
 		orders.append(order)
 		orders_updated.emit()
 
@@ -100,6 +111,7 @@ func generate_3x3():
 					order.grid[x][y] = fruit_resources.pick_random()
 		
 		order.type = "generate_3x3"
+		order.countdown = 55 * order_countdown_curve.sample(get_difficulty_curve_x())
 		orders.append(order)
 		orders_updated.emit()
 
@@ -142,3 +154,6 @@ func get_order_index(order):
 		if orders[n] == order:
 			return n
 	return -1
+
+func get_difficulty_curve_x():
+	return difficulty_timer / max_difficulty_time

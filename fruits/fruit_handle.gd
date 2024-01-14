@@ -92,7 +92,6 @@ func _process(delta):
 				var difference = position.y - (starting_pos.y - parent.position.y)
 				difference += parent.cell_size/2
 				var amount = floor(difference/parent.cell_size)
-				print(amount)
 				if amount != last_amount:
 					cell_change_stream_player.play()
 					last_amount = amount
@@ -102,7 +101,6 @@ func _process(delta):
 				var difference = position.x - (starting_pos.x - parent.position.x)
 				difference += parent.cell_size/2
 				var amount = floor(difference/parent.cell_size)
-				print(amount)
 				if amount != last_amount:
 					cell_change_stream_player.play()
 					last_amount = amount

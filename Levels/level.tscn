@@ -25,13 +25,19 @@ centered = false
 script = ExtResource("1_aby30")
 
 [node name="EmptyRackTimer" type="Timer" parent="OrderGenerator"]
-wait_time = 2.0
+wait_time = 1.5
 one_shot = true
 autostart = true
 
 [node name="FullRackTimer" type="Timer" parent="OrderGenerator"]
 wait_time = 15.0
 one_shot = true
+autostart = true
+
+[node name="HardOrderTimer" type="Timer" parent="OrderGenerator"]
+wait_time = 40.0
+one_shot = true
+autostart = true
 
 [node name="OrderHUD" type="Control" parent="."]
 layout_mode = 3
@@ -52,3 +58,4 @@ script = ExtResource("2_ym37m")
 
 [connection signal="timeout" from="OrderGenerator/EmptyRackTimer" to="OrderGenerator" method="_on_empty_rack_timer_timeout"]
 [connection signal="timeout" from="OrderGenerator/FullRackTimer" to="OrderGenerator" method="_on_full_rack_timer_timeout"]
+[connection signal="timeout" from="OrderGenerator/HardOrderTimer" to="OrderGenerator" method="_on_hard_order_timer_timeout"]
