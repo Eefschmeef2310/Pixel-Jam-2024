@@ -130,10 +130,15 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 
 func _on_click_pressed():
 	#print("sheesh!")
+	$ClickPlayer.pitch_scale = 1.0
+	$ClickPlayer.play()
 	is_clicked = true
 	starting_mouse_coords = get_viewport().get_mouse_position()
 
 func _on_click_released():
+	
+	$ClickPlayer.pitch_scale = 0.8
+	$ClickPlayer.play()
 	#print("awwww...")
 	var parent = get_parent()
 	var amount = 0

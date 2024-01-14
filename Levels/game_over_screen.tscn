@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://chnoug0tvgb2m"]
+[gd_scene load_steps=5 format=3 uid="uid://chnoug0tvgb2m"]
 
 [ext_resource type="Script" path="res://Levels/game_over_screen.gd" id="1_b8ws5"]
+[ext_resource type="AudioStream" uid="uid://ly6b36cgi4tq" path="res://Audio/Crowd Boo - Sound Effect HD.mp3" id="2_xlfsj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hgwfp"]
 font_size = 24
@@ -60,5 +61,9 @@ theme_override_constants/margin_right = 50
 [node name="MenuButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 text = "Menu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_xlfsj")
+autoplay = true
 
 [connection signal="button_down" from="MarginContainer/VBoxContainer/MarginContainer/MenuButton" to="." method="_on_menu_button_button_down"]
