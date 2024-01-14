@@ -6,3 +6,4 @@ class_name  SaveDataRes
 @export var highscore : int
 @export var gamesPlayed : int
 @export var playtime : float
+@export var version : int
