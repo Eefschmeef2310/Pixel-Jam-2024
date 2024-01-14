@@ -16,15 +16,16 @@ font_size = 40
 
 [node name="BoxBG" type="Sprite2D" parent="."]
 texture_filter = 1
+position = Vector2(16, 0)
 texture = ExtResource("1_5ltcf")
 centered = false
 
 [node name="FruitGrid" parent="." instance=ExtResource("1_7hqhj")]
-position = Vector2(320, 40)
+position = Vector2(376, 80)
 
 [node name="Beach" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(32, 32)
+position = Vector2(50, 32)
 texture = ExtResource("3_f00c2")
 centered = false
 
@@ -65,7 +66,7 @@ size_flags_vertical = 3
 mouse_filter = 2
 
 [node name="TicketLine" type="Marker2D" parent="OrderHUD"]
-position = Vector2(254, 179)
+position = Vector2(271, 179)
 script = ExtResource("2_ym37m")
 
 [node name="Button" parent="OrderHUD" instance=ExtResource("7_trynf")]

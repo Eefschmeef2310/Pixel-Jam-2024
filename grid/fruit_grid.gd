@@ -3,8 +3,8 @@ extends Node2D
 var fruit_handle_scene = preload("res://fruits/fruit_handle.tscn")
 
 var grid: = []
-var width: int = 7
-var height: int = 7
+var width: int = 5
+var height: int = 5
 var cell_size: float = 40
 var fruit_counts: Dictionary
 

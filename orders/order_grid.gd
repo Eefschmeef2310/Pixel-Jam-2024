@@ -10,6 +10,9 @@ func _ready():
 	OrderManager.orders_updated.connect(_on_orders_updated)
 	_on_orders_updated()
 
+func _process(_delta):
+	pass
+
 func _on_orders_updated():
 	print("Updating orders.")
 	
@@ -43,7 +46,8 @@ func _on_orders_updated():
 			order_display.position.x += (slot * separation)
 			ticket_slots.append(order_display)
 	
-	# Move orders to new position
+	# Move orders to their proper positions
+	ticket_slots.sort_custom(sort_tickets_by_time_left)
 	for n in ticket_slots.size():
 		if ticket_slots[n] != null:
 			ticket_slots[n].target_position = Vector2(n * separation, 0)
@@ -61,9 +65,9 @@ func get_first_empty_slot():
 			return n
 	return -1
 
-#func sort_countdown(a: Order, b: Order):
-	#if a == null or b == null:
-		#return true
-	#if a.countdown > b.countdown:
-		#return true
-	#return false
+func sort_tickets_by_time_left(a, b):
+	if a == null or b == null:
+		return true
+	if a.timer.time_left < b.timer.time_left:
+		return true
+	return false
