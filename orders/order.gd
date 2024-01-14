@@ -7,4 +7,4 @@ var grid: Array
 var width: int
 var height: int
 var score: int = 4
-var countdown: float = 45.;
+var countdown: float = 45.

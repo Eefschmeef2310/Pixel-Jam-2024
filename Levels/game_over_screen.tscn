@@ -1,13 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://chnoug0tvgb2m"]
+[gd_scene load_steps=4 format=3 uid="uid://chnoug0tvgb2m"]
 
 [ext_resource type="Script" path="res://Levels/game_over_screen.gd" id="1_b8ws5"]
 [ext_resource type="AudioStream" uid="uid://ly6b36cgi4tq" path="res://Audio/Crowd Boo - Sound Effect HD.mp3" id="2_xlfsj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hgwfp"]
 font_size = 24
-
-[sub_resource type="LabelSettings" id="LabelSettings_onabd"]
-font_size = 32
 
 [node name="GameOverScreen" type="CanvasLayer"]
 process_mode = 3
@@ -31,7 +28,7 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 10
+theme_override_constants/separation = 30
 alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
@@ -44,13 +41,6 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "You left your customers waiting!"
 label_settings = SubResource("LabelSettings_hgwfp")
-horizontal_alignment = 1
-
-[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 64)
-layout_mode = 2
-text = "Score: 0"
-label_settings = SubResource("LabelSettings_onabd")
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
