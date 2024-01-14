@@ -25,7 +25,7 @@ func set_order(o: Order):
 	
 	#Set max timer
 	$TextureProgressBar/Timer.wait_time = order.countdown
-	$TextureProgressBar/Timer.start()
+	#$TextureProgressBar/Timer.start()
 	timer_visual.max_value = order.countdown
 
 
