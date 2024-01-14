@@ -4,8 +4,20 @@ extends Control
 @onready var grid = $OrderDisplay/H/V/GridContainer
 @onready var timer_visual = $TextureProgressBar
 
+var tween: Tween
+
 func _ready():
 	$OrderDisplay/PegsTexture.modulate = Color.from_hsv(randf_range(0, 1), 0.8, 1, 1)
+	position.y = 40
+	modulate.a = 0
+	if tween:
+		tween.kill() # Abort the previous animation.
+	tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(self, "position:y", 0, 0.5)
+	tween.parallel().tween_property(self, "modulate:a", 1, 0.5)
+	
 
 func _process(_delta):
 	timer_visual.value = $TextureProgressBar/Timer.time_left
@@ -25,7 +37,7 @@ func set_order(o: Order):
 	
 	#Set max timer
 	$TextureProgressBar/Timer.wait_time = order.countdown
-	#$TextureProgressBar/Timer.start()
+	$TextureProgressBar/Timer.start()
 	timer_visual.max_value = order.countdown
 
 

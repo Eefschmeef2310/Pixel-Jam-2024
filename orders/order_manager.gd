@@ -12,6 +12,7 @@ var generation_types: Array[String] = [
 	"generate_2x2"
 ]
 var orders: Array = []
+var max_orders = 3
 
 var grid_node
 
