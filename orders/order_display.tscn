@@ -7,7 +7,14 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3i5cl"]
 
-[node name="OrderDisplay" type="PanelContainer"]
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 72.0
+offset_bottom = 78.0
+
+[node name="OrderDisplay" type="PanelContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -20,81 +27,81 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_3i5cl")
 script = ExtResource("1_ycrbv")
 
-[node name="BaseTexture" type="TextureRect" parent="."]
+[node name="BaseTexture" type="TextureRect" parent="OrderDisplay"]
 layout_mode = 2
 texture = ExtResource("2_ypesb")
 
-[node name="PegsTexture" type="TextureRect" parent="."]
+[node name="PegsTexture" type="TextureRect" parent="OrderDisplay"]
 modulate = Color(0.917647, 0.278431, 1, 1)
 layout_mode = 2
 texture = ExtResource("3_85abq")
 
-[node name="H" type="HBoxContainer" parent="."]
+[node name="H" type="HBoxContainer" parent="OrderDisplay"]
 custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
 size_flags_vertical = 8
 alignment = 1
 
-[node name="V" type="VBoxContainer" parent="H"]
+[node name="V" type="VBoxContainer" parent="OrderDisplay/H"]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="H/V"]
+[node name="GridContainer" type="GridContainer" parent="OrderDisplay/H/V"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 3
 
-[node name="TextureRect" type="TextureRect" parent="H/V/GridContainer"]
+[node name="TextureRect" type="TextureRect" parent="OrderDisplay/H/V/GridContainer"]
 custom_minimum_size = Vector2(15, 15)
 layout_mode = 2
 texture = ExtResource("1_qvbhj")
 expand_mode = 1
 
-[node name="TextureRect2" type="TextureRect" parent="H/V/GridContainer"]
+[node name="TextureRect2" type="TextureRect" parent="OrderDisplay/H/V/GridContainer"]
 custom_minimum_size = Vector2(15, 15)
 layout_mode = 2
 texture = ExtResource("1_qvbhj")
 expand_mode = 1
 
-[node name="TextureRect3" type="TextureRect" parent="H/V/GridContainer"]
+[node name="TextureRect3" type="TextureRect" parent="OrderDisplay/H/V/GridContainer"]
 custom_minimum_size = Vector2(15, 15)
 layout_mode = 2
 texture = ExtResource("1_qvbhj")
 expand_mode = 1
 
-[node name="TextureRect4" type="TextureRect" parent="H/V/GridContainer"]
+[node name="TextureRect4" type="TextureRect" parent="OrderDisplay/H/V/GridContainer"]
 custom_minimum_size = Vector2(15, 15)
 layout_mode = 2
 texture = ExtResource("1_qvbhj")
 expand_mode = 1
 
-[node name="TextureRect5" type="TextureRect" parent="H/V/GridContainer"]
+[node name="TextureRect5" type="TextureRect" parent="OrderDisplay/H/V/GridContainer"]
 custom_minimum_size = Vector2(15, 15)
 layout_mode = 2
 texture = ExtResource("1_qvbhj")
 expand_mode = 1
 
-[node name="TextureRect6" type="TextureRect" parent="H/V/GridContainer"]
+[node name="TextureRect6" type="TextureRect" parent="OrderDisplay/H/V/GridContainer"]
 custom_minimum_size = Vector2(15, 15)
 layout_mode = 2
 texture = ExtResource("1_qvbhj")
 expand_mode = 1
 
-[node name="TextureRect7" type="TextureRect" parent="H/V/GridContainer"]
+[node name="TextureRect7" type="TextureRect" parent="OrderDisplay/H/V/GridContainer"]
 custom_minimum_size = Vector2(15, 15)
 layout_mode = 2
 texture = ExtResource("1_qvbhj")
 expand_mode = 1
 
-[node name="TextureRect8" type="TextureRect" parent="H/V/GridContainer"]
+[node name="TextureRect8" type="TextureRect" parent="OrderDisplay/H/V/GridContainer"]
 custom_minimum_size = Vector2(15, 15)
 layout_mode = 2
 texture = ExtResource("1_qvbhj")
 expand_mode = 1
 
-[node name="TextureRect9" type="TextureRect" parent="H/V/GridContainer"]
+[node name="TextureRect9" type="TextureRect" parent="OrderDisplay/H/V/GridContainer"]
 custom_minimum_size = Vector2(15, 15)
 layout_mode = 2
 texture = ExtResource("1_qvbhj")

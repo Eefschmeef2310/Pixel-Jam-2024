@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dvmjnjawebopn"]
+[gd_scene load_steps=4 format=3 uid="uid://78opwrkl1etr"]
 
 [ext_resource type="Script" path="res://Levels/Credits.gd" id="1_skwrs"]
 [ext_resource type="Texture2D" uid="uid://csc6iinwpt64s" path="res://Placeholder Sprites/chalk-rubbed-out-on-blackboard-600nw-226458436.png" id="2_r4qs5"]
@@ -20,53 +20,57 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -190.0
-offset_top = -110.0
-offset_right = -190.0
-offset_bottom = -110.0
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = 3.14159
-pivot_offset = Vector2(576, 324)
 texture = ExtResource("2_r4qs5")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -302.0
+offset_right = 302.0
+offset_bottom = 330.0
 grow_horizontal = 2
-grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 0
 theme_override_constants/separation = 10
 
-[node name="Credits" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Leaderboard" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 40
 text = "LEADERBOARD"
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(544.705, 283.115)
+custom_minimum_size = Vector2(544.705, 197.55)
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("3_48xuk")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TextureRect"]
+[node name="Names" type="Label" parent="MarginContainer/VBoxContainer/TextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 133.0
+offset_top = 19.0
+offset_right = 137.295
+offset_bottom = 130.45
 grow_horizontal = 2
 grow_vertical = 2
-text = "One - 1
-Two - 2
-Three - 3"
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 60
+text = "Ethan Lucas
+Xander Akkari
+Tom Howarth
+Lauren Szmandiuk"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
