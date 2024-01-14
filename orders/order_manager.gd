@@ -18,7 +18,8 @@ var max_orders = 3
 @export var order_arrival_curve: Curve
 
 var difficulty_timer: float = 0
-var max_difficulty_time: float = 300
+var max_difficulty_time: float = 360
+var hard_order_threshold: float = 200
 var timer_updating: bool = true
 
 var grid_node
@@ -56,7 +57,7 @@ func generate_2x2():
 			order = Order.new()
 			order.width = 2
 			order.height = 2
-			order.grid = [[0,0],[0,0]]
+			order.grid = [[null,null],[null,null]]
 			for x in order.width:
 				for y in order.height:
 					order.grid[x][y] = fruit_resources.pick_random()
@@ -67,6 +68,80 @@ func generate_2x2():
 		orders.append(order)
 		orders_updated.emit()
 
+func generate_3x2():
+	if grid_node and orders.size() < max_orders:
+		var order
+		while !order or !count_order_against_grid(order):
+			order = Order.new()
+			order.width = 3
+			order.height = 2
+			order.grid = [[null,null],[null,null],[null,null]]
+			for x in order.width:
+				for y in order.height:
+					order.grid[x][y] = fruit_resources.pick_random()
+		
+		order.type = "generate_2x2"
+		order.countdown = 60 * order_countdown_curve.sample(get_difficulty_curve_x())
+		order.score = 6
+		orders.append(order)
+		orders_updated.emit()
+
+func generate_2x3():
+	if grid_node and orders.size() < max_orders:
+		var order
+		while !order or !count_order_against_grid(order):
+			order = Order.new()
+			order.width = 2
+			order.height = 3
+			order.grid = [[null,null,null],[null,null,null]]
+			for x in order.width:
+				for y in order.height:
+					order.grid[x][y] = fruit_resources.pick_random()
+		
+		order.type = "generate_2x2"
+		order.countdown = 60 * order_countdown_curve.sample(get_difficulty_curve_x())
+		order.score = 6
+		orders.append(order)
+		orders_updated.emit()
+
+func generate_3x3_cross():
+	if grid_node and orders.size() < max_orders:
+		var order
+		while !order or !count_order_against_grid(order):
+			order = Order.new()
+			order.width = 3
+			order.height = 3
+			order.grid = [[null,null,null],[null,null,null],[null,null,null]]
+			order.grid[1][0] = fruit_resources.pick_random()
+			order.grid[0][1] = fruit_resources.pick_random()
+			order.grid[1][1] = fruit_resources.pick_random()
+			order.grid[2][1] = fruit_resources.pick_random()
+			order.grid[1][2] = fruit_resources.pick_random()
+		
+		order.type = "generate_3x3"
+		order.countdown = 75 * order_countdown_curve.sample(get_difficulty_curve_x())
+		order.score = 9
+		orders.append(order)
+		orders_updated.emit()
+
+func generate_3x3():
+	if grid_node and orders.size() < max_orders:
+		var order
+		while !order or !count_order_against_grid(order):
+			order = Order.new()
+			order.width = 3
+			order.height = 3
+			order.grid = [[null,null,null],[null,null,null],[null,null,null]]
+			for x in order.width:
+				for y in order.height:
+					order.grid[x][y] = fruit_resources.pick_random()
+		
+		order.type = "generate_3x3"
+		order.countdown = 75 * order_countdown_curve.sample(get_difficulty_curve_x())
+		order.score = 9
+		orders.append(order)
+		orders_updated.emit()
+
 func generate_2x4():
 	if grid_node and orders.size() < max_orders:
 		var order
@@ -74,7 +149,7 @@ func generate_2x4():
 			order = Order.new()
 			order.width = 2
 			order.height = 4
-			order.grid = [[0,0,0,0],[0,0,0,0]]
+			order.grid = [[null,null,null,null],[null,null,null,null]]
 			for x in order.width:
 				for y in order.height:
 					order.grid[x][y] = fruit_resources.pick_random()
@@ -92,30 +167,12 @@ func generate_4x2():
 			order = Order.new()
 			order.width = 4
 			order.height = 2
-			order.grid = [[0,0],[0,0],[0,0],[0,0]]
+			order.grid = [[null,null],[null,null],[null,null],[null,null]]
 			for x in order.width:
 				for y in order.height:
 					order.grid[x][y] = fruit_resources.pick_random()
 		
 		order.type = "generate_4x2"
-		order.countdown = 75 * order_countdown_curve.sample(get_difficulty_curve_x())
-		order.score = 9
-		orders.append(order)
-		orders_updated.emit()
-
-func generate_3x3():
-	if grid_node and orders.size() < max_orders:
-		var order
-		while !order or !count_order_against_grid(order):
-			order = Order.new()
-			order.width = 3
-			order.height = 3
-			order.grid = [[0,0,0],[0,0,0],[0,0,0]]
-			for x in order.width:
-				for y in order.height:
-					order.grid[x][y] = fruit_resources.pick_random()
-		
-		order.type = "generate_3x3"
 		order.countdown = 75 * order_countdown_curve.sample(get_difficulty_curve_x())
 		order.score = 9
 		orders.append(order)
@@ -135,7 +192,9 @@ func count_order_against_grid(order: Order):
 		dict[fruit] = 0
 	for w in order.width:
 		for h in order.height:
-			dict[order.grid[w][h]] += 1
+			print(order.grid[w][h])
+			if order.grid[w][h] != null:
+				dict[order.grid[w][h]] += 1
 	for key in dict:
 		if dict[key] > grid_node.fruit_counts[key]:
 			return false

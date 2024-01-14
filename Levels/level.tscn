@@ -42,7 +42,7 @@ one_shot = true
 autostart = true
 
 [node name="HardOrderTimer" type="Timer" parent="OrderGenerator"]
-wait_time = 40.0
+wait_time = 30.0
 one_shot = true
 autostart = true
 
