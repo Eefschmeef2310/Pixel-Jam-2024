@@ -1,0 +1,46 @@
+[gd_scene load_steps=10 format=3 uid="uid://dkpetubbgifjt"]
+
+[ext_resource type="Script" path="res://people/person.gd" id="1_44q7q"]
+[ext_resource type="Texture2D" uid="uid://dumdtyfgq046d" path="res://people/sprites/hair_back/hair_back4.png" id="1_xi3dc"]
+[ext_resource type="Texture2D" uid="uid://b4nylrepan586" path="res://people/sprites/hair_back/hair_back_color4.png" id="2_58wqr"]
+[ext_resource type="Texture2D" uid="uid://bjvopt30jjire" path="res://people/sprites/base/base4.png" id="3_pvqr8"]
+[ext_resource type="Texture2D" uid="uid://dp7q6ammgusc1" path="res://people/sprites/base/base_clothes4.png" id="4_32aqf"]
+[ext_resource type="Texture2D" uid="uid://cqk6uhgc73vb7" path="res://people/sprites/base/base_skin4.png" id="5_cjw75"]
+[ext_resource type="Texture2D" uid="uid://ccarjn1jkc8ak" path="res://people/sprites/face_normal.png" id="6_iaswg"]
+[ext_resource type="Texture2D" uid="uid://d4n1vykf4t1q1" path="res://people/sprites/hair_front/hair_front4.png" id="7_eibrj"]
+[ext_resource type="Texture2D" uid="uid://dkoar6vmmia8b" path="res://people/sprites/hair_front/hair_front_color4.png" id="8_eeign"]
+
+[node name="Person" type="Node2D"]
+script = ExtResource("1_44q7q")
+
+[node name="HairBack" type="Sprite2D" parent="."]
+position = Vector2(47, 68.5)
+texture = ExtResource("1_xi3dc")
+
+[node name="HairBackColor" type="Sprite2D" parent="."]
+position = Vector2(47, 68.5)
+texture = ExtResource("2_58wqr")
+
+[node name="Base" type="Sprite2D" parent="."]
+position = Vector2(47, 68.5)
+texture = ExtResource("3_pvqr8")
+
+[node name="BaseClothes" type="Sprite2D" parent="."]
+position = Vector2(47, 68.5)
+texture = ExtResource("4_32aqf")
+
+[node name="BaseSkin" type="Sprite2D" parent="."]
+position = Vector2(47, 68.5)
+texture = ExtResource("5_cjw75")
+
+[node name="Face" type="Sprite2D" parent="."]
+position = Vector2(47, 68.5)
+texture = ExtResource("6_iaswg")
+
+[node name="HairFront" type="Sprite2D" parent="."]
+position = Vector2(47, 68.5)
+texture = ExtResource("7_eibrj")
+
+[node name="HairFrontColor" type="Sprite2D" parent="."]
+position = Vector2(47, 68.5)
+texture = ExtResource("8_eeign")
