@@ -49,5 +49,21 @@ func set_order(o: Order):
 	$TextureProgressBar/Timer.start()
 	timer_visual.max_value = order.countdown
 
+func complete_ticket():
+	$TextureProgressBar/Timer.stop()
+	#$ProgressBarBack.hide()
+	timer_visual.hide()
+	modulate = Color.GREEN
+	
+	if tween:
+		tween.kill() # Abort the previous animation.
+	tween = create_tween()
+	tween.set_ease(Tween.EASE_IN)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(self, "position:y", 40, 0.5)
+	tween.parallel().tween_property(self, "modulate:a", 0, 0.5)
+	tween.tween_callback(queue_free)
+	
+
 func _on_timer_timeout():
 	GameOverManager.game_over()

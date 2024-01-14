@@ -1,5 +1,8 @@
 extends Node2D
 
+var sound : AudioStream = preload("res://Audio/fruit-impact-2-105282.mp3")
+var player : AudioStreamPlayer = AudioStreamPlayer.new()
+
 @onready var sprite_2d = $Sprite2D
 @export var fruit: Fruit
 
@@ -13,8 +16,11 @@ var cell_offset: Vector2
 var controlling_handles: Array = []
 var temp_handles: Array = []
 
+func _ready():
+	player.stream = sound
+	add_child(player)
+
 func _process(delta):
-	
 	if is_clicked:
 		var mouse_pos = get_viewport().get_mouse_position()
 		var parent = get_parent()
@@ -76,6 +82,7 @@ func _process(delta):
 		if Input.is_action_just_released("click"):
 			_on_click_released()
 
+
 	if movement_direction != Vector2(0, 0):
 		var parent = get_parent()
 		var pos = get_viewport().get_mouse_position() + (cell_offset * parent.cell_size)
@@ -130,6 +137,7 @@ func _on_click_released():
 	#print("awwww...")
 	var parent = get_parent()
 	var amount = 0
+	
 	if movement_direction.x == 1:
 		var self_coords = parent.get_fruit_coords(self)
 		var difference = position.x - (starting_pos.x - parent.position.x)
