@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5iqtehf83fxv"]
+[gd_scene load_steps=11 format=3 uid="uid://b5iqtehf83fxv"]
 
 [ext_resource type="Texture2D" uid="uid://d1heh2edqed3d" path="res://Levels/sprites/box_mask.png" id="1_5ltcf"]
 [ext_resource type="PackedScene" uid="uid://bx0tw6jqlatg" path="res://grid/fruit_grid.tscn" id="1_7hqhj"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dj8m5m0b5rxdr" path="res://Levels/sprites/bg.png" id="3_f00c2"]
 [ext_resource type="PackedScene" uid="uid://booyiulogg1t1" path="res://MenuUtilities/PauseButton.tscn" id="7_trynf"]
 [ext_resource type="Script" path="res://MenuUtilities/ScoreLabel.gd" id="8_as3h5"]
+[ext_resource type="AudioStream" uid="uid://d2mmi0p5uveku" path="res://Audio/[HookSounds] Elegant Jazz-[AudioTrimmer.com].mp3" id="9_i5wrt"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_54xkj"]
 font_size = 30
@@ -88,6 +89,12 @@ label_settings = SubResource("LabelSettings_54xkj")
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("8_as3h5")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_i5wrt")
+volume_db = -30.0
+autoplay = true
+bus = &"music"
 
 [connection signal="timeout" from="OrderGenerator/EmptyRackTimer" to="OrderGenerator" method="_on_empty_rack_timer_timeout"]
 [connection signal="timeout" from="OrderGenerator/FullRackTimer" to="OrderGenerator" method="_on_full_rack_timer_timeout"]

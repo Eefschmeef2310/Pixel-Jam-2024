@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d2mmi0p5uveku"
+path="res://.godot/imported/[HookSounds] Elegant Jazz-[AudioTrimmer.com].mp3-c43166ccd424e205642021e8e0ac3bf6.mp3str"
+
+[deps]
+
+source_file="res://Audio/[HookSounds] Elegant Jazz-[AudioTrimmer.com].mp3"
+dest_files=["res://.godot/imported/[HookSounds] Elegant Jazz-[AudioTrimmer.com].mp3-c43166ccd424e205642021e8e0ac3bf6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
