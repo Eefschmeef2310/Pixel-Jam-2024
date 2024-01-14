@@ -82,8 +82,5 @@ script = ExtResource("7_2551l")
 
 [connection signal="timeout" from="OrderGenerator/EmptyRackTimer" to="OrderGenerator" method="_on_empty_rack_timer_timeout"]
 [connection signal="timeout" from="OrderGenerator/FullRackTimer" to="OrderGenerator" method="_on_full_rack_timer_timeout"]
-<<<<<<< HEAD
 [connection signal="timeout" from="OrderGenerator/HardOrderTimer" to="OrderGenerator" method="_on_hard_order_timer_timeout"]
-=======
 [connection signal="button_down" from="OrderHUD/Button" to="OrderHUD/Button" method="_on_button_down"]
->>>>>>> Pause
