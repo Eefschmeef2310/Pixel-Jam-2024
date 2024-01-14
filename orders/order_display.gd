@@ -1,10 +1,14 @@
-extends PanelContainer
+extends Control
 
-var order: Order
-@onready var grid = $H/V/GridContainer
+@onready var order: Order
+@onready var grid = $OrderDisplay/H/V/GridContainer
+@onready var timer_visual = $TextureProgressBar
 
 func _ready():
-	$PegsTexture.modulate = Color.from_hsv(randf_range(0, 1), 0.8, 1, 1)
+	$OrderDisplay/PegsTexture.modulate = Color.from_hsv(randf_range(0, 1), 0.8, 1, 1)
+
+func _process(_delta):
+	timer_visual.value = $TextureProgressBar/Timer.time_left
 
 func set_order(o: Order):
 	for child in grid.get_children():
@@ -21,7 +25,7 @@ func set_order(o: Order):
 	
 	#Set max timer
 	$TextureProgressBar/Timer.wait_time = order.countdown
-	$TextureProgressBar/Timer.start()
+	#$TextureProgressBar/Timer.start()
 	timer_visual.max_value = order.countdown
 
 

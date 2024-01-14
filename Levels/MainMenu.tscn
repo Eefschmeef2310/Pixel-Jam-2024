@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cl25qlc8an1o5" path="res://SteamTingrayGradient.png" id="1_6i2go"]
 [ext_resource type="Texture2D" uid="uid://csc6iinwpt64s" path="res://Placeholder Sprites/chalk-rubbed-out-on-blackboard-600nw-226458436.png" id="1_87ax7"]
 [ext_resource type="Script" path="res://Levels/MainMenu.gd" id="1_powae"]
-[ext_resource type="Shader" path="res://Levels/Chalk.gdshader" id="2_mxbxc"]
+[ext_resource type="Shader" path="res://Shaders/Chalk.gdshader" id="2_mxbxc"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_72w01"]
 frequency = 0.276
@@ -79,7 +79,7 @@ theme_override_constants/separation = 40
 layout_mode = 2
 text = "START"
 
-[node name="Button2" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer2"]
+[node name="LeaderboardButton" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer2"]
 layout_mode = 2
 text = "LEADERBOARD"
 
@@ -92,5 +92,6 @@ layout_mode = 2
 text = "QUIT"
 
 [connection signal="button_down" from="HBoxContainer/MarginContainer/VBoxContainer2/Button" to="." method="_on_button_button_down"]
+[connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer2/LeaderboardButton" to="." method="_on_leaderboard_button_pressed"]
 [connection signal="button_down" from="HBoxContainer/MarginContainer/VBoxContainer2/Button4" to="." method="_on_button_2_button_down"]
 [connection signal="button_down" from="HBoxContainer/MarginContainer/VBoxContainer2/Button3" to="." method="_on_button_3_button_down"]

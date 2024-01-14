@@ -6,3 +6,5 @@ var type: String = "generate_2x2"
 var grid: Array
 var width: int
 var height: int
+
+var countdown: float = 10.;

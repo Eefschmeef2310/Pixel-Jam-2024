@@ -25,7 +25,6 @@ float pixelIntensity(vec2 uv, vec2 d, sampler2D tex, vec2 iResolution) {
 	return intensity(pix);
 }
 
-
 float convolv(mat3 a, mat3 b) {
 	float result = 0.0;
 

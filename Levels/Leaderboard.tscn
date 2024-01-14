@@ -1,0 +1,129 @@
+[gd_scene load_steps=7 format=3 uid="uid://78opwrkl1etr"]
+
+[ext_resource type="Script" path="res://Levels/Credits.gd" id="1_skwrs"]
+[ext_resource type="Texture2D" uid="uid://csc6iinwpt64s" path="res://Placeholder Sprites/chalk-rubbed-out-on-blackboard-600nw-226458436.png" id="2_r4qs5"]
+[ext_resource type="Texture2D" uid="uid://4kum5w36iqb4" path="res://Sprites/paste.png" id="3_48xuk"]
+[ext_resource type="PackedScene" uid="uid://cn8inqvlch863" path="res://OnlineFeatures/leaderboard_entry.tscn" id="3_gvkl2"]
+[ext_resource type="Script" path="res://OnlineFeatures/LeaderboardManager.gd" id="3_hllgt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2iqt2"]
+
+[node name="Leaderboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_skwrs")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_r4qs5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -302.0
+offset_right = 302.0
+offset_bottom = 330.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+
+[node name="LeaderboardTitle" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "LEADERBOARD"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+script = ExtResource("3_hllgt")
+entryPrefab = ExtResource("3_gvkl2")
+
+[node name="EntryContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Leaderboard Entry" parent="MarginContainer/VBoxContainer/ScrollContainer/EntryContainer" instance=ExtResource("3_gvkl2")]
+visible = false
+layout_mode = 2
+
+[node name="Leaderboard Entry2" parent="MarginContainer/VBoxContainer/ScrollContainer/EntryContainer" instance=ExtResource("3_gvkl2")]
+visible = false
+layout_mode = 2
+
+[node name="Leaderboard Entry3" parent="MarginContainer/VBoxContainer/ScrollContainer/EntryContainer" instance=ExtResource("3_gvkl2")]
+visible = false
+layout_mode = 2
+
+[node name="Leaderboard Entry4" parent="MarginContainer/VBoxContainer/ScrollContainer/EntryContainer" instance=ExtResource("3_gvkl2")]
+visible = false
+layout_mode = 2
+
+[node name="Leaderboard Entry5" parent="MarginContainer/VBoxContainer/ScrollContainer/EntryContainer" instance=ExtResource("3_gvkl2")]
+visible = false
+layout_mode = 2
+
+[node name="LeaderboardRequest" type="HTTPRequest" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+
+[node name="LoadingLabel" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Loading..."
+label_settings = SubResource("LabelSettings_2iqt2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(544.705, 197.55)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("3_48xuk")
+expand_mode = 1
+
+[node name="Names" type="Label" parent="MarginContainer/VBoxContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 133.0
+offset_top = 19.0
+offset_right = 137.295
+offset_bottom = 130.45
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 60
+text = "Ethan Lucas
+Xander Akkari
+Tom Howarth
+Lauren Szmandiuk"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Menu"
+
+[connection signal="request_completed" from="MarginContainer/VBoxContainer/ScrollContainer/LeaderboardRequest" to="MarginContainer/VBoxContainer/ScrollContainer" method="_on_leaderboard_request_request_completed"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_button_down"]

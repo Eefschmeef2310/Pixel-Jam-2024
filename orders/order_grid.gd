@@ -7,12 +7,12 @@ func _ready():
 	_on_orders_updated()
 
 func _on_orders_updated():
-	print("Updating orders.")
+	#print("Updating orders.")
 	for child in get_children():
 		child.queue_free()
 	
 	for order in OrderManager.orders:
-		print(order.name)
+		#print(order.name)
 		var order_display = ORDER_DISPLAY.instantiate()
 		add_child(order_display)
 		order_display.set_order(order)
