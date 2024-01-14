@@ -12,7 +12,7 @@ var target_position: Vector2
 var tween: Tween
 
 func _ready():
-	$HBoxContainer/Panel/PegsTexture.modulate = Color.from_hsv(randf_range(0, 1), 0.8, 1, 1)
+	#$HBoxContainer/Panel/PegsTexture.modulate = Color.from_hsv(randf_range(0, 1), 0.8, 1, 1)
 	position.y = 40
 	modulate.a = 0
 	if tween:
@@ -45,7 +45,8 @@ func set_order(o: Order):
 			var rect = TextureRect.new()
 			rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 			rect.custom_minimum_size = Vector2(16, 16)
-			rect.texture = order.grid[x][y].texture_small
+			if order.grid[x][y] != null:
+				rect.texture = order.grid[x][y].texture
 			grid.add_child(rect)
 	
 	#Set max timer

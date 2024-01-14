@@ -169,7 +169,7 @@ func check_order(order: Order):
 func check_order_at_cell(order: Order, w: int, h: int):
 	for x in order.width:
 		for y in order.height:
-			if grid[w+x][h+y].fruit != order.grid[x][y]:
+			if order.grid[x][y] != null and grid[w+x][h+y].fruit != order.grid[x][y]:
 				return false
 	return true
 

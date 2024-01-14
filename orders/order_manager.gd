@@ -77,7 +77,7 @@ func generate_2x4():
 					order.grid[x][y] = fruit_resources.pick_random()
 		
 		order.type = "generate_2x4"
-		order.countdown = 55 * order_countdown_curve.sample(get_difficulty_curve_x())
+		order.countdown = 75 * order_countdown_curve.sample(get_difficulty_curve_x())
 		orders.append(order)
 		orders_updated.emit()
 
@@ -94,7 +94,7 @@ func generate_4x2():
 					order.grid[x][y] = fruit_resources.pick_random()
 		
 		order.type = "generate_4x2"
-		order.countdown = 55 * order_countdown_curve.sample(get_difficulty_curve_x())
+		order.countdown = 75 * order_countdown_curve.sample(get_difficulty_curve_x())
 		orders.append(order)
 		orders_updated.emit()
 
@@ -111,7 +111,7 @@ func generate_3x3():
 					order.grid[x][y] = fruit_resources.pick_random()
 		
 		order.type = "generate_3x3"
-		order.countdown = 55 * order_countdown_curve.sample(get_difficulty_curve_x())
+		order.countdown = 75 * order_countdown_curve.sample(get_difficulty_curve_x())
 		orders.append(order)
 		orders_updated.emit()
 
