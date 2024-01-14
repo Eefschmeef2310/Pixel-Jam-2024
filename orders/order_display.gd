@@ -5,7 +5,7 @@ extends Control
 @onready var order: Order
 @onready var grid = $HBoxContainer/Panel/MarginContainer/GridContainer
 @onready var timer_visual = $HBoxContainer/Panel/ProgressBar/TextureProgressBar
-@onready var timer = $HBoxContainer/Panel/ProgressBar/TextureProgressBar/Timer
+@onready var timer: Timer = $HBoxContainer/Panel/ProgressBar/TextureProgressBar/Timer
 
 var target_position: Vector2
 
@@ -68,6 +68,13 @@ func complete_ticket():
 	tween.tween_property(self, "position:y", 40, 0.5)
 	tween.parallel().tween_property(self, "modulate:a", 0, 0.5)
 	tween.tween_callback(queue_free)
+	
+
+func add_time(time: float):
+	var time_left = timer.time_left
+	timer.stop()
+	timer.wait_time = time_left + time
+	timer.start()
 	
 
 func _on_timer_timeout():

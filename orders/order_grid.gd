@@ -21,12 +21,19 @@ func _on_orders_updated():
 			ticket_slots[n].complete_ticket()
 			ticket_slots[n] = null
 
+	# Erase null entries
 	for n in ticket_slots.size():
 		ticket_slots.erase(null)
 
+	# Add time to each order if there is a last completed score saved
+	if OrderManager.last_completed_order_score != 0:
+		for ticket in ticket_slots:
+			ticket.add_time(OrderManager.last_completed_order_score)
+		OrderManager.last_completed_order_score = 0
+	
+	# Check that there isn't already a ticket for each order
+	# If there isn't, spawn a new ticket for it in an empty slot.
 	for order in OrderManager.orders:
-		# Check that there isn't already a ticket for this order
-		# If there isn't, spawn a new ticket for it in an empty slot.
 		if get_ticket_index(order) == -1:
 			var slot = ticket_slots.size()
 			var order_display = ORDER_DISPLAY.instantiate()
@@ -36,6 +43,7 @@ func _on_orders_updated():
 			order_display.position.x += (slot * separation)
 			ticket_slots.append(order_display)
 	
+	# Move orders to new position
 	for n in ticket_slots.size():
 		if ticket_slots[n] != null:
 			ticket_slots[n].target_position = Vector2(n * separation, 0)
@@ -53,9 +61,9 @@ func get_first_empty_slot():
 			return n
 	return -1
 
-func sort_countdown(a: Order, b: Order):
-	if a == null or b == null:
-		return true
-	if a.countdown > b.countdown:
-		return true
-	return false
+#func sort_countdown(a: Order, b: Order):
+	#if a == null or b == null:
+		#return true
+	#if a.countdown > b.countdown:
+		#return true
+	#return false
