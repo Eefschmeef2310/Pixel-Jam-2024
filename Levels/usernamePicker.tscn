@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d4dqulc66ytm4"]
 
-[ext_resource type="Script" path="res://usernamePicker.gd" id="1_rscvl"]
+[ext_resource type="Script" path="res://OnlineFeatures/usernamePicker.gd" id="1_rscvl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_16ysa"]
 
