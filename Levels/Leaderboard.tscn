@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cts543s5udfqh"]
+[gd_scene load_steps=8 format=3 uid="uid://cts543s5udfqh"]
 
 [ext_resource type="Script" path="res://Levels/Credits.gd" id="1_skwrs"]
 [ext_resource type="Texture2D" uid="uid://b22i4d1ye60mg" path="res://Levels/sprites/bg2.png" id="2_xwana"]
@@ -6,7 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://cn8inqvlch863" path="res://OnlineFeatures/leaderboard_entry.tscn" id="3_gvkl2"]
 [ext_resource type="Script" path="res://OnlineFeatures/LeaderboardManager.gd" id="3_hllgt"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_lokh0"]
+font_size = 45
+font_color = Color(0.215686, 0.305882, 0.290196, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_2iqt2"]
+font_color = Color(0.215686, 0.305882, 0.290196, 1)
 
 [node name="Leaderboard" type="Control"]
 layout_mode = 3
@@ -51,6 +56,7 @@ theme_override_constants/separation = 10
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "LEADERBOARD"
+label_settings = SubResource("LabelSettings_lokh0")
 horizontal_alignment = 1
 
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]

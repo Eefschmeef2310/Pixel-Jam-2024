@@ -5,7 +5,7 @@ var leaderboard : PackedScene = preload("res://Levels/Leaderboard.tscn")
 var credits : PackedScene = preload("res://Levels/Credits.tscn")
 
 func _ready():
-	$HBoxContainer/MarginContainer/VBoxContainer2/QuitButton.visible = OS.get_name() != "Web"
+	$VBoxContainer2/QuitButton.visible = OS.get_name() != "Web"
 	OrderManager.timer_updating = false
 
 func _on_start_button_button_down():

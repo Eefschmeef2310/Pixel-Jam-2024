@@ -1,28 +1,19 @@
-[gd_scene load_steps=11 format=3 uid="uid://dqnxq8v8v3afl"]
+[gd_scene load_steps=8 format=3 uid="uid://dqnxq8v8v3afl"]
 
 [ext_resource type="Script" path="res://Levels/Credits.gd" id="1_bry0b"]
 [ext_resource type="Texture2D" uid="uid://4kum5w36iqb4" path="res://Sprites/paste.png" id="2_4w871"]
 [ext_resource type="Texture2D" uid="uid://b22i4d1ye60mg" path="res://Levels/sprites/bg2.png" id="2_dnpfq"]
-[ext_resource type="Shader" path="res://Shaders/Logo.gdshader" id="3_b02fu"]
 [ext_resource type="Texture2D" uid="uid://cl25qlc8an1o5" path="res://SteamTingrayGradient.png" id="4_6xg7m"]
+[ext_resource type="Texture2D" uid="uid://c37kxon4wesju" path="res://grid/white_rounded_30.png" id="4_fdoo4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_o2k2i"]
 line_spacing = 0.0
 font_size = 25
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_ufaht"]
-noise_type = 5
-frequency = 0.0094
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_15jrh"]
-noise = SubResource("FastNoiseLite_ufaht")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_pv3rg"]
-shader = ExtResource("3_b02fu")
-shader_parameter/noise = SubResource("NoiseTexture2D_15jrh")
+font_color = Color(0.215686, 0.305882, 0.290196, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_cig6u"]
 font_size = 70
+font_color = Color(0.215686, 0.305882, 0.290196, 1)
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -40,7 +31,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_dnpfq")
@@ -48,9 +38,9 @@ texture = ExtResource("2_dnpfq")
 [node name="Names" type="Label" parent="."]
 layout_mode = 2
 offset_left = 292.0
-offset_top = 148.0
+offset_top = 140.0
 offset_right = 566.0
-offset_bottom = 309.0
+offset_bottom = 301.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Ethan Lucas
@@ -60,26 +50,47 @@ Lauren Szmandiuk"
 label_settings = SubResource("LabelSettings_o2k2i")
 horizontal_alignment = 2
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 2
-offset_left = 71.0
-offset_top = 298.0
-offset_right = 560.079
-offset_bottom = 372.224
-text = "Menu"
-
-[node name="TextureRect2" type="TextureRect" parent="Button"]
-self_modulate = Color(0, 0, 0, 0.533333)
-material = SubResource("ShaderMaterial_pv3rg")
+[node name="TextureRect2" type="TextureRect" parent="."]
+clip_children = 1
 custom_minimum_size = Vector2(0, 170)
-offset_left = -35.0
-offset_top = -161.0
-offset_right = 283.0
-offset_bottom = 9.0
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -90.0
+offset_right = 389.0
+offset_bottom = 132.0
+grow_vertical = 2
 size_flags_vertical = 3
 texture = ExtResource("4_6xg7m")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect2"]
+self_modulate = Color(0.215686, 0.305882, 0.290196, 0.843137)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_fdoo4")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -66.0
+offset_right = 125.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Menu"
 
 [node name="Credits" type="Label" parent="."]
 layout_mode = 2

@@ -72,7 +72,7 @@ func set_order(o: Order):
 			rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 			rect.custom_minimum_size = Vector2(16, 16)
 			if order.grid[x][y] != null:
-				rect.texture = order.grid[x][y].texture
+				rect.texture = order.grid[x][y].texture_small
 			grid.add_child(rect)
 	
 	#Set max timer
