@@ -95,7 +95,7 @@ func UploadData(userID : String, username : String, highscore : int, gamesPlayed
 	var url = "https://api.airtable.com/v0/appFZUpd22afr8fEJ/Highscores/" + str(userID)
 	var data = {
 	  "fields": {
-		"Username" : String(username),
+		#"Username" : String(username),
 		"Highscore": int(highscore), 
 		"Games Played": int(gamesPlayed),
 		"Total seconds played": float(playtime),
