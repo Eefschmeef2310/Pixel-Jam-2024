@@ -35,6 +35,8 @@ func _ready():
 	player.max_polyphony = 99
 	add_child(player)
 	
+	orders_updated.connect(_on_orders_updated)
+	
 	reset()
 
 func _process(delta):
@@ -201,6 +203,16 @@ func count_order_against_grid(order: Order):
 			return false
 	return true
 		
+
+func _on_orders_updated():
+	for order in orders:
+		if !count_order_against_grid(order):
+			# Order is currently impossible. Get rid of it.
+			ScoreManager.score -= order.score
+			complete_order(order)
+			
+			call(order.type)
+
 
 func complete_order(order: Order):
 	for o in orders:

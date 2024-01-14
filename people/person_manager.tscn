@@ -1,7 +1,8 @@
-[gd_scene load_steps=85 format=3 uid="uid://bk0pln3ar4g4j"]
+[gd_scene load_steps=86 format=3 uid="uid://bk0pln3ar4g4j"]
 
 [ext_resource type="Script" path="res://people/person_manager.gd" id="1_oftbt"]
 [ext_resource type="Texture2D" uid="uid://7xejr5f0di4e" path="res://people/sprites/base/base1.png" id="2_kv5w6"]
+[ext_resource type="PackedScene" uid="uid://dkpetubbgifjt" path="res://people/person.tscn" id="2_nu66a"]
 [ext_resource type="Texture2D" uid="uid://b28rskoavakyx" path="res://people/sprites/base/base_clothes1.png" id="3_20x12"]
 [ext_resource type="Script" path="res://people/person_base_resource.gd" id="4_odqdc"]
 [ext_resource type="Texture2D" uid="uid://buo8evjk51b7r" path="res://people/sprites/base/base_skin1.png" id="5_6g1hc"]
@@ -197,5 +198,6 @@ back_color = ExtResource("61_xua3i")
 
 [node name="PersonManager" type="Node"]
 script = ExtResource("1_oftbt")
+person_scene = ExtResource("2_nu66a")
 base_textures = Array[ExtResource("4_odqdc")]([SubResource("Resource_ihop0"), SubResource("Resource_hodl8"), SubResource("Resource_lgm6c"), SubResource("Resource_gte3w"), SubResource("Resource_ttk0k"), SubResource("Resource_qwow7"), SubResource("Resource_gdasp"), SubResource("Resource_7qqpf"), SubResource("Resource_l4tpg"), SubResource("Resource_yjupx")])
 hair_textures = Array[ExtResource("35_qejo6")]([SubResource("Resource_1tgxo"), SubResource("Resource_vkit6"), SubResource("Resource_el36q"), SubResource("Resource_7pyp7"), SubResource("Resource_yisvn"), SubResource("Resource_tho36"), SubResource("Resource_ah33y"), SubResource("Resource_3tdey"), SubResource("Resource_up2ck"), SubResource("Resource_85jsm")])

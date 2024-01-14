@@ -9,8 +9,11 @@ extends Node2D
 @onready var hair_front = $HairFront
 @onready var hair_front_color = $HairFrontColor
 
+var tween: Tween
+
 func _ready():
 	generate()
+	enter()
 
 func _process(_delta):
 	if Input.is_action_just_pressed("Right"):
@@ -35,3 +38,31 @@ func generate():
 	var color = PersonManager.hair_colors.pick_random()
 	hair_front_color.self_modulate = Color.html(color)
 	hair_back_color.self_modulate = Color.html(color)
+
+func enter():
+	global_position.y = 255
+	if tween:
+		tween.kill() # Abort the previous animation.
+	tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(self, "global_position:y", 108, 1)
+	
+func exit():
+	make_happy()
+	if tween:
+		tween.kill() # Abort the previous animation.
+	tween = create_tween()
+	tween.set_ease(Tween.EASE_IN)
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(self, "global_position:y", 255, 1)
+	tween.tween_callback(queue_free)
+
+func make_normal():
+	face.texture = PersonManager.face_normal
+
+func make_happy():
+	face.texture = PersonManager.face_happy
+	
+func make_annoyed():
+	face.texture = PersonManager.face_annoyed

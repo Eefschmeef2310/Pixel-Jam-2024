@@ -14,33 +14,25 @@
 script = ExtResource("1_44q7q")
 
 [node name="HairBack" type="Sprite2D" parent="."]
-position = Vector2(47, 68.5)
 texture = ExtResource("1_xi3dc")
 
 [node name="HairBackColor" type="Sprite2D" parent="."]
-position = Vector2(47, 68.5)
 texture = ExtResource("2_58wqr")
 
 [node name="Base" type="Sprite2D" parent="."]
-position = Vector2(47, 68.5)
 texture = ExtResource("3_pvqr8")
 
 [node name="BaseClothes" type="Sprite2D" parent="."]
-position = Vector2(47, 68.5)
 texture = ExtResource("4_32aqf")
 
 [node name="BaseSkin" type="Sprite2D" parent="."]
-position = Vector2(47, 68.5)
 texture = ExtResource("5_cjw75")
 
 [node name="Face" type="Sprite2D" parent="."]
-position = Vector2(47, 68.5)
 texture = ExtResource("6_iaswg")
 
 [node name="HairFront" type="Sprite2D" parent="."]
-position = Vector2(47, 68.5)
 texture = ExtResource("7_eibrj")
 
 [node name="HairFrontColor" type="Sprite2D" parent="."]
-position = Vector2(47, 68.5)
 texture = ExtResource("8_eeign")

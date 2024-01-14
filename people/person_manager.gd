@@ -1,5 +1,7 @@
 extends Node
 
+@export var person_scene: PackedScene
+
 @export var base_textures: Array[PersonBase]
 @export var hair_textures: Array[PersonHair]
 
@@ -39,3 +41,5 @@ var hair_colors: Array[String] = [
 var face_normal = preload("res://people/sprites/face_normal.png")
 var face_happy = preload("res://people/sprites/face_happy.png")
 var face_annoyed = preload("res://people/sprites/face_annoyed.png")
+
+var person_container_node
