@@ -10,6 +10,9 @@ extends Control
 var target_position: Vector2
 var person
 
+var smoothie_scene = preload("res://people/smoothie.tscn")
+var smoothie
+
 var tween: Tween
 
 var max_time: float
@@ -30,11 +33,15 @@ func _ready():
 	person = PersonManager.person_scene.instantiate()
 	PersonManager.person_container_node.add_child(person)
 	
+	smoothie = smoothie_scene.instantiate()
+	PersonManager.smoothie_container_node.add_child(smoothie)
 
 func _process(delta):
 	position = lerp(position, target_position, 10*delta)
 	if person:
 		person.global_position.x = global_position.x
+	if smoothie:
+		smoothie.global_position.x = global_position.x - 2
 	
 	timer_visual.value = timer.time_left
 	timer_visual.modulate = color.sample(1.0 - timer_visual.value / timer_visual.max_value)
@@ -50,9 +57,9 @@ func _process(delta):
 		else:
 			person.make_normal()
 	
-	if !$Ticker.playing and timer_visual.value < 0.25 * timer_visual.max_value:
-		$Ticker.play()
-		$HBoxContainer/Panel/ProgressBar/TextureProgressBar/AnimationPlayer.play("TimerBounce")
+		if !$Ticker.playing and timer_visual.value < 0.25 * timer_visual.max_value:
+			$Ticker.play()
+			$HBoxContainer/Panel/ProgressBar/TextureProgressBar/AnimationPlayer.play("TimerBounce")
 
 func set_order(o: Order):
 	for child in grid.get_children():
@@ -79,6 +86,8 @@ func complete_ticket():
 	timer.stop()
 	#ProgressBarBack.hide()
 	timer_visual.hide()
+	$Ticker.stop()
+	
 	modulate = Color.GREEN
 	
 	if tween:
@@ -91,6 +100,20 @@ func complete_ticket():
 	tween.tween_callback(queue_free)
 	
 	person.exit()
+	
+	var color = Color.WHITE
+	for x in order.width:
+		for y in order.height:
+			if order.grid[x][y] != null:
+				if color == Color.WHITE:
+					color = order.grid[x][y].color
+					print("setting")
+				else:
+					print(str(color) + ", " + str(order.grid[x][y].color))
+					color = color.lerp(order.grid[x][y].color, 0.5)
+				print(color)
+	smoothie.set_liquid_color(color)
+	smoothie.exit()
 
 func add_time(time: float):
 	var time_left = timer.time_left

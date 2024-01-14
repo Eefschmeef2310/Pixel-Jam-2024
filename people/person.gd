@@ -54,7 +54,7 @@ func exit():
 		tween.kill() # Abort the previous animation.
 	tween = create_tween()
 	tween.set_ease(Tween.EASE_IN)
-	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.set_trans(Tween.TRANS_EXPO)
 	tween.tween_property(self, "global_position:y", 255, 1)
 	tween.tween_callback(queue_free)
 

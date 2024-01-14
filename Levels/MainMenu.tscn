@@ -1,22 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://dpk7dwwpywpl7"]
+[gd_scene load_steps=6 format=3 uid="uid://dpk7dwwpywpl7"]
 
-[ext_resource type="Texture2D" uid="uid://cl25qlc8an1o5" path="res://SteamTingrayGradient.png" id="1_6i2go"]
-[ext_resource type="Texture2D" uid="uid://csc6iinwpt64s" path="res://Placeholder Sprites/chalk-rubbed-out-on-blackboard-600nw-226458436.png" id="1_87ax7"]
 [ext_resource type="Script" path="res://Levels/MainMenu.gd" id="1_powae"]
-[ext_resource type="Shader" path="res://Shaders/Logo.gdshader" id="3_dan43"]
+[ext_resource type="Texture2D" uid="uid://b22i4d1ye60mg" path="res://Levels/sprites/bg2.png" id="2_qeacb"]
 [ext_resource type="Texture2D" uid="uid://4kum5w36iqb4" path="res://Sprites/paste.png" id="3_yrjn6"]
 [ext_resource type="AudioStream" uid="uid://cv1gxmj7tmcp6" path="res://Audio/City Park Ambience.mp3" id="5_q5a0m"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_72w01"]
-noise_type = 5
-frequency = 0.0094
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_15jrh"]
-noise = SubResource("FastNoiseLite_72w01")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_f4jqr"]
-shader = ExtResource("3_dan43")
-shader_parameter/noise = SubResource("NoiseTexture2D_15jrh")
+[sub_resource type="LabelSettings" id="LabelSettings_mqvfu"]
+line_spacing = -12.0
+font_size = 50
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -36,7 +27,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_87ax7")
+texture = ExtResource("2_qeacb")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 2
+offset_left = 49.0
+offset_top = 46.0
+offset_right = 315.0
+offset_bottom = 158.0
+text = "Smoothie
+Maker Pro"
+label_settings = SubResource("LabelSettings_mqvfu")
+horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -52,32 +54,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_constants/separation = 20
 
-[node name="Title" type="Label" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Smoothie
-Maker Pro"
-horizontal_alignment = 1
-
 [node name="TextureRect2" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
+visible = false
 self_modulate = Color(1, 1, 1, 0.592157)
 custom_minimum_size = Vector2(0, 195.89)
 layout_mode = 2
 texture = ExtResource("3_yrjn6")
 expand_mode = 1
-
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/TextureRect2"]
-self_modulate = Color(1, 1, 1, 0.427451)
-material = SubResource("ShaderMaterial_f4jqr")
-custom_minimum_size = Vector2(0, 170)
-layout_mode = 2
-offset_top = 20.0
-offset_right = 318.0
-offset_bottom = 190.0
-size_flags_vertical = 3
-texture = ExtResource("1_6i2go")
-expand_mode = 1
-stretch_mode = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
 layout_mode = 2

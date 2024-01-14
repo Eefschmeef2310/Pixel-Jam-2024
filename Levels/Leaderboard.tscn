@@ -1,7 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://78opwrkl1etr"]
+[gd_scene load_steps=7 format=3 uid="uid://cts543s5udfqh"]
 
 [ext_resource type="Script" path="res://Levels/Credits.gd" id="1_skwrs"]
-[ext_resource type="Texture2D" uid="uid://csc6iinwpt64s" path="res://Placeholder Sprites/chalk-rubbed-out-on-blackboard-600nw-226458436.png" id="2_r4qs5"]
+[ext_resource type="Texture2D" uid="uid://b22i4d1ye60mg" path="res://Levels/sprites/bg2.png" id="2_xwana"]
 [ext_resource type="Texture2D" uid="uid://4kum5w36iqb4" path="res://Sprites/paste.png" id="3_48xuk"]
 [ext_resource type="PackedScene" uid="uid://cn8inqvlch863" path="res://OnlineFeatures/leaderboard_entry.tscn" id="3_gvkl2"]
 [ext_resource type="Script" path="res://OnlineFeatures/LeaderboardManager.gd" id="3_hllgt"]
@@ -24,20 +24,23 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_r4qs5")
+texture = ExtResource("2_xwana")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -302.0
+offset_top = -150.0
 offset_right = 302.0
-offset_bottom = 330.0
+offset_bottom = 150.0
 grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -58,28 +61,37 @@ vertical_scroll_mode = 2
 script = ExtResource("3_hllgt")
 entryPrefab = ExtResource("3_gvkl2")
 
-[node name="EntryContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 0
+
+[node name="EntryContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Leaderboard Entry" parent="MarginContainer/VBoxContainer/ScrollContainer/EntryContainer" instance=ExtResource("3_gvkl2")]
+[node name="Leaderboard Entry" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/EntryContainer" instance=ExtResource("3_gvkl2")]
 visible = false
 layout_mode = 2
 
-[node name="Leaderboard Entry2" parent="MarginContainer/VBoxContainer/ScrollContainer/EntryContainer" instance=ExtResource("3_gvkl2")]
+[node name="Leaderboard Entry2" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/EntryContainer" instance=ExtResource("3_gvkl2")]
 visible = false
 layout_mode = 2
 
-[node name="Leaderboard Entry3" parent="MarginContainer/VBoxContainer/ScrollContainer/EntryContainer" instance=ExtResource("3_gvkl2")]
+[node name="Leaderboard Entry3" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/EntryContainer" instance=ExtResource("3_gvkl2")]
 visible = false
 layout_mode = 2
 
-[node name="Leaderboard Entry4" parent="MarginContainer/VBoxContainer/ScrollContainer/EntryContainer" instance=ExtResource("3_gvkl2")]
+[node name="Leaderboard Entry4" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/EntryContainer" instance=ExtResource("3_gvkl2")]
 visible = false
 layout_mode = 2
 
-[node name="Leaderboard Entry5" parent="MarginContainer/VBoxContainer/ScrollContainer/EntryContainer" instance=ExtResource("3_gvkl2")]
+[node name="Leaderboard Entry5" parent="MarginContainer/VBoxContainer/ScrollContainer/MarginContainer/EntryContainer" instance=ExtResource("3_gvkl2")]
 visible = false
 layout_mode = 2
 

@@ -1,6 +1,7 @@
 extends Node2D
 
 var fruit_handle_scene = preload("res://fruits/fruit_handle.tscn")
+var matched_particles = preload("res://grid/matched_particles.tscn")
 
 var grid: = []
 var width: int = 5
@@ -177,6 +178,11 @@ func remove_order_at_cell(order: Order, w: int, h: int):
 	for x in order.width:
 		for y in order.height:
 			if grid[w+x][h+y] != null:
+				var particles: GPUParticles2D = matched_particles.instantiate()
+				get_parent().add_child(particles)
+				particles.global_position = grid[w+x][h+y].global_position
+				particles.emitting = true
+				
 				grid[w+x][h+y].queue_free()
 				grid[w+x][h+y] = null
 	fill_grid(false)

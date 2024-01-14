@@ -1,8 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqnxq8v8v3afl"]
+[gd_scene load_steps=11 format=3 uid="uid://dqnxq8v8v3afl"]
 
 [ext_resource type="Script" path="res://Levels/Credits.gd" id="1_bry0b"]
 [ext_resource type="Texture2D" uid="uid://4kum5w36iqb4" path="res://Sprites/paste.png" id="2_4w871"]
-[ext_resource type="Texture2D" uid="uid://csc6iinwpt64s" path="res://Placeholder Sprites/chalk-rubbed-out-on-blackboard-600nw-226458436.png" id="2_xssc2"]
+[ext_resource type="Texture2D" uid="uid://b22i4d1ye60mg" path="res://Levels/sprites/bg2.png" id="2_dnpfq"]
+[ext_resource type="Shader" path="res://Shaders/Logo.gdshader" id="3_b02fu"]
+[ext_resource type="Texture2D" uid="uid://cl25qlc8an1o5" path="res://SteamTingrayGradient.png" id="4_6xg7m"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o2k2i"]
+line_spacing = 0.0
+font_size = 25
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ufaht"]
+noise_type = 5
+frequency = 0.0094
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_15jrh"]
+noise = SubResource("FastNoiseLite_ufaht")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pv3rg"]
+shader = ExtResource("3_b02fu")
+shader_parameter/noise = SubResource("NoiseTexture2D_15jrh")
+
+[sub_resource type="LabelSettings" id="LabelSettings_cig6u"]
+font_size = 70
 
 [node name="Credits" type="Control"]
 layout_mode = 3
@@ -23,9 +43,56 @@ anchor_bottom = 1.0
 offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_xssc2")
+texture = ExtResource("2_dnpfq")
+
+[node name="Names" type="Label" parent="."]
+layout_mode = 2
+offset_left = 292.0
+offset_top = 148.0
+offset_right = 566.0
+offset_bottom = 309.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Ethan Lucas
+Xander Akkari
+Tom Howarth
+Lauren Szmandiuk"
+label_settings = SubResource("LabelSettings_o2k2i")
+horizontal_alignment = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+offset_left = 71.0
+offset_top = 298.0
+offset_right = 560.079
+offset_bottom = 372.224
+text = "Menu"
+
+[node name="TextureRect2" type="TextureRect" parent="Button"]
+self_modulate = Color(0, 0, 0, 0.533333)
+material = SubResource("ShaderMaterial_pv3rg")
+custom_minimum_size = Vector2(0, 170)
+offset_left = -35.0
+offset_top = -161.0
+offset_right = 283.0
+offset_bottom = 9.0
+size_flags_vertical = 3
+texture = ExtResource("4_6xg7m")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Credits" type="Label" parent="."]
+layout_mode = 2
+offset_left = 71.0
+offset_top = 45.0
+offset_right = 569.0
+offset_bottom = 132.0
+text = "CREDITS"
+label_settings = SubResource("LabelSettings_cig6u")
+horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,42 +105,12 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Credits" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 105
-text = "CREDITS"
-horizontal_alignment = 1
-
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(498.63, 169.075)
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("2_4w871")
 expand_mode = 1
 
-[node name="Names" type="Label" parent="MarginContainer/VBoxContainer/TextureRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -232.315
-offset_top = -77.5375
-offset_right = 680.685
-offset_bottom = 427.462
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-theme_override_font_sizes/font_size = 60
-text = "Ethan Lucas
-Xander Akkari
-Tom Howarth
-Lauren Szmandiuk"
-horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Menu"
-
-[connection signal="button_down" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_button_down"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

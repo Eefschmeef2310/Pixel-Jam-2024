@@ -43,5 +43,5 @@ func _on_leaderboard_request_request_completed(result, response_code, headers, b
 		newEntry.SetEntryData(i+1, json.records[i].fields.Username, json.records[i].fields.Highscore)
 		if(json.records[i].id == AirtableManager.saveRes.userID):
 			newEntry.SetLocalEntry()
-		$EntryContainer.add_child(newEntry)
+		$MarginContainer/EntryContainer.add_child(newEntry)
 		pass

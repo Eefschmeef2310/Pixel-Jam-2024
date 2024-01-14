@@ -1,17 +1,25 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bu1ct4d4t8xr3"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bu1ct4d4t8xr3"]
 
 [ext_resource type="Texture2D" uid="uid://4kum5w36iqb4" path="res://Sprites/paste.png" id="1_8x6f3"]
+[ext_resource type="Texture2D" uid="uid://igcgust338fm" path="res://Sprites/smear.png" id="1_l8fh3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2auew"]
-texture = ExtResource("1_8x6f3")
+texture = ExtResource("1_l8fh3")
+expand_margin_top = 4.0
+expand_margin_bottom = 2.0
 modulate_color = Color(1, 1, 1, 0.784314)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4vb4k"]
-texture = ExtResource("1_8x6f3")
+texture = ExtResource("1_l8fh3")
+expand_margin_top = 4.0
+expand_margin_bottom = 2.0
 modulate_color = Color(1, 1, 1, 0.67451)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xvc6s"]
-texture = ExtResource("1_8x6f3")
+texture = ExtResource("1_l8fh3")
+texture_margin_left = 24.4586
+expand_margin_top = 4.0
+expand_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n7tyg"]
 texture = ExtResource("1_8x6f3")
@@ -19,11 +27,10 @@ expand_margin_top = 5.0
 expand_margin_bottom = 5.0
 
 [resource]
-Button/font_sizes/font_size = 30
+Button/font_sizes/font_size = 24
 Button/styles/hover = SubResource("StyleBoxTexture_2auew")
 Button/styles/normal = SubResource("StyleBoxTexture_4vb4k")
 Button/styles/pressed = SubResource("StyleBoxTexture_xvc6s")
 HSlider/styles/slider = SubResource("StyleBoxTexture_n7tyg")
-Label/font_sizes/font_size = 60
 MarginContainer/constants/margin_left = 30
 MarginContainer/constants/margin_right = 30

@@ -9,3 +9,4 @@ script = ExtResource("1_8n6mt")
 name = "Orange"
 texture = ExtResource("2_oyibi")
 texture_small = ExtResource("3_ehu4a")
+color = Color(1, 0.603922, 0.337255, 1)

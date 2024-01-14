@@ -43,3 +43,4 @@ var face_happy = preload("res://people/sprites/face_happy.png")
 var face_annoyed = preload("res://people/sprites/face_annoyed.png")
 
 var person_container_node
+var smoothie_container_node

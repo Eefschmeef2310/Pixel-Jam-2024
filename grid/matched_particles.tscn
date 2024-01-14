@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cknshm67hid6y"]
+
+[ext_resource type="Texture2D" uid="uid://bjgjyj6afi8ss" path="res://Sprites/sparkle.png" id="1_m2ln4"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fgsu6"]
+lifetime_randomness = 0.4
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 0, 0)
+damping_min = 300.0
+damping_max = 300.0
+scale_min = 0.5
+
+[node name="MatchedParticles" type="GPUParticles2D"]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_fgsu6")
+texture = ExtResource("1_m2ln4")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
