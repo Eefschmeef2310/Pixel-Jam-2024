@@ -10,7 +10,8 @@
 [ext_resource type="Script" path="res://MenuUtilities/ScoreLabel.gd" id="8_as3h5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_54xkj"]
-font_size = 40
+font_size = 30
+font_color = Color(0.494118, 0.576471, 0.443137, 1)
 
 [node name="Level" type="Node2D"]
 
@@ -77,8 +78,10 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -75.0
-offset_right = 307.0
+offset_left = 16.0
+offset_top = -74.0
+offset_right = 336.0
+offset_bottom = 1.0
 grow_vertical = 0
 text = "Score: 0"
 label_settings = SubResource("LabelSettings_54xkj")
