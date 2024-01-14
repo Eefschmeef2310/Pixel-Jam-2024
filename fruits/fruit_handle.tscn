@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cel0qlwc4gkgf"]
+[gd_scene load_steps=7 format=3 uid="uid://cel0qlwc4gkgf"]
 
 [ext_resource type="Script" path="res://fruits/fruit_handle.gd" id="1_bykfw"]
 [ext_resource type="Resource" uid="uid://cevvho3wiksrh" path="res://fruits/resources/orange.tres" id="2_ymxna"]
 [ext_resource type="Texture2D" uid="uid://ulutonwbt40m" path="res://fruits/sprites/fruit_apple.png" id="3_y62ad"]
-[ext_resource type="AudioStream" uid="uid://bwbon6qnxwpgd" path="res://Audio/mixkit-plastic-bubble-click-1124.mp3" id="4_ivvyl"]
+[ext_resource type="AudioStream" uid="uid://bwbon6qnxwpgd" path="res://Audio/mixkit-plastic-bubble-click-1124.mp3" id="5_3tj7j"]
+[ext_resource type="AudioStream" uid="uid://bahhj7buo5kgl" path="res://Audio/mixkit-gate-latch-click-1924.mp3" id="5_ws8my"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ou0ej"]
 size = Vector2(40, 40)
@@ -22,6 +23,9 @@ texture = ExtResource("3_y62ad")
 shape = SubResource("RectangleShape2D_ou0ej")
 
 [node name="ClickPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_ivvyl")
+stream = ExtResource("5_3tj7j")
+
+[node name="CellChangeStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ws8my")
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
