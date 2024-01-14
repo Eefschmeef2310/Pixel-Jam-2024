@@ -47,16 +47,61 @@ func generate_2x2():
 			order.width = 2
 			order.height = 2
 			order.grid = [[0,0],[0,0]]
-			order.grid[0][0] = fruit_resources.pick_random()
-			order.grid[0][1] = fruit_resources.pick_random()
-			order.grid[1][0] = fruit_resources.pick_random()
-			order.grid[1][1] = fruit_resources.pick_random()
+			for x in order.width:
+				for y in order.height:
+					order.grid[x][y] = fruit_resources.pick_random()
 		
 		order.type = "generate_2x2"
 		orders.append(order)
 		orders_updated.emit()
-	else:
-		print("Too many orders!")
+
+func generate_2x4():
+	if grid_node and orders.size() < max_orders:
+		var order
+		while !order or !count_order_against_grid(order):
+			order = Order.new()
+			order.width = 2
+			order.height = 4
+			order.grid = [[0,0,0,0],[0,0,0,0]]
+			for x in order.width:
+				for y in order.height:
+					order.grid[x][y] = fruit_resources.pick_random()
+		
+		order.type = "generate_2x2"
+		orders.append(order)
+		orders_updated.emit()
+
+func generate_4x2():
+	if grid_node and orders.size() < max_orders:
+		var order
+		while !order or !count_order_against_grid(order):
+			order = Order.new()
+			order.width = 4
+			order.height = 2
+			order.grid = [[0,0],[0,0],[0,0],[0,0]]
+			for x in order.width:
+				for y in order.height:
+					order.grid[x][y] = fruit_resources.pick_random()
+		
+		order.type = "generate_2x2"
+		orders.append(order)
+		orders_updated.emit()
+
+func generate_3x3():
+	if grid_node and orders.size() < max_orders:
+		var order
+		while !order or !count_order_against_grid(order):
+			order = Order.new()
+			order.width = 3
+			order.height = 3
+			order.grid = [[0,0,0],[0,0,0],[0,0,0]]
+			for x in order.width:
+				for y in order.height:
+					order.grid[x][y] = fruit_resources.pick_random()
+		
+		order.type = "generate_3x3"
+		orders.append(order)
+		orders_updated.emit()
 
 func validate_current_orders():
 	for order in orders:
@@ -91,3 +136,9 @@ func complete_order(order: Order):
 			orders.erase(order)
 			orders_updated.emit()
 			return
+
+func get_order_index(order):
+	for n in orders.size():
+		if orders[n] == order:
+			return n
+	return -1

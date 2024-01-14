@@ -30,7 +30,7 @@ one_shot = true
 autostart = true
 
 [node name="FullRackTimer" type="Timer" parent="OrderGenerator"]
-wait_time = 2.0
+wait_time = 15.0
 one_shot = true
 
 [node name="OrderHUD" type="Control" parent="."]
@@ -47,7 +47,7 @@ size_flags_vertical = 3
 mouse_filter = 2
 
 [node name="TicketLine" type="Marker2D" parent="OrderHUD"]
-position = Vector2(50, 179)
+position = Vector2(254, 179)
 script = ExtResource("2_ym37m")
 
 [connection signal="timeout" from="OrderGenerator/EmptyRackTimer" to="OrderGenerator" method="_on_empty_rack_timer_timeout"]

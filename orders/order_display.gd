@@ -3,13 +3,16 @@ extends Control
 @export var color : Gradient
 
 @onready var order: Order
-@onready var grid = $OrderDisplay/H/V/GridContainer
-@onready var timer_visual = $TextureProgressBar
+@onready var grid = $HBoxContainer/Panel/MarginContainer/GridContainer
+@onready var timer_visual = $HBoxContainer/Panel/ProgressBar/TextureProgressBar
+@onready var timer = $HBoxContainer/Panel/ProgressBar/TextureProgressBar/Timer
+
+var target_position: Vector2
 
 var tween: Tween
 
 func _ready():
-	$OrderDisplay/PegsTexture.modulate = Color.from_hsv(randf_range(0, 1), 0.8, 1, 1)
+	$HBoxContainer/Panel/PegsTexture.modulate = Color.from_hsv(randf_range(0, 1), 0.8, 1, 1)
 	position.y = 40
 	modulate.a = 0
 	if tween:
@@ -21,9 +24,10 @@ func _ready():
 	tween.parallel().tween_property(self, "modulate:a", 1, 0.5)
 	
 
-func _process(_delta):
-	timer_visual.value = $TextureProgressBar/Timer.time_left
+func _process(delta):
+	position = lerp(position, target_position, 10*delta)
 	
+	timer_visual.value = timer.time_left
 	timer_visual.modulate = color.sample(1.0 - timer_visual.value / timer_visual.max_value)
 	
 	#if timer_visual.value / timer_visual.max_value < 0.25:
@@ -40,17 +44,17 @@ func set_order(o: Order):
 		for x in order.width:
 			var rect = TextureRect.new()
 			rect.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-			rect.custom_minimum_size = Vector2(20, 20)
-			rect.texture = order.grid[x][y].texture
+			rect.custom_minimum_size = Vector2(16, 16)
+			rect.texture = order.grid[x][y].texture_small
 			grid.add_child(rect)
 	
 	#Set max timer
-	$TextureProgressBar/Timer.wait_time = order.countdown
-	$TextureProgressBar/Timer.start()
+	timer.wait_time = order.countdown
+	timer.start()
 	timer_visual.max_value = order.countdown
 
 func complete_ticket():
-	$TextureProgressBar/Timer.stop()
+	timer.stop()
 	#ProgressBarBack.hide()
 	timer_visual.hide()
 	modulate = Color.GREEN
