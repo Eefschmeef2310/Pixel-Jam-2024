@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://orders/order_grid.gd" id="2_ym37m"]
 [ext_resource type="Texture2D" uid="uid://4tjfdj887jxg" path="res://Levels/sprites/fruitbox.png" id="3_7cdbh"]
 [ext_resource type="Texture2D" uid="uid://dj8m5m0b5rxdr" path="res://Levels/sprites/bg.png" id="3_f00c2"]
+[ext_resource type="Script" path="res://Levels/person_container.gd" id="4_rd2et"]
 [ext_resource type="PackedScene" uid="uid://booyiulogg1t1" path="res://MenuUtilities/PauseButton.tscn" id="7_trynf"]
 [ext_resource type="Script" path="res://MenuUtilities/ScoreLabel.gd" id="8_as3h5"]
 [ext_resource type="AudioStream" uid="uid://d2mmi0p5uveku" path="res://Audio/[HookSounds] Elegant Jazz-[AudioTrimmer.com].mp3" id="9_i5wrt"]
@@ -30,6 +31,9 @@ texture_filter = 1
 position = Vector2(50, 32)
 texture = ExtResource("3_f00c2")
 centered = false
+
+[node name="People" type="Node2D" parent="Beach"]
+script = ExtResource("4_rd2et")
 
 [node name="LevelBG" type="Sprite2D" parent="."]
 texture_filter = 1

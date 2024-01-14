@@ -1,0 +1,203 @@
+[gd_scene load_steps=86 format=3 uid="uid://bk0pln3ar4g4j"]
+
+[ext_resource type="Script" path="res://people/person_manager.gd" id="1_oftbt"]
+[ext_resource type="Texture2D" uid="uid://7xejr5f0di4e" path="res://people/sprites/base/base1.png" id="2_kv5w6"]
+[ext_resource type="PackedScene" uid="uid://dkpetubbgifjt" path="res://people/person.tscn" id="2_nu66a"]
+[ext_resource type="Texture2D" uid="uid://b28rskoavakyx" path="res://people/sprites/base/base_clothes1.png" id="3_20x12"]
+[ext_resource type="Script" path="res://people/person_base_resource.gd" id="4_odqdc"]
+[ext_resource type="Texture2D" uid="uid://buo8evjk51b7r" path="res://people/sprites/base/base_skin1.png" id="5_6g1hc"]
+[ext_resource type="Texture2D" uid="uid://36adktxm3n8y" path="res://people/sprites/base/base2.png" id="6_ke6vy"]
+[ext_resource type="Texture2D" uid="uid://d3vmd8vneagdk" path="res://people/sprites/base/base_clothes2.png" id="7_e7fts"]
+[ext_resource type="Texture2D" uid="uid://b4oqfvxkk0a1g" path="res://people/sprites/base/base_skin2.png" id="8_8dcxj"]
+[ext_resource type="Texture2D" uid="uid://c3a1ys5j1nwvq" path="res://people/sprites/base/base3.png" id="9_y8uyw"]
+[ext_resource type="Texture2D" uid="uid://bhxfi3obhcuko" path="res://people/sprites/base/base_clothes3.png" id="10_grpb6"]
+[ext_resource type="Texture2D" uid="uid://7s6tx2t0c1vd" path="res://people/sprites/base/base_skin3.png" id="11_ketee"]
+[ext_resource type="Texture2D" uid="uid://bjvopt30jjire" path="res://people/sprites/base/base4.png" id="12_dg17l"]
+[ext_resource type="Texture2D" uid="uid://dp7q6ammgusc1" path="res://people/sprites/base/base_clothes4.png" id="13_pmg71"]
+[ext_resource type="Texture2D" uid="uid://cqk6uhgc73vb7" path="res://people/sprites/base/base_skin4.png" id="14_x0m80"]
+[ext_resource type="Texture2D" uid="uid://b7ha8y76o168v" path="res://people/sprites/base/base5.png" id="15_s4xlb"]
+[ext_resource type="Texture2D" uid="uid://c60lmwe0lotgk" path="res://people/sprites/base/base_clothes5.png" id="16_5e6cg"]
+[ext_resource type="Texture2D" uid="uid://mhf3ike6h0vm" path="res://people/sprites/base/base_skin5.png" id="17_kqyly"]
+[ext_resource type="Texture2D" uid="uid://dwoalxlsmkj3x" path="res://people/sprites/base/base6.png" id="18_cew2w"]
+[ext_resource type="Texture2D" uid="uid://c170v2w4a0iwl" path="res://people/sprites/base/base_clothes6.png" id="19_aa63d"]
+[ext_resource type="Texture2D" uid="uid://dclpco5d1lpds" path="res://people/sprites/base/base_skin6.png" id="20_4kvli"]
+[ext_resource type="Texture2D" uid="uid://xmps8lygyqcv" path="res://people/sprites/base/base7.png" id="21_w8p21"]
+[ext_resource type="Texture2D" uid="uid://d0ihrxf5o3sn7" path="res://people/sprites/base/base_clothes7.png" id="22_bfa4c"]
+[ext_resource type="Texture2D" uid="uid://ba6ijg0bm2jrv" path="res://people/sprites/base/base_skin7.png" id="23_vahow"]
+[ext_resource type="Texture2D" uid="uid://dpdsotdyqs25u" path="res://people/sprites/base/base8.png" id="24_rfcms"]
+[ext_resource type="Texture2D" uid="uid://dmo4crpt7a5i5" path="res://people/sprites/base/base_clothes8.png" id="25_jpo8w"]
+[ext_resource type="Texture2D" uid="uid://p8o0wfbe3hw6" path="res://people/sprites/base/base_skin8.png" id="26_ilesy"]
+[ext_resource type="Texture2D" uid="uid://ugif4d2d6dr1" path="res://people/sprites/base/base9.png" id="27_fm488"]
+[ext_resource type="Texture2D" uid="uid://bk0r51pgmj2ql" path="res://people/sprites/base/base_clothes9.png" id="28_4si21"]
+[ext_resource type="Texture2D" uid="uid://bksccqsts7rsw" path="res://people/sprites/base/base_skin9.png" id="29_xuqmv"]
+[ext_resource type="Texture2D" uid="uid://ch3l8qphtbre0" path="res://people/sprites/base/base10.png" id="30_yiq7j"]
+[ext_resource type="Texture2D" uid="uid://c07oirw7g8ucu" path="res://people/sprites/base/base_clothes10.png" id="31_ldnw3"]
+[ext_resource type="Texture2D" uid="uid://dowh87py6l1fd" path="res://people/sprites/base/base_skin10.png" id="32_tmavr"]
+[ext_resource type="Texture2D" uid="uid://bsonqy32fjvlr" path="res://people/sprites/hair_front/hair_front1.png" id="33_mntip"]
+[ext_resource type="Texture2D" uid="uid://b7ucrwy7hwajw" path="res://people/sprites/hair_back/hair_back1.png" id="33_teng2"]
+[ext_resource type="Texture2D" uid="uid://bsxm1tx57lvg5" path="res://people/sprites/hair_front/hair_front_color1.png" id="34_lfy8p"]
+[ext_resource type="Script" path="res://people/person_hair_resource.gd" id="35_qejo6"]
+[ext_resource type="Texture2D" uid="uid://d3u1tud6q5v5j" path="res://people/sprites/hair_back/hair_back2.png" id="36_8l8dt"]
+[ext_resource type="Texture2D" uid="uid://dmadt0tcnoumr" path="res://people/sprites/hair_back/hair_back_color2.png" id="37_jlrpu"]
+[ext_resource type="Texture2D" uid="uid://den5jwmn68a84" path="res://people/sprites/hair_front/hair_front2.png" id="38_0a7dd"]
+[ext_resource type="Texture2D" uid="uid://b5lvqy4q3voyu" path="res://people/sprites/hair_front/hair_front_color2.png" id="39_qhwby"]
+[ext_resource type="Texture2D" uid="uid://c5llqhflfpgwn" path="res://people/sprites/hair_front/hair_front3.png" id="40_r2646"]
+[ext_resource type="Texture2D" uid="uid://2ik1nxeiu5hv" path="res://people/sprites/hair_front/hair_front_color3.png" id="41_6ckk7"]
+[ext_resource type="Texture2D" uid="uid://dumdtyfgq046d" path="res://people/sprites/hair_back/hair_back4.png" id="42_yi1hi"]
+[ext_resource type="Texture2D" uid="uid://b4nylrepan586" path="res://people/sprites/hair_back/hair_back_color4.png" id="43_kw52a"]
+[ext_resource type="Texture2D" uid="uid://d4n1vykf4t1q1" path="res://people/sprites/hair_front/hair_front4.png" id="44_p5n83"]
+[ext_resource type="Texture2D" uid="uid://dkoar6vmmia8b" path="res://people/sprites/hair_front/hair_front_color4.png" id="45_wsqqc"]
+[ext_resource type="Texture2D" uid="uid://cybchhxklb4s8" path="res://people/sprites/hair_front/hair_front5.png" id="46_d1xsj"]
+[ext_resource type="Texture2D" uid="uid://drr1d6kj8v3bv" path="res://people/sprites/hair_front/hair_front_color5.png" id="47_2wml7"]
+[ext_resource type="Texture2D" uid="uid://bsi5xqbqequei" path="res://people/sprites/hair_front/hair_front6.png" id="48_ukkpw"]
+[ext_resource type="Texture2D" uid="uid://drudl3u5ygprj" path="res://people/sprites/hair_front/hair_front_color6.png" id="49_g5ans"]
+[ext_resource type="Texture2D" uid="uid://b1502fubs38wh" path="res://people/sprites/hair_back/hair_back5.png" id="50_gegm1"]
+[ext_resource type="Texture2D" uid="uid://boypgst6teitq" path="res://people/sprites/hair_back/hair_back_color5.png" id="51_0g6cy"]
+[ext_resource type="Texture2D" uid="uid://dy02cxb6do572" path="res://people/sprites/hair_front/hair_front7.png" id="52_0v5qo"]
+[ext_resource type="Texture2D" uid="uid://ni5lohwqjat7" path="res://people/sprites/hair_front/hair_front_color7.png" id="53_e5ava"]
+[ext_resource type="Texture2D" uid="uid://df0fj0mh7c2xc" path="res://people/sprites/hair_back/hair_back6.png" id="54_pavnm"]
+[ext_resource type="Texture2D" uid="uid://b85chold2djea" path="res://people/sprites/hair_back/hair_back_color6.png" id="55_8y45f"]
+[ext_resource type="Texture2D" uid="uid://c5dkf4dh0uyht" path="res://people/sprites/hair_front/hair_front8.png" id="56_1oju8"]
+[ext_resource type="Texture2D" uid="uid://cihml1185slg" path="res://people/sprites/hair_front/hair_front_color8.png" id="57_vemyn"]
+[ext_resource type="Texture2D" uid="uid://db0lpeb5ftu31" path="res://people/sprites/hair_front/hair_front9.png" id="58_bp6s3"]
+[ext_resource type="Texture2D" uid="uid://r1y08maeqq25" path="res://people/sprites/hair_front/hair_front_color9.png" id="59_fveml"]
+[ext_resource type="Texture2D" uid="uid://l2ri5m2tj5h0" path="res://people/sprites/hair_back/hair_back10.png" id="60_oic40"]
+[ext_resource type="Texture2D" uid="uid://doqfaj3gjy6k7" path="res://people/sprites/hair_back/hair_back_color10.png" id="61_xua3i"]
+[ext_resource type="Texture2D" uid="uid://bcypgsurmpaog" path="res://people/sprites/hair_front/hair_front10.png" id="62_0dpa8"]
+[ext_resource type="Texture2D" uid="uid://dqdm77j4ub38p" path="res://people/sprites/hair_front/hair_front_color10.png" id="63_bff2s"]
+
+[sub_resource type="Resource" id="Resource_ihop0"]
+script = ExtResource("4_odqdc")
+base = ExtResource("2_kv5w6")
+clothes = ExtResource("3_20x12")
+skin = ExtResource("5_6g1hc")
+
+[sub_resource type="Resource" id="Resource_hodl8"]
+script = ExtResource("4_odqdc")
+base = ExtResource("6_ke6vy")
+clothes = ExtResource("7_e7fts")
+skin = ExtResource("8_8dcxj")
+
+[sub_resource type="Resource" id="Resource_lgm6c"]
+script = ExtResource("4_odqdc")
+base = ExtResource("9_y8uyw")
+clothes = ExtResource("10_grpb6")
+skin = ExtResource("11_ketee")
+
+[sub_resource type="Resource" id="Resource_gte3w"]
+script = ExtResource("4_odqdc")
+base = ExtResource("12_dg17l")
+clothes = ExtResource("13_pmg71")
+skin = ExtResource("14_x0m80")
+
+[sub_resource type="Resource" id="Resource_ttk0k"]
+script = ExtResource("4_odqdc")
+base = ExtResource("15_s4xlb")
+clothes = ExtResource("16_5e6cg")
+skin = ExtResource("17_kqyly")
+
+[sub_resource type="Resource" id="Resource_qwow7"]
+script = ExtResource("4_odqdc")
+base = ExtResource("18_cew2w")
+clothes = ExtResource("19_aa63d")
+skin = ExtResource("20_4kvli")
+
+[sub_resource type="Resource" id="Resource_gdasp"]
+script = ExtResource("4_odqdc")
+base = ExtResource("21_w8p21")
+clothes = ExtResource("22_bfa4c")
+skin = ExtResource("23_vahow")
+
+[sub_resource type="Resource" id="Resource_7qqpf"]
+script = ExtResource("4_odqdc")
+base = ExtResource("24_rfcms")
+clothes = ExtResource("25_jpo8w")
+skin = ExtResource("26_ilesy")
+
+[sub_resource type="Resource" id="Resource_l4tpg"]
+script = ExtResource("4_odqdc")
+base = ExtResource("27_fm488")
+clothes = ExtResource("28_4si21")
+skin = ExtResource("29_xuqmv")
+
+[sub_resource type="Resource" id="Resource_yjupx"]
+script = ExtResource("4_odqdc")
+base = ExtResource("30_yiq7j")
+clothes = ExtResource("31_ldnw3")
+skin = ExtResource("32_tmavr")
+
+[sub_resource type="Resource" id="Resource_1tgxo"]
+script = ExtResource("35_qejo6")
+front = ExtResource("33_mntip")
+front_color = ExtResource("34_lfy8p")
+back = ExtResource("33_teng2")
+back_color = ExtResource("33_teng2")
+
+[sub_resource type="Resource" id="Resource_vkit6"]
+script = ExtResource("35_qejo6")
+front = ExtResource("38_0a7dd")
+front_color = ExtResource("39_qhwby")
+back = ExtResource("36_8l8dt")
+back_color = ExtResource("37_jlrpu")
+
+[sub_resource type="Resource" id="Resource_el36q"]
+script = ExtResource("35_qejo6")
+front = ExtResource("40_r2646")
+front_color = ExtResource("41_6ckk7")
+back = ExtResource("33_teng2")
+back_color = ExtResource("33_teng2")
+
+[sub_resource type="Resource" id="Resource_7pyp7"]
+script = ExtResource("35_qejo6")
+front = ExtResource("44_p5n83")
+front_color = ExtResource("45_wsqqc")
+back = ExtResource("42_yi1hi")
+back_color = ExtResource("43_kw52a")
+
+[sub_resource type="Resource" id="Resource_yisvn"]
+script = ExtResource("35_qejo6")
+front = ExtResource("46_d1xsj")
+front_color = ExtResource("47_2wml7")
+back = ExtResource("50_gegm1")
+back_color = ExtResource("51_0g6cy")
+
+[sub_resource type="Resource" id="Resource_tho36"]
+script = ExtResource("35_qejo6")
+front = ExtResource("48_ukkpw")
+front_color = ExtResource("49_g5ans")
+back = ExtResource("54_pavnm")
+back_color = ExtResource("55_8y45f")
+
+[sub_resource type="Resource" id="Resource_ah33y"]
+script = ExtResource("35_qejo6")
+front = ExtResource("52_0v5qo")
+front_color = ExtResource("53_e5ava")
+back = ExtResource("33_teng2")
+back_color = ExtResource("33_teng2")
+
+[sub_resource type="Resource" id="Resource_3tdey"]
+script = ExtResource("35_qejo6")
+front = ExtResource("56_1oju8")
+front_color = ExtResource("57_vemyn")
+back = ExtResource("33_teng2")
+back_color = ExtResource("33_teng2")
+
+[sub_resource type="Resource" id="Resource_up2ck"]
+script = ExtResource("35_qejo6")
+front = ExtResource("58_bp6s3")
+front_color = ExtResource("59_fveml")
+back = ExtResource("33_teng2")
+back_color = ExtResource("33_teng2")
+
+[sub_resource type="Resource" id="Resource_85jsm"]
+script = ExtResource("35_qejo6")
+front = ExtResource("62_0dpa8")
+front_color = ExtResource("63_bff2s")
+back = ExtResource("60_oic40")
+back_color = ExtResource("61_xua3i")
+
+[node name="PersonManager" type="Node"]
+script = ExtResource("1_oftbt")
+person_scene = ExtResource("2_nu66a")
+base_textures = Array[ExtResource("4_odqdc")]([SubResource("Resource_ihop0"), SubResource("Resource_hodl8"), SubResource("Resource_lgm6c"), SubResource("Resource_gte3w"), SubResource("Resource_ttk0k"), SubResource("Resource_qwow7"), SubResource("Resource_gdasp"), SubResource("Resource_7qqpf"), SubResource("Resource_l4tpg"), SubResource("Resource_yjupx")])
+hair_textures = Array[ExtResource("35_qejo6")]([SubResource("Resource_1tgxo"), SubResource("Resource_vkit6"), SubResource("Resource_el36q"), SubResource("Resource_7pyp7"), SubResource("Resource_yisvn"), SubResource("Resource_tho36"), SubResource("Resource_ah33y"), SubResource("Resource_3tdey"), SubResource("Resource_up2ck"), SubResource("Resource_85jsm")])

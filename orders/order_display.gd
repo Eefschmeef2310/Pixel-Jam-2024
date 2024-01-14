@@ -8,10 +8,12 @@ extends Control
 @onready var timer: Timer = $HBoxContainer/Panel/ProgressBar/TextureProgressBar/Timer
 
 var target_position: Vector2
+var person
 
 var tween: Tween
 
 var max_time: float
+var completed = false
 
 func _ready():
 	#$HBoxContainer/Panel/PegsTexture.modulate = Color.from_hsv(randf_range(0, 1), 0.8, 1, 1)
@@ -24,10 +26,15 @@ func _ready():
 	tween.set_trans(Tween.TRANS_CUBIC)
 	tween.tween_property(self, "position:y", 0, 0.5)
 	tween.parallel().tween_property(self, "modulate:a", 1, 0.5)
+
+	person = PersonManager.person_scene.instantiate()
+	PersonManager.person_container_node.add_child(person)
 	
 
 func _process(delta):
 	position = lerp(position, target_position, 10*delta)
+	if person:
+		person.global_position.x = global_position.x
 	
 	timer_visual.value = timer.time_left
 	timer_visual.modulate = color.sample(1.0 - timer_visual.value / timer_visual.max_value)
@@ -36,7 +43,13 @@ func _process(delta):
 		#timer_visual.modulate = Color.from_hsv(0, 0.8, 1)
 	#elif timer_visual.value / timer_visual.max_value < 0.5:
 		#timer_visual.modulate = Color.from_hsv(0.1, 0.8, 1)
-		
+	
+	if !completed:
+		if timer_visual.value / timer_visual.max_value < 0.25:
+			person.make_annoyed()
+		else:
+			person.make_normal()
+	
 	if !$Ticker.playing and timer_visual.value < 0.25 * timer_visual.max_value:
 		$Ticker.play()
 		$HBoxContainer/Panel/ProgressBar/TextureProgressBar/AnimationPlayer.play("TimerBounce")
@@ -62,6 +75,7 @@ func set_order(o: Order):
 	timer_visual.max_value = order.countdown
 
 func complete_ticket():
+	completed = true
 	timer.stop()
 	#ProgressBarBack.hide()
 	timer_visual.hide()
@@ -76,6 +90,7 @@ func complete_ticket():
 	tween.parallel().tween_property(self, "modulate:a", 0, 0.5)
 	tween.tween_callback(queue_free)
 	
+	person.exit()
 
 func add_time(time: float):
 	var time_left = timer.time_left
