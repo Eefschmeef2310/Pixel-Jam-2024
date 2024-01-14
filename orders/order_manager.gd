@@ -61,6 +61,7 @@ func count_order_against_grid(order: Order):
 		if dict[key] > grid_node.fruit_counts[key]:
 			return false
 	return true
+		
 
 func complete_order(order: Order):
 	for o in orders:

@@ -22,13 +22,13 @@ func _ready():
 		for h in height:
 			grid[w].append(null)
 	
-	fill_grid()
+	fill_grid(true)
 
 #func _process(_delta):
 	#if Input.is_action_just_pressed("space"):
 		#fill_grid()
 
-func fill_grid():
+func fill_grid(random: bool = true):
 	# Move all fruits down to fill empty space
 	
 	# Generate new fruits
@@ -37,7 +37,12 @@ func fill_grid():
 			if !grid[w][h] or is_instance_valid(!grid[w][h]):
 				var fruit = fruit_handle_scene.instantiate()
 				add_child(fruit)
-				fruit.set_fruit(OrderManager.fruit_resources.pick_random())
+				if random:
+					fruit.set_fruit(OrderManager.fruit_resources.pick_random())
+				else:
+					var new_fruit = get_smallest_fruit_count()
+					fruit.set_fruit(new_fruit)
+					fruit_counts[new_fruit] += 1
 				fruit.position = Vector2(0, 215)
 				grid[w][h] = fruit
 				#print(fruit.fruit.name)
@@ -56,6 +61,15 @@ func count_fruits():
 		for h in height:
 			dict[grid[w][h].fruit] += 1
 	fruit_counts = dict
+
+func get_smallest_fruit_count():
+	var smallest_fruit
+	var smallest_count = 9999
+	for fruit in fruit_counts:
+		if fruit_counts[fruit] < smallest_count:
+			smallest_count = fruit_counts[fruit]
+			smallest_fruit = fruit
+	return smallest_fruit
 
 func get_fruit_coords(fruit) -> Vector2i:
 	for w in width:
@@ -165,4 +179,4 @@ func remove_order_at_cell(order: Order, w: int, h: int):
 		for y in order.height:
 			grid[w+x][h+y].queue_free()
 			grid[w+x][h+y] = null
-	fill_grid()
+	fill_grid(false)
