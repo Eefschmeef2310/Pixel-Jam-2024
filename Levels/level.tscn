@@ -1,24 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://b5iqtehf83fxv"]
+[gd_scene load_steps=7 format=3 uid="uid://b5iqtehf83fxv"]
 
 [ext_resource type="Texture2D" uid="uid://d1heh2edqed3d" path="res://Levels/sprites/box_mask.png" id="1_5ltcf"]
 [ext_resource type="PackedScene" uid="uid://bx0tw6jqlatg" path="res://grid/fruit_grid.tscn" id="1_7hqhj"]
 [ext_resource type="Script" path="res://orders/order_generator.gd" id="1_aby30"]
 [ext_resource type="Script" path="res://orders/order_grid.gd" id="2_ym37m"]
 [ext_resource type="Texture2D" uid="uid://4tjfdj887jxg" path="res://Levels/sprites/fruitbox.png" id="3_7cdbh"]
-[ext_resource type="Texture2D" uid="uid://c37kxon4wesju" path="res://grid/white_rounded_30.png" id="6_flbqx"]
-[ext_resource type="Script" path="res://Levels/PauseButton.gd" id="7_2551l"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ql4di"]
-texture = ExtResource("6_flbqx")
-modulate_color = Color(0.156863, 0.156863, 0.156863, 0.647059)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ntx3m"]
-texture = ExtResource("6_flbqx")
-modulate_color = Color(0.156863, 0.156863, 0.156863, 0.784314)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nlj3p"]
-texture = ExtResource("6_flbqx")
-modulate_color = Color(0.156863, 0.156863, 0.156863, 0.901961)
+[ext_resource type="PackedScene" uid="uid://booyiulogg1t1" path="res://MenuUtilities/PauseButton.tscn" id="6_8vt2g"]
 
 [node name="Level" type="Node2D"]
 
@@ -70,17 +57,9 @@ mouse_filter = 2
 position = Vector2(254, 179)
 script = ExtResource("2_ym37m")
 
-[node name="Button" type="Button" parent="OrderHUD"]
+[node name="Button" parent="OrderHUD" instance=ExtResource("6_8vt2g")]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_styles/normal = SubResource("StyleBoxTexture_ql4di")
-theme_override_styles/hover = SubResource("StyleBoxTexture_ntx3m")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_nlj3p")
-text = "||"
-script = ExtResource("7_2551l")
 
 [connection signal="timeout" from="OrderGenerator/EmptyRackTimer" to="OrderGenerator" method="_on_empty_rack_timer_timeout"]
 [connection signal="timeout" from="OrderGenerator/FullRackTimer" to="OrderGenerator" method="_on_full_rack_timer_timeout"]
 [connection signal="timeout" from="OrderGenerator/HardOrderTimer" to="OrderGenerator" method="_on_hard_order_timer_timeout"]
-[connection signal="button_down" from="OrderHUD/Button" to="OrderHUD/Button" method="_on_button_down"]
