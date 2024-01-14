@@ -77,19 +77,19 @@ theme_override_constants/separation = 40
 
 [node name="Button" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer2"]
 layout_mode = 2
-text = "START"
+text = "Start"
 
 [node name="LeaderboardButton" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer2"]
 layout_mode = 2
-text = "LEADERBOARD"
+text = "Leaderboard"
 
 [node name="Button4" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer2"]
 layout_mode = 2
-text = "CREDITS"
+text = "Credits"
 
 [node name="Button3" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer2"]
 layout_mode = 2
-text = "QUIT"
+text = "Quit"
 
 [connection signal="button_down" from="HBoxContainer/MarginContainer/VBoxContainer2/Button" to="." method="_on_button_button_down"]
 [connection signal="pressed" from="HBoxContainer/MarginContainer/VBoxContainer2/LeaderboardButton" to="." method="_on_leaderboard_button_pressed"]

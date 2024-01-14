@@ -21,6 +21,11 @@ func _ready():
 
 func _process(_delta):
 	timer_visual.value = $TextureProgressBar/Timer.time_left
+	
+	if timer_visual.value / timer_visual.max_value < 0.25:
+		timer_visual.modulate = Color.from_hsv(0, 0.8, 1)
+	elif timer_visual.value / timer_visual.max_value < 0.5:
+		timer_visual.modulate = Color.from_hsv(0.1, 0.8, 1)
 
 func set_order(o: Order):
 	for child in grid.get_children():
@@ -39,7 +44,6 @@ func set_order(o: Order):
 	$TextureProgressBar/Timer.wait_time = order.countdown
 	$TextureProgressBar/Timer.start()
 	timer_visual.max_value = order.countdown
-
 
 func _on_timer_timeout():
 	GameOverManager.game_over()
