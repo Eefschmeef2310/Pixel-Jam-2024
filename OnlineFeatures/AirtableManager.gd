@@ -24,6 +24,8 @@ signal NewUserResponse(newID : String)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
+	
 	request_completed.connect(_on_request_completed)
 	if (FileAccess.file_exists(savePath)||debugNewSave):
 		Load()

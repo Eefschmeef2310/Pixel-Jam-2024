@@ -14,7 +14,7 @@ modulate_color = Color(1, 1, 1, 0.67451)
 texture = ExtResource("1_8x6f3")
 
 [resource]
-Button/font_sizes/font_size = 50
+Button/font_sizes/font_size = 30
 Button/styles/hover = SubResource("StyleBoxTexture_2auew")
 Button/styles/normal = SubResource("StyleBoxTexture_4vb4k")
 Button/styles/pressed = SubResource("StyleBoxTexture_xvc6s")

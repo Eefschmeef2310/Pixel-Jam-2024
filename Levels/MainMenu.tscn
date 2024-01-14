@@ -52,14 +52,14 @@ theme_override_constants/separation = 20
 
 [node name="Title" type="Label" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 50
 text = "Smoothie
 Maker Pro"
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
 material = SubResource("ShaderMaterial_f4jqr")
-custom_minimum_size = Vector2(0, 200)
+custom_minimum_size = Vector2(0, 170)
 layout_mode = 2
 size_flags_vertical = 3
 texture = ExtResource("1_6i2go")
