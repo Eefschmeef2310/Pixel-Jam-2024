@@ -162,7 +162,6 @@ func check_order(order: Order):
 				print("holy shit")
 				remove_order_at_cell(order, w, h)
 				OrderManager.complete_order(order)
-				OrderManager.generate_2x2()
 				return
 			#else:
 				#print("damn")

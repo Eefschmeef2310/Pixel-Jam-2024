@@ -76,6 +76,7 @@ func _process(delta):
 		if Input.is_action_just_released("click"):
 			_on_click_released()
 
+
 	if movement_direction != Vector2(0, 0):
 		var parent = get_parent()
 		var pos = get_viewport().get_mouse_position() + (cell_offset * parent.cell_size)
