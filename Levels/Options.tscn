@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpykajcslnihd"]
+[gd_scene load_steps=8 format=3 uid="uid://bth0ictfqtcm5"]
 
 [ext_resource type="Script" path="res://Levels/Credits.gd" id="1_gbxvy"]
 [ext_resource type="Texture2D" uid="uid://csc6iinwpt64s" path="res://Placeholder Sprites/chalk-rubbed-out-on-blackboard-600nw-226458436.png" id="2_r4puv"]

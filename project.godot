@@ -35,7 +35,6 @@ window/stretch/mode="canvas_items"
 folder_colors={
 "res://Audio/": "teal",
 "res://Fonts/": "orange",
-"res://Ingredients/": "yellow",
 "res://Levels/": "blue",
 "res://Placeholder Sprites/": "red",
 "res://Shaders/": "green",
