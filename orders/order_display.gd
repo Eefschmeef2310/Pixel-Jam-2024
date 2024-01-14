@@ -18,4 +18,12 @@ func set_order(o: Order):
 			rect.custom_minimum_size = Vector2(20, 20)
 			rect.texture = order.grid[x][y].texture
 			grid.add_child(rect)
-		
+	
+	#Set max timer
+	$TextureProgressBar/Timer.wait_time = order.countdown
+	$TextureProgressBar/Timer.start()
+	timer_visual.max_value = order.countdown
+
+
+func _on_timer_timeout():
+	GameOverManager.game_over()
