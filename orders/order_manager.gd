@@ -65,6 +65,8 @@ func complete_order(order: Order):
 	for o in orders:
 		if o == order:
 			# complete order
+			#TODO - Variable score amounts - E
+			ScoreManager.score = ScoreManager.score+1
 			orders.erase(order)
 			orders_updated.emit()
 			return
