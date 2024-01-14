@@ -51,7 +51,7 @@ func set_order(o: Order):
 
 func complete_ticket():
 	$TextureProgressBar/Timer.stop()
-	$ProgressBarBack.hide()
+	#ProgressBarBack.hide()
 	timer_visual.hide()
 	modulate = Color.GREEN
 	

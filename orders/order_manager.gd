@@ -24,7 +24,10 @@ signal orders_updated()
 func _ready():
 	#Initialise player
 	player.stream = order_complete
+	player.max_polyphony = 99
 	add_child(player)
+	
+	reset()
 
 func _process(_delta):
 	if Input.is_action_just_pressed("space"):
@@ -32,6 +35,9 @@ func _process(_delta):
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+func reset():
+	orders.clear()
 
 func generate_2x2():
 	if grid_node and orders.size() < max_orders:

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://tl3fl8fgg7kb"]
+
+[ext_resource type="Script" path="res://orders/order_manager.gd" id="1_20y0a"]
+[ext_resource type="AudioStream" uid="uid://cw50lkgo850bp" path="res://Audio/OrderStart.mp3" id="2_grq6n"]
+
+[node name="OrderManager" type="Node"]
+script = ExtResource("1_20y0a")
+
+[node name="OrderCompleteStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_grq6n")
