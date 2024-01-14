@@ -28,6 +28,10 @@ script = ExtResource("1_aby30")
 one_shot = true
 autostart = true
 
+[node name="EmptyRackTimer" type="Timer" parent="OrderGenerator"]
+one_shot = true
+autostart = true
+
 [node name="OrderHUD" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15

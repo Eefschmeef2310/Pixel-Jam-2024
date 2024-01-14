@@ -100,7 +100,7 @@ layout_mode = 2
 texture = ExtResource("1_qvbhj")
 expand_mode = 1
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="ProgressBarBack" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 0
 offset_left = 59.0
