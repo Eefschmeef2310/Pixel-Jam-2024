@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbkmruh1dmodj"]
+[gd_scene load_steps=13 format=3 uid="uid://dbkmruh1dmodj"]
 
 [ext_resource type="Texture2D" uid="uid://ulutonwbt40m" path="res://fruits/sprites/fruit_apple.png" id="1_qvbhj"]
 [ext_resource type="Script" path="res://orders/order_display.gd" id="1_ycrbv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://lqglgjr7dnhb" path="res://orders/sprites/circle_20_black.png" id="5_1x0gc"]
 [ext_resource type="Texture2D" uid="uid://bxc7y1qvy667p" path="res://orders/sprites/circle_20.png" id="5_a72wb"]
 [ext_resource type="AudioStream" uid="uid://cw50lkgo850bp" path="res://Audio/OrderStart.mp3" id="7_7bg80"]
+[ext_resource type="AudioStream" uid="uid://cjqsowlpv0aqk" path="res://Audio/Clock Ticking Sound Effect.mp3" id="8_uiryh"]
 
 [sub_resource type="Gradient" id="Gradient_dnjfn"]
 interpolation_mode = 1
@@ -14,6 +15,28 @@ offsets = PackedFloat32Array(0, 0.5, 0.748322)
 colors = PackedColorArray(0.117647, 0.737255, 0.45098, 1, 0.968627, 0.588235, 0.0901961, 1, 0.909804, 0.231373, 0.231373, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3i5cl"]
+
+[sub_resource type="Animation" id="Animation_hojms"]
+resource_name = "TimerBounce"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(-2, 1, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.25, 1.25), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2wlii"]
+_data = {
+"TimerBounce": SubResource("Animation_hojms")
+}
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -24,6 +47,7 @@ color = SubResource("Gradient_dnjfn")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_7bg80")
 autoplay = true
+bus = &"sfx"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -117,12 +141,12 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -13.0
-offset_top = -13.0
-offset_right = 7.0
-offset_bottom = 7.0
+offset_left = -20.0
+offset_top = -20.0
 grow_horizontal = 0
 grow_vertical = 0
+scale = Vector2(1.12775, 1.12775)
+pivot_offset = Vector2(10, 10)
 step = 0.01
 value = 100.0
 fill_mode = 5
@@ -130,5 +154,14 @@ texture_under = ExtResource("5_1x0gc")
 texture_progress = ExtResource("5_a72wb")
 
 [node name="Timer" type="Timer" parent="HBoxContainer/Panel/ProgressBar/TextureProgressBar"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HBoxContainer/Panel/ProgressBar/TextureProgressBar"]
+libraries = {
+"": SubResource("AnimationLibrary_2wlii")
+}
+
+[node name="Ticker" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_uiryh")
+bus = &"sfx"
 
 [connection signal="timeout" from="HBoxContainer/Panel/ProgressBar/TextureProgressBar/Timer" to="." method="_on_timer_timeout"]

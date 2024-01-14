@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwpfmmai4nyq7"]
-
-[ext_resource type="PackedScene" uid="uid://dd6djmkjdustg" path="res://Ingredients/Ingredient.tscn" id="1_4c0jo"]
-
-[node name="Ingredient" instance=ExtResource("1_4c0jo")]
-modulate = Color(0.980392, 1, 0, 1)
-color = 3

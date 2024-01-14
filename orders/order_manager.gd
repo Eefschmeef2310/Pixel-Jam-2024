@@ -31,6 +31,7 @@ signal orders_updated()
 func _ready():
 	#Initialise player
 	player.stream = order_complete
+	player.bus = "sfx"
 	player.max_polyphony = 99
 	add_child(player)
 	
