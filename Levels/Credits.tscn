@@ -30,7 +30,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 62.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -38,16 +37,15 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 10
 
 [node name="Credits" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 45
+theme_override_font_sizes/font_size = 105
 text = "CREDITS"
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(544.705, 283.115)
+custom_minimum_size = Vector2(498.63, 169.075)
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("2_4w871")
@@ -60,14 +58,14 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -238.5
-offset_top = -132.975
-offset_right = 674.5
-offset_bottom = 372.025
+offset_left = -232.315
+offset_top = -77.5375
+offset_right = 680.685
+offset_bottom = 427.462
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 60
 text = "Ethan Lucas
 Xander Akkari
 Tom Howarth

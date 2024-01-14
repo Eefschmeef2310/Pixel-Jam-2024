@@ -176,6 +176,7 @@ func check_order_at_cell(order: Order, w: int, h: int):
 func remove_order_at_cell(order: Order, w: int, h: int):
 	for x in order.width:
 		for y in order.height:
-			grid[w+x][h+y].queue_free()
-			grid[w+x][h+y] = null
+			if grid[w+x][h+y] != null:
+				grid[w+x][h+y].queue_free()
+				grid[w+x][h+y] = null
 	fill_grid(false)

@@ -11,6 +11,11 @@ var should_spawn_hard_order: bool = false
 var generation_types_easy: Array[String] = [
 	"generate_2x2"
 ]
+var generation_types_medium: Array[String] = [
+	"generate_3x2",
+	"generate_2x3",
+	"generate_3x3_cross"
+]
 var generation_types_hard: Array[String] = [
 	"generate_3x3",
 	"generate_4x2",
@@ -49,12 +54,15 @@ func generate_order():
 	if should_spawn_hard_order:
 		# check if a hard order exists already
 		for order in OrderManager.orders:
-			if order != null and order.type in generation_types_hard:
+			if order != null and (order.type in generation_types_medium or order.type in generation_types_hard):
 				OrderManager.call(generation_types_easy.pick_random())
 				return
 		
 		# spawn a hard order
-		OrderManager.call(generation_types_hard.pick_random())
+		if OrderManager.difficulty_timer >= OrderManager.hard_order_threshold:
+			OrderManager.call(generation_types_hard.pick_random())
+		else:
+			OrderManager.call(generation_types_medium.pick_random())
 		should_spawn_hard_order = false
 		hard_order_timer.start()
 	else:

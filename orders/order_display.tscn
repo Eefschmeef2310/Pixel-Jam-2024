@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dbkmruh1dmodj"]
+[gd_scene load_steps=13 format=3 uid="uid://dbkmruh1dmodj"]
 
 [ext_resource type="Texture2D" uid="uid://ulutonwbt40m" path="res://fruits/sprites/fruit_apple.png" id="1_qvbhj"]
 [ext_resource type="Script" path="res://orders/order_display.gd" id="1_ycrbv"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://lqglgjr7dnhb" path="res://orders/sprites/circle_20_black.png" id="5_1x0gc"]
 [ext_resource type="Texture2D" uid="uid://bxc7y1qvy667p" path="res://orders/sprites/circle_20.png" id="5_a72wb"]
 [ext_resource type="AudioStream" uid="uid://cw50lkgo850bp" path="res://Audio/OrderStart.mp3" id="7_7bg80"]
+[ext_resource type="AudioStream" uid="uid://cjqsowlpv0aqk" path="res://Audio/Clock Ticking Sound Effect.mp3" id="8_uiryh"]
 
 [sub_resource type="Gradient" id="Gradient_dnjfn"]
 interpolation_mode = 1
@@ -46,6 +47,7 @@ color = SubResource("Gradient_dnjfn")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_7bg80")
 autoplay = true
+bus = &"sfx"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -160,5 +162,7 @@ libraries = {
 }
 
 [node name="Ticker" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_uiryh")
+bus = &"sfx"
 
 [connection signal="timeout" from="HBoxContainer/Panel/ProgressBar/TextureProgressBar/Timer" to="." method="_on_timer_timeout"]

@@ -16,6 +16,7 @@ var savePath : String = "user://savegame.tres"
 var waitState : String = "" #null menas the code is not expecting anything from the server
 
 var debugNewSave = false #set to true to force a new username to be picked
+var GAME_VERSION = 2 #increment this for leaderboard resets!
 
 signal response(string)
 signal noUserSet
@@ -31,6 +32,7 @@ func _ready():
 	else:
 		#create a new save file
 		saveRes = SaveDataRes.new()
+		saveRes.version = GAME_VERSION
 		noUserSet.emit()
 		get_tree().change_scene_to_file(usernamePickerScene)
 	#load save data - if no save data then make user pick name
@@ -40,6 +42,7 @@ func _ready():
 func SetSaveData(userID : String, username : String): #connect with signal(?) for when username has been set or changed
 	saveRes.userID = userID
 	saveRes.username = username
+	saveRes.version = GAME_VERSION
 	Save()
 
 func CheckUsername(username): #returns true if it is a new username
@@ -63,7 +66,8 @@ func NewUser(username):
 		"Username" : String(username),
 		"Highscore": 0, 
 		"Games Played": 0,
-		"Total seconds played": 0.0
+		"Total seconds played": 0.0,
+		"Game Version" : GAME_VERSION
 	  }
 	}]}
 	var error = request(url, headers, HTTPClient.METHOD_POST, JSON.stringify(data))
@@ -80,18 +84,22 @@ func GameComplete(score : int, playtime : float):
 	saveRes.playtime += playtime
 	if (score > saveRes.highscore):
 		saveRes.highscore = score
-	Save()
-	UploadData(saveRes.userID, saveRes.username, saveRes.highscore, saveRes.gamesPlayed, saveRes.playtime)
+	if(saveRes.version == GAME_VERSION): #dont save or upload if player has rollback their save
+		Save()
+		UploadData(saveRes.userID, saveRes.username, saveRes.highscore, saveRes.gamesPlayed, saveRes.playtime, saveRes.version)
+	else:
+		print("OLD VERSION - DID NOT SAVE OR UPLOAD")
 
-func UploadData(userID : String, username : String, highscore : int, gamesPlayed : int, playtime : float):
+func UploadData(userID : String, username : String, highscore : int, gamesPlayed : int, playtime : float, version : int):
 	print("updating a record")
 	var url = "https://api.airtable.com/v0/appFZUpd22afr8fEJ/Highscores/" + str(userID)
 	var data = {
 	  "fields": {
-		"Username" : String(username),
+		#"Username" : String(username),
 		"Highscore": int(highscore), 
 		"Games Played": int(gamesPlayed),
-		"Total seconds played": float(playtime)
+		"Total seconds played": float(playtime),
+		"Game Version": int(version)
 	  }
 	}
 	var error = request(url, headers, HTTPClient.METHOD_PATCH, JSON.stringify(data))
@@ -106,9 +114,22 @@ func Save():
 	ResourceSaver.save(saveRes, savePath)
 	
 func Load():
+	var specialUpload = false
 	saveRes = ResourceLoader.load(savePath) as SaveDataRes
 	print("loaded a save file:")
 	print("id: " + saveRes.userID + ", username: " + saveRes.username)
+	if(saveRes.version < GAME_VERSION):
+		print("old save detected, resseting highscore")
+		saveRes.highscore = 0 #reset highscore for new version
+		saveRes.version = GAME_VERSION
+		specialUpload = true
+	else:
+		print("Save Version: " + str(saveRes.version))
+	
+	
+	if specialUpload:
+		Save()
+		UploadData(saveRes.userID, saveRes.username, saveRes.highscore, saveRes.gamesPlayed, saveRes.playtime, saveRes.version)
 
 func _on_request_completed(_result, _response_code, _headers, body):
 	var json = JSON.parse_string(body.get_string_from_utf8())

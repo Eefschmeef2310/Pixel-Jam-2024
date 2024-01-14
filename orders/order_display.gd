@@ -11,6 +11,8 @@ var target_position: Vector2
 
 var tween: Tween
 
+var max_time: float
+
 func _ready():
 	#$HBoxContainer/Panel/PegsTexture.modulate = Color.from_hsv(randf_range(0, 1), 0.8, 1, 1)
 	position.y = 40
@@ -34,6 +36,10 @@ func _process(delta):
 		#timer_visual.modulate = Color.from_hsv(0, 0.8, 1)
 	#elif timer_visual.value / timer_visual.max_value < 0.5:
 		#timer_visual.modulate = Color.from_hsv(0.1, 0.8, 1)
+		
+	if !$Ticker.playing and timer_visual.value < 0.25 * timer_visual.max_value:
+		$Ticker.play()
+		$HBoxContainer/Panel/ProgressBar/TextureProgressBar/AnimationPlayer.play("TimerBounce")
 
 func set_order(o: Order):
 	for child in grid.get_children():
@@ -51,6 +57,7 @@ func set_order(o: Order):
 	
 	#Set max timer
 	timer.wait_time = order.countdown
+	max_time = order.countdown
 	timer.start()
 	timer_visual.max_value = order.countdown
 
@@ -74,6 +81,8 @@ func add_time(time: float):
 	var time_left = timer.time_left
 	timer.stop()
 	timer.wait_time = time_left + time
+	if timer.wait_time > max_time:
+		timer.wait_time = max_time
 	timer.start()
 	
 

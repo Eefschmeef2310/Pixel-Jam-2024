@@ -18,6 +18,7 @@ var temp_handles: Array = []
 var last_amount: int
 
 func _ready():
+	global_position = Vector2(0,0)
 	pass
 
 func _process(delta):
@@ -38,6 +39,7 @@ func _process(delta):
 					mirror.movement_direction.x = 1
 					mirror.cell_offset.x = w - self_coords.x + parent.width
 					mirror.starting_pos = other.starting_pos + Vector2(parent.width, 0) * parent.cell_size
+					mirror.global_position = Vector2(0,0)
 					parent.add_child(mirror)
 					temp_handles.append(mirror)
 					mirror.set_fruit(other.fruit)
@@ -47,6 +49,7 @@ func _process(delta):
 					mirror.movement_direction.x = 1
 					mirror.cell_offset.x = w - self_coords.x - parent.width
 					mirror.starting_pos = other.starting_pos - Vector2(parent.width, 0) * parent.cell_size
+					mirror.global_position = Vector2(0,0)
 					parent.add_child(mirror)
 					temp_handles.append(mirror)
 					mirror.set_fruit(other.fruit)
@@ -65,6 +68,7 @@ func _process(delta):
 					mirror.movement_direction.y = 1
 					mirror.cell_offset.y = h - self_coords.y + parent.height
 					mirror.starting_pos = other.starting_pos + Vector2(0, parent.height) * parent.cell_size
+					mirror.global_position = Vector2(0,0)
 					parent.add_child(mirror)
 					temp_handles.append(mirror)
 					mirror.set_fruit(other.fruit)
@@ -74,6 +78,7 @@ func _process(delta):
 					mirror.movement_direction.y = 1
 					mirror.cell_offset.y = h - self_coords.y - parent.height
 					mirror.starting_pos = other.starting_pos - Vector2(0, parent.height) * parent.cell_size
+					mirror.global_position = Vector2(0,0)
 					parent.add_child(mirror)
 					temp_handles.append(mirror)
 					mirror.set_fruit(other.fruit)
@@ -138,17 +143,22 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 			_on_click_pressed()
 		else:
 			_on_click_released()
-	elif event is InputEventMouseButton \
-	and event.button_index == MOUSE_BUTTON_RIGHT:
-		queue_free()
+	#elif event is InputEventMouseButton \
+	#and event.button_index == MOUSE_BUTTON_RIGHT:
+		#queue_free()
 
 func _on_click_pressed():
 	#print("sheesh!")
+	$ClickPlayer.pitch_scale = 1.0
+	$ClickPlayer.play()
 	is_clicked = true
 	last_amount = 0
 	starting_mouse_coords = get_viewport().get_mouse_position()
 
 func _on_click_released():
+	
+	$ClickPlayer.pitch_scale = 0.8
+	$ClickPlayer.play()
 	#print("awwww...")
 	var parent = get_parent()
 	var amount = 0

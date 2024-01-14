@@ -25,7 +25,7 @@ func _process(delta):
 	pass
 
 func GetLeaderboard(amount): #returns true if it is a new username
-	var url = "https://api.airtable.com/v0/appFZUpd22afr8fEJ/Highscores?fields%5B%5D=Username&fields%5B%5D=Highscore&filterByFormula=NOT(%7BHighscore%7D+%3D+0)&maxRecords="+str(numberOfRecords)+"&sort%5B0%5D%5Bfield%5D=Highscore&sort%5B0%5D%5Bdirection%5D=desc"
+	var url = "https://api.airtable.com/v0/appFZUpd22afr8fEJ/Highscores?fields%5B%5D=Username&fields%5B%5D=Highscore&filterByFormula=AND(NOT(%7BHighscore%7D+%3D+0)%2C%7BGame+Version%7D+%3D+"+ str(AirtableManager.GAME_VERSION) +")&maxRecords="+str(numberOfRecords)+"&sort%5B0%5D%5Bfield%5D=Highscore&sort%5B0%5D%5Bdirection%5D=desc"
 	var error = $LeaderboardRequest.request(url, headers, HTTPClient.METHOD_GET)
 	if error != OK:
 		push_error("An error occurred in the leaderboard get request.")
