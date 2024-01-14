@@ -16,7 +16,7 @@ var savePath : String = "user://savegame.tres"
 var waitState : String = "" #null menas the code is not expecting anything from the server
 
 var debugNewSave = false #set to true to force a new username to be picked
-var GAME_VERSION = 1
+var GAME_VERSION = 1 #increment this for leaderboard resets!
 
 signal response(string)
 signal noUserSet
@@ -84,6 +84,8 @@ func GameComplete(score : int, playtime : float):
 	if(saveRes.version == GAME_VERSION): #dont save or upload if player has rollback their save
 		Save()
 		UploadData(saveRes.userID, saveRes.username, saveRes.highscore, saveRes.gamesPlayed, saveRes.playtime, saveRes.version)
+	else:
+		print("OLD VERSION - DID NOT SAVE OR UPLOAD")
 
 func UploadData(userID : String, username : String, highscore : int, gamesPlayed : int, playtime : float, version : int):
 	print("updating a record")
