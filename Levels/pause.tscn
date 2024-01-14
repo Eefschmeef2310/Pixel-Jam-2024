@@ -1,0 +1,54 @@
+[gd_scene load_steps=2 format=3 uid="uid://ciq7klpue8w8b"]
+
+[ext_resource type="Script" path="res://Levels/Pause.gd" id="1_2r5yk"]
+
+[node name="PauseScreen" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_2r5yk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.486275)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ContinueButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Continue"
+
+[node name="MenuButton2" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Menu"
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/ContinueButton" to="." method="_on_continue_button_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/MarginContainer/VBoxContainer/MenuButton2" to="." method="_on_menu_button_button_down"]
