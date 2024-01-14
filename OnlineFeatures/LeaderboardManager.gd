@@ -41,5 +41,7 @@ func _on_leaderboard_request_request_completed(result, response_code, headers, b
 		print(json.records[i].fields.Username)
 		var newEntry = entryPrefab.instantiate()
 		newEntry.SetEntryData(i+1, json.records[i].fields.Username, json.records[i].fields.Highscore)
+		if(json.records[i].fields.Username == AirtableManager.saveRes.username):
+			newEntry.SetLocalEntry()
 		$EntryContainer.add_child(newEntry)
 		pass
