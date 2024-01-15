@@ -20,8 +20,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 script = ExtResource("1_skwrs")
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -40,9 +38,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -302.0
+offset_left = -184.0
 offset_top = -150.0
-offset_right = 302.0
+offset_right = 185.0
 offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -62,7 +60,6 @@ horizontal_alignment = 1
 [node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 script = ExtResource("3_hllgt")
 entryPrefab = ExtResource("3_gvkl2")

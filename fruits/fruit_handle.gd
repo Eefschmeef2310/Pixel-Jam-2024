@@ -3,6 +3,8 @@ extends Node2D
 @onready var sprite_2d = $Sprite2D
 @export var fruit: Fruit
 
+@export var dragThreshold = 10
+
 @onready var cell_change_stream_player = $CellChangeStreamPlayer
 
 var is_clicked = false
@@ -26,8 +28,8 @@ func _process(delta):
 		var mouse_pos = get_viewport().get_mouse_position()
 		var parent = get_parent()
 		if movement_direction == Vector2(0, 0):
-			if mouse_pos.x <= starting_mouse_coords.x - 10 \
-			or mouse_pos.x >= starting_mouse_coords.x + 10:
+			if mouse_pos.x <= starting_mouse_coords.x - dragThreshold \
+			or mouse_pos.x >= starting_mouse_coords.x + dragThreshold:
 				var self_coords = parent.get_fruit_coords(self)
 				for w in parent.width:
 					var other = parent.grid[w][self_coords.y]
@@ -55,8 +57,8 @@ func _process(delta):
 					mirror.set_fruit(other.fruit)
 					mirror.force_move()
 
-			elif mouse_pos.y <= starting_mouse_coords.y - 10 \
-			or mouse_pos.y >= starting_mouse_coords.y + 10:
+			elif mouse_pos.y <= starting_mouse_coords.y - dragThreshold \
+			or mouse_pos.y >= starting_mouse_coords.y + dragThreshold:
 				var self_coords = parent.get_fruit_coords(self)
 				for h in parent.height:
 					var other = parent.grid[self_coords.x][h]

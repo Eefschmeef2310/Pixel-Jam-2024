@@ -9,4 +9,4 @@ script = ExtResource("1_cwe3b")
 name = "Apple"
 texture = ExtResource("2_4wne3")
 texture_small = ExtResource("3_ks800")
-color = Color(1, 0.356863, 0.290196, 1)
+color = Color(0, 0, 0, 1)

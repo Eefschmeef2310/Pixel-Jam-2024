@@ -10,6 +10,7 @@
 size = Vector2(40, 40)
 
 [node name="FruitHandle" type="Node2D"]
+scale = Vector2(1.65, 1.65)
 script = ExtResource("1_bykfw")
 fruit = ExtResource("2_ymxna")
 

@@ -6,7 +6,7 @@ var matched_particles = preload("res://grid/matched_particles.tscn")
 var grid: = []
 var width: int = 5
 var height: int = 5
-var cell_size: float = 40
+var cell_size: float = 65
 var fruit_counts: Dictionary
 
 signal grid_changed()

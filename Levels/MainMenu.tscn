@@ -43,10 +43,10 @@ horizontal_alignment = 1
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 2
-offset_left = 364.0
-offset_top = 52.0
-offset_right = 589.0
-offset_bottom = 307.0
+offset_left = 68.0
+offset_top = 343.0
+offset_right = 293.0
+offset_bottom = 598.0
 size_flags_vertical = 4
 theme_override_constants/separation = 25
 
@@ -73,7 +73,6 @@ text = "Quit"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_q5a0m")
 autoplay = true
-bus = &"music"
 
 [node name="key" type="TextureRect" parent="."]
 layout_mode = 0

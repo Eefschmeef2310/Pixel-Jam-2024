@@ -1,16 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://b5iqtehf83fxv"]
+[gd_scene load_steps=13 format=3 uid="uid://c52nobjse0mpc"]
 
-[ext_resource type="Texture2D" uid="uid://d1heh2edqed3d" path="res://Levels/sprites/box_mask.png" id="1_5ltcf"]
-[ext_resource type="PackedScene" uid="uid://bx0tw6jqlatg" path="res://grid/fruit_grid.tscn" id="1_7hqhj"]
-[ext_resource type="Script" path="res://orders/order_generator.gd" id="1_aby30"]
-[ext_resource type="Script" path="res://orders/order_grid.gd" id="2_ym37m"]
-[ext_resource type="Texture2D" uid="uid://dj8m5m0b5rxdr" path="res://Levels/sprites/bg.png" id="3_f00c2"]
-[ext_resource type="Script" path="res://Levels/person_container.gd" id="4_rd2et"]
-[ext_resource type="Script" path="res://Levels/smoothie_container.gd" id="5_pt4ec"]
-[ext_resource type="Texture2D" path="res://Levels/sprites/verticalprototype.png" id="6_oht6a"]
-[ext_resource type="PackedScene" path="res://MenuUtilities/PauseButton.tscn" id="7_trynf"]
-[ext_resource type="Script" path="res://MenuUtilities/ScoreLabel.gd" id="8_as3h5"]
-[ext_resource type="AudioStream" uid="uid://d2mmi0p5uveku" path="res://Audio/[HookSounds] Elegant Jazz-[AudioTrimmer.com].mp3" id="9_i5wrt"]
+[ext_resource type="Texture2D" uid="uid://d1heh2edqed3d" path="res://Levels/sprites/box_mask.png" id="1_8bg02"]
+[ext_resource type="PackedScene" uid="uid://bx0tw6jqlatg" path="res://grid/fruit_grid.tscn" id="2_a3x75"]
+[ext_resource type="Texture2D" uid="uid://dj8m5m0b5rxdr" path="res://Levels/sprites/bg.png" id="3_ow4ws"]
+[ext_resource type="Script" path="res://Levels/person_container.gd" id="4_way32"]
+[ext_resource type="Script" path="res://Levels/smoothie_container.gd" id="5_te1i1"]
+[ext_resource type="Texture2D" uid="uid://bhws5a0stmgvm" path="res://Levels/sprites/verticalprototype.png" id="6_rjuc8"]
+[ext_resource type="Script" path="res://orders/order_generator.gd" id="7_1lt0w"]
+[ext_resource type="Script" path="res://orders/order_grid.gd" id="8_5den4"]
+[ext_resource type="PackedScene" path="res://MenuUtilities/PauseButton.tscn" id="9_ynoko"]
+[ext_resource type="Script" path="res://MenuUtilities/ScoreLabel.gd" id="10_vyeob"]
+[ext_resource type="AudioStream" uid="uid://d2mmi0p5uveku" path="res://Audio/[HookSounds] Elegant Jazz-[AudioTrimmer.com].mp3" id="11_tns1p"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_54xkj"]
 font_size = 30
@@ -20,33 +20,33 @@ font_color = Color(0.494118, 0.576471, 0.443137, 1)
 
 [node name="BoxBG" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-523, 228)
-scale = Vector2(1.67, 1.67)
-texture = ExtResource("1_5ltcf")
+position = Vector2(-518, 231)
+scale = Vector2(1.66, 1.66)
+texture = ExtResource("1_8bg02")
 centered = false
 
-[node name="FruitGrid" parent="." instance=ExtResource("1_7hqhj")]
-position = Vector2(14, 298)
+[node name="FruitGrid" parent="." instance=ExtResource("2_a3x75")]
+position = Vector2(15, 299)
 
 [node name="Beach" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(50, 38)
-texture = ExtResource("3_f00c2")
+texture = ExtResource("3_ow4ws")
 centered = false
 
 [node name="People" type="Node2D" parent="Beach"]
-script = ExtResource("4_rd2et")
+script = ExtResource("4_way32")
 
 [node name="Smoothies" type="Node2D" parent="Beach"]
-script = ExtResource("5_pt4ec")
+script = ExtResource("5_te1i1")
 
 [node name="LevelBG" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("6_oht6a")
+texture = ExtResource("6_rjuc8")
 centered = false
 
 [node name="OrderGenerator" type="Node" parent="."]
-script = ExtResource("1_aby30")
+script = ExtResource("7_1lt0w")
 
 [node name="EmptyRackTimer" type="Timer" parent="OrderGenerator"]
 wait_time = 1.5
@@ -78,9 +78,9 @@ mouse_filter = 2
 
 [node name="TicketLine" type="Marker2D" parent="OrderHUD"]
 position = Vector2(271, 179)
-script = ExtResource("2_ym37m")
+script = ExtResource("8_5den4")
 
-[node name="Button" parent="OrderHUD" instance=ExtResource("7_trynf")]
+[node name="Button" parent="OrderHUD" instance=ExtResource("9_ynoko")]
 layout_mode = 0
 
 [node name="ScoreLabel" type="Label" parent="OrderHUD"]
@@ -89,18 +89,18 @@ anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_left = 16.0
-offset_top = -130.0
+offset_top = -131.0
 offset_right = 336.0
-offset_bottom = -55.0
+offset_bottom = -56.0
 grow_vertical = 0
 text = "Score: 0"
 label_settings = SubResource("LabelSettings_54xkj")
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("8_as3h5")
+script = ExtResource("10_vyeob")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("9_i5wrt")
+stream = ExtResource("11_tns1p")
 volume_db = -30.0
 autoplay = true
 
