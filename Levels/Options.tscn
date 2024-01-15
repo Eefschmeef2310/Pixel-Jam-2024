@@ -16,6 +16,7 @@ font_color = Color(0.215686, 0.305882, 0.290196, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_ohitv"]
 
 [node name="Options" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

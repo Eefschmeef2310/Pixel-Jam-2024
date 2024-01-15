@@ -203,3 +203,12 @@ func _on_click_released():
 	temp_handles.clear()
 	
 	is_clicked = false
+
+
+func _on_area_2d_mouse_entered():
+	(sprite_2d.material as ShaderMaterial).set_shader_parameter("outline_width", 0.4)
+	pass
+
+func _on_area_2d_mouse_exited():
+	(sprite_2d.material as ShaderMaterial).set_shader_parameter("outline_width", 0.0)
+	pass

@@ -40,7 +40,6 @@ folder_colors={
 "res://Audio/": "teal",
 "res://Fonts/": "orange",
 "res://Levels/": "blue",
-"res://Placeholder Sprites/": "red",
 "res://Shaders/": "green",
 "res://Sprites/": "purple",
 "res://UI Themes/": "gray"

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ciq7klpue8w8b"]
+[gd_scene load_steps=3 format=3 uid="uid://ciq7klpue8w8b"]
 
 [ext_resource type="Script" path="res://Levels/Pause.gd" id="1_2r5yk"]
+[ext_resource type="Texture2D" uid="uid://b22i4d1ye60mg" path="res://Levels/sprites/bg2.png" id="2_lemb8"]
 
 [node name="PauseScreen" type="Control"]
 process_mode = 3
@@ -12,14 +13,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2r5yk")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.486275)
+texture = ExtResource("2_lemb8")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
