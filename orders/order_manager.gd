@@ -213,6 +213,9 @@ func _on_orders_updated():
 			
 			call(order.type)
 
+func check_all_orders():
+	if grid_node:
+		grid_node.check_all_orders()
 
 func complete_order(order: Order):
 	for o in orders:
