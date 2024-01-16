@@ -16,8 +16,6 @@ func _ready():
 	position.y += cell_size/2
 	OrderManager.grid_node = self
 	
-	grid_changed.connect(check_all_orders)
-	
 	for w in width:
 		grid.append([])
 		for h in height:
