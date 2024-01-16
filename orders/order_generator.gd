@@ -4,6 +4,8 @@ extends Node
 @onready var full_rack_timer = $FullRackTimer
 @onready var hard_order_timer = $HardOrderTimer
 
+@onready var mouse = $"../Mouse"
+
 var full_rack_wait_time_init = 0
 
 var should_spawn_hard_order: bool = false
@@ -23,20 +25,16 @@ var generation_types_hard: Array[String] = [
 ]
 
 func _ready():
-	OrderManager.timer_updating = true
-	OrderManager.reset()
-	full_rack_wait_time_init = full_rack_timer.wait_time
-
+	pass
 
 func _process(_delta):
-	if empty_rack_timer.is_stopped():
+	if empty_rack_timer.is_stopped() and !mouse:
 		if OrderManager.orders.is_empty():
 			empty_rack_timer.start()
 
 
 func _on_empty_rack_timer_timeout():
 	generate_order()
-
 
 func _on_full_rack_timer_timeout():
 	generate_order()
@@ -67,3 +65,9 @@ func generate_order():
 		hard_order_timer.start()
 	else:
 		OrderManager.call(generation_types_easy.pick_random())
+
+
+func _on_mouse_tutorial_complete():
+	OrderManager.timer_updating = true
+	OrderManager.reset()
+	full_rack_wait_time_init = full_rack_timer.wait_time

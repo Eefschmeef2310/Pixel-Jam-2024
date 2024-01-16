@@ -203,7 +203,6 @@ func count_order_against_grid(order: Order):
 			return false
 	return true
 		
-
 func _on_orders_updated():
 	for order in orders:
 		if !count_order_against_grid(order):
@@ -212,7 +211,6 @@ func _on_orders_updated():
 			complete_order(order)
 			
 			call(order.type)
-
 
 func complete_order(order: Order):
 	for o in orders:
