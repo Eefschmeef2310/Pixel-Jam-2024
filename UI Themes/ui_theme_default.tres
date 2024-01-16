@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bu1ct4d4t8xr3"]
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://bu1ct4d4t8xr3"]
 
 [ext_resource type="Texture2D" uid="uid://igcgust338fm" path="res://Sprites/smear.png" id="1_l8fh3"]
+[ext_resource type="Texture2D" uid="uid://dg2ur1bogc7v4" path="res://fruits/sprites/fruit_melon.png" id="2_t0t4d"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2auew"]
 texture = ExtResource("1_l8fh3")
@@ -32,6 +33,8 @@ Button/font_sizes/font_size = 24
 Button/styles/hover = SubResource("StyleBoxTexture_2auew")
 Button/styles/normal = SubResource("StyleBoxTexture_4vb4k")
 Button/styles/pressed = SubResource("StyleBoxTexture_xvc6s")
+HSlider/icons/grabber = ExtResource("2_t0t4d")
+HSlider/icons/grabber_highlight = ExtResource("2_t0t4d")
 HSlider/styles/slider = SubResource("StyleBoxTexture_n7tyg")
 MarginContainer/constants/margin_left = 30
 MarginContainer/constants/margin_right = 30
