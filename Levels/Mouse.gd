@@ -5,8 +5,6 @@ signal tutorialComplete()
 var first_complete: bool = false
 
 func _ready():
-	$AnimationPlayer.play("MouseTutorial")
-	
 	if AirtableManager.saveRes.gamesPlayed > 0:
 		tutorialComplete.emit()
 		ScoreManager.playtime = 0

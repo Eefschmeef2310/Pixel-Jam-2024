@@ -84,7 +84,7 @@ offset_right = 314.0
 offset_bottom = 324.0
 texture = ExtResource("5_2lmd5")
 
-[connection signal="button_down" from="VBoxContainer2/StartButton" to="." method="_on_start_button_button_down"]
+[connection signal="pressed" from="VBoxContainer2/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="button_down" from="VBoxContainer2/OptionsButton" to="." method="_on_options_button_button_down"]
 [connection signal="button_down" from="VBoxContainer2/LeaderboardButton" to="." method="_on_leaderboard_button_button_down"]
 [connection signal="button_down" from="VBoxContainer2/CreditsButton" to="." method="_on_credits_button_button_down"]

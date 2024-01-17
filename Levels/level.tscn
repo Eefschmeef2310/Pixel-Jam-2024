@@ -221,8 +221,10 @@ autoplay = true
 bus = &"music"
 
 [node name="Mouse" type="Sprite2D" parent="."]
-position = Vector2(415.531, 194)
-texture = ExtResource("14_cossw")
+self_modulate = Color(1, 1, 1, 0.505575)
+position = Vector2(565, 194)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("12_dq2c7")
 script = ExtResource("13_n4u0f")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Mouse"]

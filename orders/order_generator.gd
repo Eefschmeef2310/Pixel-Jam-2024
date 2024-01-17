@@ -24,9 +24,6 @@ var generation_types_hard: Array[String] = [
 	"generate_2x4"
 ]
 
-func _ready():
-	pass
-
 func _process(_delta):
 	if empty_rack_timer.is_stopped() and !mouse:
 		if OrderManager.orders.is_empty():
