@@ -48,7 +48,7 @@ func fill_grid(random: bool = true):
 	
 	# count fruits
 	count_fruits()
-	#OrderManager.validate_current_orders()
+	OrderManager.validate_current_orders()
 	
 	grid_changed.emit()
 

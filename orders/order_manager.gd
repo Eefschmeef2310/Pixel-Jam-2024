@@ -36,10 +36,11 @@ func _ready():
 	add_child(player)
 	
 	orders_updated.connect(_on_orders_updated)
-	
 	reset()
 
 func _process(delta):
+	print(orders)
+	
 	if timer_updating:
 		difficulty_timer += delta
 	
@@ -184,10 +185,10 @@ func generate_4x2():
 func validate_current_orders():
 	for order in orders:
 		if !count_order_against_grid(order):
+			# Order is currently impossible. Get rid of it.
 			call(order.type)
 			orders.erase(order)
 			orders_updated.emit()
-			return
 
 func count_order_against_grid(order: Order):
 	var dict: Dictionary = {}
@@ -195,7 +196,7 @@ func count_order_against_grid(order: Order):
 		dict[fruit] = 0
 	for w in order.width:
 		for h in order.height:
-			print(order.grid[w][h])
+			#print(order.grid[w][h])
 			if order.grid[w][h] != null:
 				dict[order.grid[w][h]] += 1
 	for key in dict:
@@ -204,13 +205,7 @@ func count_order_against_grid(order: Order):
 	return true
 		
 func _on_orders_updated():
-	for order in orders:
-		if !count_order_against_grid(order):
-			# Order is currently impossible. Get rid of it.
-			ScoreManager.score -= order.score
-			complete_order(order)
-			
-			call(order.type)
+	validate_current_orders()
 
 func check_all_orders():
 	if grid_node:
