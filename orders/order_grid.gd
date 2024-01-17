@@ -51,7 +51,7 @@ func _on_orders_updated():
 	for n in ticket_slots.size():
 		if ticket_slots[n] != null:
 			ticket_slots[n].target_position = Vector2(n * separation, 0)
-	print(ticket_slots)
+	#print(ticket_slots)
 
 func get_ticket_index(order):
 	for n in ticket_slots.size():

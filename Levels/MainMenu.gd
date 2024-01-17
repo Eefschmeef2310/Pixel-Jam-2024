@@ -30,4 +30,5 @@ func _on_quit_button_pressed():
 func _on_start_button_pressed():
 	ScoreManager.playtime = 0
 	ScoreManager.score = 0
+	OrderManager.reset()
 	get_tree().change_scene_to_file("res://Levels/level.tscn")

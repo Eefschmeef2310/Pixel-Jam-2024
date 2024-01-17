@@ -110,11 +110,8 @@ func complete_ticket():
 			if order.grid[x][y] != null:
 				if color == Color.WHITE:
 					color = order.grid[x][y].color
-					print("setting")
 				else:
-					print(str(color) + ", " + str(order.grid[x][y].color))
 					color = color.lerp(order.grid[x][y].color, 0.5)
-				print(color)
 	smoothie.set_liquid_color(color)
 	smoothie.exit()
 
