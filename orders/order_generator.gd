@@ -31,11 +31,11 @@ func _process(_delta):
 
 
 func _on_empty_rack_timer_timeout():
-	print("_on_empty_rack_timer_timeout")
+	print("Empty timer timed out.")
 	generate_order()
 
 func _on_full_rack_timer_timeout():
-	print("_on_full_rack_timer_timeout")
+	print("Ful timer timed out.")
 	generate_order()
 	full_rack_timer.wait_time = full_rack_wait_time_init * OrderManager.order_arrival_curve.sample(OrderManager.get_difficulty_curve_x())
 	

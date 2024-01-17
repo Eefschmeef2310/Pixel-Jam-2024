@@ -39,7 +39,6 @@ func _ready():
 	reset()
 
 func _process(delta):
-	print(orders)
 	
 	if timer_updating:
 		difficulty_timer += delta
@@ -185,6 +184,7 @@ func generate_4x2():
 func validate_current_orders():
 	for order in orders:
 		if !count_order_against_grid(order):
+			print("Impossible order found. (validate)")
 			# Order is currently impossible. Get rid of it.
 			call(order.type)
 			orders.erase(order)
@@ -205,7 +205,15 @@ func count_order_against_grid(order: Order):
 	return true
 		
 func _on_orders_updated():
-	validate_current_orders()
+	pass
+	#for order in orders:
+		#if !count_order_against_grid(order):
+			#print("Impossible order found.")
+			## Order is currently impossible. Get rid of it.
+			#ScoreManager.score -= order.score
+			#complete_order(order)
+			#
+			#call(order.type)
 
 func check_all_orders():
 	if grid_node:

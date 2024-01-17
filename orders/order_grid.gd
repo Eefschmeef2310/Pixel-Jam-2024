@@ -14,7 +14,7 @@ func _process(_delta):
 	pass
 
 func _on_orders_updated():
-	print("Updating orders.")
+	#print("Updating orders.")
 	
 	# At this point, orders should have already been deleted.
 	# Remove completed tickets from the ticket slot array.
