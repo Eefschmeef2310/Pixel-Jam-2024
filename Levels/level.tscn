@@ -215,14 +215,15 @@ vertical_alignment = 1
 script = ExtResource("8_as3h5")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("9_i5wrt")
 volume_db = -30.0
 autoplay = true
 bus = &"music"
 
 [node name="Mouse" type="Sprite2D" parent="."]
-self_modulate = Color(1, 1, 1, 0.505575)
-position = Vector2(565, 194)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(409, 194)
 scale = Vector2(1.25, 1.25)
 texture = ExtResource("12_dq2c7")
 script = ExtResource("13_n4u0f")
