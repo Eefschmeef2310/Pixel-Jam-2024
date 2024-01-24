@@ -1,20 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://dpk7dwwpywpl7"]
+[gd_scene load_steps=6 format=3 uid="uid://dpk7dwwpywpl7"]
 
-[ext_resource type="Texture2D" uid="uid://cl25qlc8an1o5" path="res://SteamTingrayGradient.png" id="1_6i2go"]
-[ext_resource type="Texture2D" uid="uid://csc6iinwpt64s" path="res://Placeholder Sprites/chalk-rubbed-out-on-blackboard-600nw-226458436.png" id="1_87ax7"]
 [ext_resource type="Script" path="res://Levels/MainMenu.gd" id="1_powae"]
-[ext_resource type="Shader" path="res://Levels/Chalk.gdshader" id="2_mxbxc"]
+[ext_resource type="Texture2D" path="res://Levels/sprites/bg2.png" id="2_qeacb"]
+[ext_resource type="Texture2D" path="res://Sprites/smoothie_key.png" id="5_2lmd5"]
+[ext_resource type="AudioStream" path="res://Audio/City Park Ambience.mp3" id="5_q5a0m"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_72w01"]
-frequency = 0.276
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_15jrh"]
-noise = SubResource("FastNoiseLite_72w01")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_f4jqr"]
-shader = ExtResource("2_mxbxc")
-shader_parameter/width = 0.01
-shader_parameter/noise = SubResource("NoiseTexture2D_15jrh")
+[sub_resource type="LabelSettings" id="LabelSettings_mqvfu"]
+line_spacing = -12.0
+font_size = 45
+font_color = Color(0.215686, 0.305882, 0.290196, 1)
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -34,63 +28,64 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_87ax7")
+texture = ExtResource("2_qeacb")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+[node name="Title" type="Label" parent="."]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-theme_override_constants/separation = 20
-
-[node name="Title" type="Label" parent="HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 70
+offset_left = 49.0
+offset_top = 40.0
+offset_right = 315.0
+offset_bottom = 152.0
 text = "Smoothie
 Maker Pro"
+label_settings = SubResource("LabelSettings_mqvfu")
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
-material = SubResource("ShaderMaterial_f4jqr")
-custom_minimum_size = Vector2(0, 200)
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 2
-size_flags_vertical = 3
-texture = ExtResource("1_6i2go")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/MarginContainer"]
-layout_mode = 2
+offset_left = 364.0
+offset_top = 52.0
+offset_right = 589.0
+offset_bottom = 307.0
 size_flags_vertical = 4
-theme_override_constants/separation = 40
+theme_override_constants/separation = 25
+alignment = 1
 
-[node name="Button" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer2"]
+[node name="StartButton" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
-text = "START"
+text = "Start"
 
-[node name="Button2" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer2"]
+[node name="OptionsButton" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
-text = "LEADERBOARD"
+text = "Options"
 
-[node name="Button4" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer2"]
+[node name="LeaderboardButton" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
-text = "CREDITS"
+text = "Leaderboard"
 
-[node name="Button3" type="Button" parent="HBoxContainer/MarginContainer/VBoxContainer2"]
+[node name="CreditsButton" type="Button" parent="VBoxContainer2"]
 layout_mode = 2
-text = "QUIT"
+text = "Credits"
 
-[connection signal="button_down" from="HBoxContainer/MarginContainer/VBoxContainer2/Button" to="." method="_on_button_button_down"]
-[connection signal="button_down" from="HBoxContainer/MarginContainer/VBoxContainer2/Button4" to="." method="_on_button_2_button_down"]
-[connection signal="button_down" from="HBoxContainer/MarginContainer/VBoxContainer2/Button3" to="." method="_on_button_3_button_down"]
+[node name="QuitButton" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_q5a0m")
+autoplay = true
+bus = &"music"
+
+[node name="key" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 87.0
+offset_top = 146.0
+offset_right = 314.0
+offset_bottom = 324.0
+texture = ExtResource("5_2lmd5")
+
+[connection signal="pressed" from="VBoxContainer2/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="button_down" from="VBoxContainer2/OptionsButton" to="." method="_on_options_button_button_down"]
+[connection signal="button_down" from="VBoxContainer2/LeaderboardButton" to="." method="_on_leaderboard_button_button_down"]
+[connection signal="button_down" from="VBoxContainer2/CreditsButton" to="." method="_on_credits_button_button_down"]
+[connection signal="pressed" from="VBoxContainer2/QuitButton" to="." method="_on_quit_button_pressed"]

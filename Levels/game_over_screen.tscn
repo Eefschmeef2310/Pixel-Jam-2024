@@ -1,18 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://chnoug0tvgb2m"]
+[gd_scene load_steps=4 format=3 uid="uid://chnoug0tvgb2m"]
 
 [ext_resource type="Script" path="res://Levels/game_over_screen.gd" id="1_b8ws5"]
+[ext_resource type="AudioStream" path="res://Audio/Crowd Boo - Sound Effect HD.mp3" id="2_xlfsj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hgwfp"]
+font_size = 24
 
 [node name="GameOverScreen" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_b8ws5")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="TextureRect" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.129412)
+color = Color(0.196078, 0.196078, 0.196078, 0.466667)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -24,32 +28,32 @@ grow_vertical = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 20
+theme_override_constants/separation = 30
 alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 136
+theme_override_font_sizes/font_size = 70
 text = "GAME OVER!"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "An order waited for too long!"
-horizontal_alignment = 1
-
-[node name="Score" type="Label" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Final Score: 0"
+text = "You left your customers waiting!"
+label_settings = SubResource("LabelSettings_hgwfp")
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 200
-theme_override_constants/margin_right = 200
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
 
 [node name="MenuButton" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 text = "Menu"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_xlfsj")
+autoplay = true
 
 [connection signal="button_down" from="MarginContainer/VBoxContainer/MarginContainer/MenuButton" to="." method="_on_menu_button_button_down"]
